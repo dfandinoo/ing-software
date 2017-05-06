@@ -19,7 +19,7 @@
             <% if(sesion.getAttribute("pkeyEstudiante") == null && sesion.getAttribute("pkeyDocente") == null && sesion.getAttribute("pkeyAdmin") == null){ %>
 		<div class="row" style="margin-top: 10px;">
                     <div class="col-md-6 " align="center">
-                        <a href="login.jsp"><button class="btn btn-success"><span class=" glyphicon glyphicon-user"></span> Iniciar Xesion</button></a>
+                        <a href="login.jsp"><button class="btn btn-success"><span class=" glyphicon glyphicon-user"></span> Iniciar sesion</button></a>
                     </div>
                     <div class="col-md-6" align="center">
 			<a href="register.jsp"><button class="btn btn-info"><span class=" glyphicon glyphicon-download-alt"></span> Registrarse</button></a>
