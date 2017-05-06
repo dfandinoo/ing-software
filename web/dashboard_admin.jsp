@@ -3,10 +3,10 @@
     Created on : 26/04/2017, 11:18:04 AM
     Author     : DANNY
 --%>
-<% 
+<%-- 
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("pkeyAdmin") != null){
-%>
+--%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,7 +17,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                        <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
-    <body background="img/fondo_registro1.jpg">
+    <body background="" style="background-color: #FFF8DC;">
         <div class="container-fluid">
             <div class="row" align="center">
                 <div class="col-md-6">
@@ -90,7 +90,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>
-<% }else{
+<%-- }else{
     request.getRequestDispatcher("index.jsp").forward(request, response);  
 }
-%>
+--%>
