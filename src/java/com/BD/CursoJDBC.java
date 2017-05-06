@@ -66,6 +66,7 @@ public class CursoJDBC {
             Conexion.close(conn);
             Conexion.close(stmt);
             Conexion.close(rs);
+            
         }
         return rows;
     }
