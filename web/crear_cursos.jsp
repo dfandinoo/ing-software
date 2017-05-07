@@ -1,7 +1,7 @@
-<%
+<%--
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("pkeyAdmin") != null){
-%>
+--%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,6 +52,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 
 						</div>
 				    </div>
+                                    <div class="alert alert-danger alert-dismissible" role="alert">aqui van los mensajes correspondientes</div>
 				</form>
 			</div>
 		   </div>
@@ -62,7 +63,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
-<% }else{
+<%-- }else{
     request.getRequestDispatcher("index.jsp").forward(request, response);  
 }
-%>
+--%>
