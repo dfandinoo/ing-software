@@ -20,7 +20,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
      		<h1 style="font-style: verdana; color: green;">BIENVENIDO ESTUDIANTE : </h1>
      	    </div>
             <div class="col-md-6" align="center">
-                <a href="colocar_codigo _cerrar_sesion"><button class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Cerrar Sesion</button></a>
+                <a href="logout.jsp"><button class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Cerrar Sesion</button></a>
      	    </div>
         </div>
      	<div class="row" style="margin-top: 50px;">
