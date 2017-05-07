@@ -28,6 +28,10 @@
         <servlet-name>ServletInscribirEstudiante</servlet-name>
         <servlet-class>com.controlador.ServletInscribirEstudiante</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletMostrarCursos</servlet-name>
+        <servlet-class>com.controlador.ServletMostrarCursos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginCtrl</servlet-name>
         <url-pattern>/loginCtrl</url-pattern>
@@ -56,10 +60,13 @@
         <servlet-name>ServletInscribirEstudiante</servlet-name>
         <url-pattern>/ServletInscribirEstudiante</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletMostrarCursos</servlet-name>
+        <url-pattern>/ServletMostrarCursos</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
 </web-app>
-

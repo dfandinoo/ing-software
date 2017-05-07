@@ -16,7 +16,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
     </head>
     <body background="" style="background-color: #FFF8DC;">
         <div class="container-fluid">
-            <form name ="dashboard_estudiante" action="ServletInscribirEstudiante">
+            <form name ="dashboard_estudiante" action="ServletMostrarCursos">
                 <div class="row" >
                     <div class="col-md-6">
                         <h1 style="font-style: verdana; color: green;">BIENVENIDO ESTUDIANTE : </h1>
@@ -54,7 +54,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 <img src="img/inscribirse.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <a href="inscribirse_al_curso.jsp" name="accion" value="cursos"><button class="btn btn-success">Inscribirse Curso</button></a>
+                                        <a href="inscribirse_al_curso.jsp" name="accion" value="mostrarCursos"><button class="btn btn-success">Inscribirse Curso</button></a>
                                     </caption>
                                 </div>
                             </div>

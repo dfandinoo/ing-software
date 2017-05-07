@@ -57,30 +57,6 @@ public class CursoJDBC {
         return rows;
     }
     
-    public int select(String username, String password){
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        int rows = 0;
-        try{
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement("SELECT COUNT(*) FROM estudiante WHERE username = '"+username+"' AND password = '"+password+"'");
-            int index = 1;
-            rs = stmt.executeQuery();
-            rs.next();
-            rows = rs.getInt(1);      
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
-        finally{
-            Conexion.close(conn);
-            Conexion.close(stmt);
-            Conexion.close(rs);
-            
-        }
-        return rows;
-    }
-    
     public List<Curso> select(){
         Connection conn= null;
         PreparedStatement stmt = null;

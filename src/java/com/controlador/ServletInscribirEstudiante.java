@@ -31,7 +31,7 @@ public class ServletInscribirEstudiante extends HttpServlet {
             throws ServletException, IOException {
         String idCurso = request.getParameter("idCurso");
         String accion = request.getParameter("accion");
-        if(accion.equals("inscribir")){
+        if(accion.equals("cursos")){
             
         }
     }
