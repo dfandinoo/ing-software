@@ -97,7 +97,7 @@
             <div class="row" style="margin-top: 20px;">
                 <div class="col-md-4">
        
-                    <div class="thumbnail" align="justify" style="background-color: red;">
+                    <div class="thumbnail" align="center" style="background-color: red;">
                         <span class="glyphicon glyphicon-ok" style="font-size: 30px; color:green;"></span>
                         <div class="caption">
                             <p style="color: white;">Buenos contenidos, actividades que fomentan el aprendizaje y cursos actualizados disponibles para ti constantemenre esto y mucho mas encontraras en Aulavirtual.com</p>
@@ -107,7 +107,7 @@
                 </div>
        
                 <div class="col-md-4">
-                    <div class="thumbnail" align="justify" style="background-color: red;">
+                    <div class="thumbnail" align="center" style="background-color: red;">
                         <span class="glyphicon glyphicon-user " style="font-size: 30px; color:green;"></span>
        			<div class="caption">
                             <p style="color:white;">Nuestro equipo de formadores son expertos reconocidos en software, negocios creatividad y otras areas del conociemiento, adaptan los contenidos de acuerdo a tu nivel de aprendizaje y los presentan en breves y prácticas acividades o material de estudio.</p>
@@ -117,7 +117,7 @@
        	</div>
        	<div class="col-md-4">
        	
-       		<div class="thumbnail" align="justify"w style="background-color: red;">
+       		<div class="thumbnail" align="center"w style="background-color: red;">
        		<span class="glyphicon glyphicon-pencil" style="font-size: 30px; color:green;"></span>
        			<div class="caption">
 

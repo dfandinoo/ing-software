@@ -18,11 +18,14 @@ if(sesion.getAttribute("pkeyAdmin") != null){
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
     <body background="" style="background-color: #FFF8DC;">
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-top: 20px;">
             <div class="row" align="center">
                 <div class="col-md-6">
                     <h1 style="font-style: verdana; color: green;">BIENVENIDO ADMINISTRADOR : </h1>
                 </div>
+                <div class="col-md-6" align="center">
+                        <a href="colocar_codigo _cerrar_sesion"><button class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Cerrar Sesion</button></a>
+                 </div>
             </div>
             <div class="row" style="margin-top: 50px;">
                 <div class="col-md-6">

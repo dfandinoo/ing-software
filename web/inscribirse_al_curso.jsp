@@ -1,4 +1,4 @@
-<% 
+<%
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("pkeyEstudiante") != null){
 %>
@@ -16,6 +16,13 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
 </head>
 <body>
       <div class="container-fluid">
+          <div class="row" style="padding-top: 5px;">
+                <div class="col-md-6">
+                     <div align="left">
+                                        <a href="dashboard_estudiante.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</button></a>
+                     </div>
+                </div>
+            </div>
 		<div class="row">
 			<div class="col-md-12" align="center">
 				<legend style="font-size: 25px; ">INSCRIBIRSE EN CURSO</legend>
@@ -33,11 +40,16 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                             <form action="ServletInscribirEstudiante">
                                                 <div class="form-group">
                                                                 <label>Ingresa el ID del curso</label>
-                                                                <input type="text" class="form-control" name="idCurso" placeholder="Ingresa el id del curso">
+                                                                <select name="idCurso" class="form-control selectpicker">
+                                                                        <option value="">.</option>
+                                                                        <option value="">...</option>
+                                                                        <option value="">..</option>
+                                                                        <option value="">....</option>
+                                                                </select>
                                                         </div>    
                                                    
                                                     <div style="margin-top: 20px;">
-                                                         <button class="btn btn-danger"><span class="glyphicon glyphicon-ok" name="accion" value="inscribir"></span> Inscribir al Curso</button>
+                                                         <button class="btn btn-success"><span class="glyphicon glyphicon-ok" name="accion" value="inscribir"></span> Inscribir al Curso</button>
                                                     <a href="inscribirse_al_curso.jsp"><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>Cancelar</button></a>
                                                     </div>
                                             </form>

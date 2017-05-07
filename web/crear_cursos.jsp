@@ -1,4 +1,4 @@
-<% 
+<%
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("pkeyAdmin") != null){
 %>
@@ -14,6 +14,13 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 </head>
 <body style="background-color: 	#B0C4DE;">
 	<div class="container-fluid">
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-md-6">
+                     <div align="left">
+                         <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</button></a>
+                     </div>
+                </div>
+            </div>
 		<div class="row">
 			<div class="col-md-12" align="center">
 				<legend style="font-size: 25px; ">Crear Curso</legend>

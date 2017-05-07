@@ -1,7 +1,7 @@
-<% 
+<%--
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("administrador") != null){
-%>
+--%>
 
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ if(sesion.getAttribute("administrador") != null){
 			<div class="col-md-12" align="center">                                 
 			    <legend style="font-size: 25px; ">INGRESAR CONTENIDO AL CURSO</legend>
                                     <div align="left">
-                                        <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-share-alt"></span>Dashboard</button></a>
+                                        <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</button></a>
                                     </div>
 				<div class="col-md-6" style="margin-top: 10px;">
 					 <div class="panel panel-success" align="center">
@@ -37,8 +37,13 @@ if(sesion.getAttribute("administrador") != null){
 					<div>
                                         	<form action="ServletIngresarContenidoCurso">     
                                                         <div class="form-group">
-                                                                <label>Ingresa el ID del curso</label>
-                                                                <input type="text" class="form-control" name="idCurso" placeholder="Ingresa el id del curso">
+                                                                <label>Selecciona el curso</label>
+                                                                 <select name="idCurso" class="form-control selectpicker">
+                                                                        <option value="">.</option>
+                                                                        <option value="">...</option>
+                                                                        <option value="">..</option>
+                                                                        <option value="">....</option>
+                                                                </select>
                                                         </div>
                                                         <div class="form-group">
                                                                 <label>Nombre del Unidad:</label>
@@ -68,7 +73,7 @@ if(sesion.getAttribute("administrador") != null){
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
-<% }else{
+<%-- }else{
     request.getRequestDispatcher("index.jsp").forward(request, response);  
 }
-%>
+--%>

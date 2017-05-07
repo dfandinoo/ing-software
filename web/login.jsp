@@ -43,8 +43,8 @@
                         </div>
 
                         <div class="form-group" align="center">
-                            <button class="btn btn-success" onclick="submit();" name="accion" value="ingresar">Ingresar</button>
-                            <button class="btn btn-danger"  name="accion" value="cancelar">Cancelar</button>
+                            <button class="btn btn-success" onclick="submit();" name="accion" value="ingresar"><span class="glyphicon glyphicon-ok"></span> Ingresar</button>
+                            <button class="btn btn-danger"  name="accion" value="cancelar"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
                         </div>
                     </form>
                 </div>

@@ -1,4 +1,4 @@
-<
+
 <%-- 
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("pkeyEstudiante") != null){
@@ -15,8 +15,8 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
 </head>
 <body background="" style="background-color: #FFF8DC;">
      <div class="container-fluid">
-        <div class="row" >
-            <div class="col-md-6">
+        <div class="row" style="margin-top: 10px;" >
+            <div class="col-md-6" >
      		<h1 style="font-style: verdana; color: green;">BIENVENIDO ESTUDIANTE : </h1>
      	    </div>
             <div class="col-md-6" align="center">
