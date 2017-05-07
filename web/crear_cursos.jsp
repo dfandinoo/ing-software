@@ -1,7 +1,7 @@
-<% 
+<%--
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("pkeyAdmin") != null){
-%>
+--%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +14,13 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 </head>
 <body style="background-color: 	#B0C4DE;">
 	<div class="container-fluid">
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-md-6">
+                     <div align="left">
+                         <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</button></a>
+                     </div>
+                </div>
+            </div>
 		<div class="row">
 			<div class="col-md-12" align="center">
 				<legend style="font-size: 25px; ">Crear Curso</legend>
@@ -45,6 +52,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 
 						</div>
 				    </div>
+                                    <div class="alert alert-danger alert-dismissible" role="alert">aqui van los mensajes correspondientes</div>
 				</form>
 			</div>
 		   </div>
@@ -55,7 +63,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
-<% }else{
+<%-- }else{
     request.getRequestDispatcher("index.jsp").forward(request, response);  
 }
-%>
+--%>

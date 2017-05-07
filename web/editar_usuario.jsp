@@ -1,7 +1,7 @@
-<% 
+<%--
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("pkeyEstudiante") != null || sesion.getAttribute("pkeyDocente") != null || sesion.getAttribute("pkeyAdmin") != null){
-%>
+--%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,10 +12,17 @@ if(sesion.getAttribute("pkeyEstudiante") != null || sesion.getAttribute("pkeyDoc
 	           <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
-    <body background="img/editar.jpg">
+    <body style="background-color: #B0C4DE;">
         <div class="container-fluid">
+            <div class="row" style="padding-top: 40px;">
+                <div class="col-md-6">
+                     <div align="left">
+                                        <a href="dashboard_estudiante.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</button></a>
+                     </div>
+                </div>
+            </div>
             <div class="row">
-		<div class="col-md-6 col-md-offset-3" style="margin-top: 140px; background-color: white;">
+		<div class="col-md-6 col-md-offset-3" style="margin-top: 80px; background-color: white;">
                     <form name ="registro" action="ServletEditarUsuario">
                         <div align="center">
                             <legend align="center">Editar  Datos</legend>
@@ -37,13 +44,13 @@ if(sesion.getAttribute("pkeyEstudiante") != null || sesion.getAttribute("pkeyDoc
                             <label>Correo</label>	
                             <input type="email" class="form-control" name="correo" placeholder="Ingrese su correo " value="${correo}">
                         </div>
-                        <% if(sesion.getAttribute("estudiante") != null){  %>
+                        <%-- if(sesion.getAttribute("estudiante") != null){  %>
                         <input type="hidden" name="tipoUsuario" value="estudiante">
                         <%}else if(sesion.getAttribute("docente") != null){%>
                         <input type="hidden" name="tipoUsuario" value="docente">
                         <%}else if(sesion.getAttribute("administrador") != null){%>
                         <input type="hidden" name="tipoUsuario" value="administrador">
-                        <%}%>
+                        <%}--%>
                         <div style="margin:19px;" align="center">
                            <button class="btn btn-info" style="font-size: 20px;" name="accion" value="editar"><span class="glyphicon glyphicon-pencil" name="accion" value="editar"> Editar</span></button>
                            <button class="btn btn-danger" style="font-size: 20px;"><span class="glyphicon glyphicon-remove">Cancelar</span></button>
@@ -57,7 +64,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null || sesion.getAttribute("pkeyDoc
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 	
     </body>
 </html>
-<% }else{
+<%-- }else{
     request.getRequestDispatcher("index.jsp").forward(request, response);  
 }
-%>
+--%>

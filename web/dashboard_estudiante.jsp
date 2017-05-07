@@ -1,10 +1,11 @@
-<
+
 <%-- 
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("pkeyEstudiante") != null){
 --%>
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
     <head>
         <meta charset="UTF-8">
         <title>DASHBOARD-ESTUDIANTE</title>
@@ -19,8 +20,8 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                 <div class="row" >
                     <div class="col-md-6">
                         <h1 style="font-style: verdana; color: green;">BIENVENIDO ESTUDIANTE : </h1>
+
                     </div>
-                    <form>
                     <div class="col-md-6" align="center">
                         <a href="colocar_codigo _cerrar_sesion"><button class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Cerrar Sesion</button></a>
                     </div>

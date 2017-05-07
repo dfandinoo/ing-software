@@ -3,10 +3,10 @@
     Created on : 26/04/2017, 10:39:13 AM
     Author     : DANNY
 --%>
-<% 
+<%-- 
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("administrador") != null){
-%>
+--%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +19,13 @@ if(sesion.getAttribute("administrador") != null){
 </head>
 <body>
 <div class="container-fluid">
+    <div class="row" style="padding-top: 5px;">
+                <div class="col-md-6">
+                     <div align="left">
+                                        <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</button></a>
+                     </div>
+                </div>
+            </div>
 	<div class="row">
 			<div class="col-md-12" align="center">
 			    <legend style="font-size: 25px; ">ASIGNAR DOCENTE AL CURSO</legend>
@@ -35,13 +42,13 @@ if(sesion.getAttribute("administrador") != null){
 					<div>
                                         	<form action="ServletAsignarDocente">
                                                     <div class="form-group">
-                                                                <label>id curso</label>
+                                                                <label>Ingrese el Codigo del  Curso:</label>
                                                                 <input type="text" class="form-control" name="idCurso" placeholder="Ingresa el id del curso">
                                                         </div>
                                                       
                                                         
                                                         <div class="form-group">
-                                                                <label>id docente:</label>
+                                                                <label>Ingrese el Codigo del Docente:</label>
                                                                 <input type="text" class="form-control" name="idDocente" placeholder="Ingresa el id del docente">
                                                         </div>
                                                         
@@ -62,7 +69,7 @@ if(sesion.getAttribute("administrador") != null){
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
-<% }else{
+<%-- }else{
     request.getRequestDispatcher("index.jsp").forward(request, response);  
 }
-%>
+--%>
