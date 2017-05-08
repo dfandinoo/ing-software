@@ -5,6 +5,7 @@
  */
 package com.controlador;
 
+import com.modelo.Curso;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -28,12 +29,13 @@ public class ServletInscribirEstudiante extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String idCurso = request.getParameter("idCurso");
-        String accion = request.getParameter("accion");
-        if(accion.equals("cursos")){
-            
-        }
+        throws ServletException, IOException {
+
+            String curso = request.getParameter("curso");
+            String accion = request.getParameter("accion");
+            if(accion.equals("inscribir")){
+
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

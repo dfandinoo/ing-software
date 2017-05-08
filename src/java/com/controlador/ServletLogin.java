@@ -111,7 +111,7 @@ public class ServletLogin extends HttpServlet {
                             sesion.setAttribute("password", admin.getPassword());
                             sesion.setAttribute("correo", admin.getCorreo());
                             sesion.setAttribute("tipoUsuario", admin.getTipoUsuario());
-                            request.getRequestDispatcher("editar_usuario.jsp").forward(request, response); 
+                            request.getRequestDispatcher("dashboard_admin.jsp").forward(request, response); 
                         }else{
                             mensaje="Login Incorrecto";
                             sesion.setAttribute("administrador", "");

@@ -25,13 +25,13 @@ import java.util.logging.Logger;
  */
 public class CursoJDBC {
     private final String SQL_INSERT =
-            "INSERT INTO curso(nombre, duracion, fechaInicio, cantidadEstudiantes) "
-            + "VALUES (?, ?, ?, ?)";
+            "INSERT INTO curso(nombre, duracion, fechaInicio, cantidadEstudiantes, estado) "
+            + "VALUES (?, ?, ?, ?, ?)";
     
     private final String SQL_SELECT =
             "SELECT * FROM curso WHERE estado = true";
     
-    public int insertCurso(String nombre, int cantEstudi, String fecha, int duracion){
+    public int insertCurso(String nombre, int cantEstudi, String fecha, int duracion, boolean estado){
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -44,6 +44,7 @@ public class CursoJDBC {
             stmt.setInt(index++, cantEstudi);
             stmt.setString(index++, fecha);
             stmt.setInt(index++, duracion);
+            stmt.setBoolean(index++, estado);
             System.out.println("Ejecutando query "+SQL_INSERT);
             rows = stmt.executeUpdate();
             System.out.println("Registros Afectados "+rows);

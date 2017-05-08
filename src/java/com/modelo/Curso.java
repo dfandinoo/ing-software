@@ -22,6 +22,7 @@ public class Curso {
     private Date fechaInicio;
     private Evaluacion evaluacion;
     private String idDocente;
+    private boolean estado;
     private ArrayList<Estudiante> estudiantes = new ArrayList<>();
     private ArrayList<Contenido> contenidos = new ArrayList<>();
 
@@ -36,6 +37,17 @@ public class Curso {
         this.fechaInicio = fechaInicio;
         this.evaluacion = evaluacion;
         this.idDocente = idDocente;
+    }
+
+    public Curso(String idCurso, String nombre, int cantEstudiantes, int duracion, Date fechaInicio, Evaluacion evaluacion, String idDocente, boolean estado) {
+        this.idCurso = idCurso;
+        this.nombre = nombre;
+        this.cantEstudiantes = cantEstudiantes;
+        this.duracion = duracion;
+        this.fechaInicio = fechaInicio;
+        this.evaluacion = evaluacion;
+        this.idDocente = idDocente;
+        this.estado = estado;
     }
 
     public String getIdCurso() {
@@ -94,6 +106,14 @@ public class Curso {
         this.idDocente = idDocente;
     }
 
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
     public ArrayList<Estudiante> getEstudiantes() {
         return estudiantes;
     }
@@ -110,9 +130,14 @@ public class Curso {
         this.contenidos = contenidos;
     }
     
-    public int insertarCurso(String nombre, int cantEstudi, String fecha, int duracion){
+    public int insertarCurso(String nombre, int cantEstudi, String fecha, int duracion, boolean estado){
         
         CursoJDBC cursoJDBC = new CursoJDBC();
-        return cursoJDBC.insertCurso(nombre, cantEstudi, fecha, duracion);
+        return cursoJDBC.insertCurso(nombre, cantEstudi, fecha, duracion, estado);
+    }
+    
+    @Override
+    public String toString(){
+        return nombre;
     }
 }

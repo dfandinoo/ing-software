@@ -8,12 +8,14 @@ package com.controlador;
 import com.BD.CursoJDBC;
 import com.modelo.Curso;
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
+//import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -34,9 +36,16 @@ public class ServletMostrarCursos extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         String accion = request.getParameter("accion");
+        HttpSession session = request.getSession();
         if(accion.equals("mostrarCursos")){
+            
+            
+            
             CursoJDBC cursoJDBC = new CursoJDBC();
-            List<Curso> cursos = cursoJDBC.select();
+            ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.select();            
+            session.setAttribute("cursos", cursos);
+            request.getRequestDispatcher("inscribirse_al_curso.jsp").forward(request, response); 
+
         }
     }
 

@@ -39,16 +39,16 @@ public class ServletCrearCurso extends HttpServlet {
         int duracion = Integer.parseInt(request.getParameter("duracion"));
         String fechaInicio = request.getParameter("fechini");
         String accion = request.getParameter("accion");
-        
+        boolean estado = true;
         HttpSession sesion = request.getSession();
         String mensaje;
         
         if(accion.equals("crear")){
             Curso curso = new Curso();
-            if(curso.insertarCurso(nombre, canEstudiantes, fechaInicio, duracion) == 1){
+            if(curso.insertarCurso(nombre, canEstudiantes, fechaInicio, duracion, estado) == 1){
                 mensaje = "Creación del Curso Completada";
                 sesion.setAttribute("mensaje", mensaje);
-                request.getRequestDispatcher("index.jsp").forward(request, response);  
+                request.getRequestDispatcher("dashboard_admin.jsp").forward(request, response);  
             }else{
                 mensaje = "Error en Creación del Curso";
                 sesion.setAttribute("mensaje", mensaje);

@@ -5,7 +5,6 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
 --%>
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
     <head>
         <meta charset="UTF-8">
         <title>DASHBOARD-ESTUDIANTE</title>
@@ -54,7 +53,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 <img src="img/inscribirse.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <a href="inscribirse_al_curso.jsp" name="accion" value="mostrarCursos"><button class="btn btn-success">Inscribirse Curso</button></a>
+                                        <button class="btn btn-success" name="accion" value="mostrarCursos">Inscribirse Curso</button>
                                     </caption>
                                 </div>
                             </div>
