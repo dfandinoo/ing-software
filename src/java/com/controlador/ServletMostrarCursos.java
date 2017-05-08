@@ -39,8 +39,7 @@ public class ServletMostrarCursos extends HttpServlet {
         HttpSession session = request.getSession();
         if(accion.equals("mostrarCursos")){
             
-            
-            
+            Curso curso = new Curso();
             CursoJDBC cursoJDBC = new CursoJDBC();
             ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.select();            
             session.setAttribute("cursos", cursos);

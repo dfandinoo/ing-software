@@ -11,13 +11,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.Date;
 
 /**
  *
@@ -30,6 +30,10 @@ public class CursoJDBC {
     
     private final String SQL_SELECT =
             "SELECT * FROM curso WHERE estado = true";
+    
+    private final String SQL_INSERTINSCRIP =
+            "INSERT INTO cursoestudiante(pkeyestudiante, pkeycurso)"
+            + "VALUES (?, ?)";
     
     public int insertCurso(String nombre, int cantEstudi, String fecha, int duracion, boolean estado){
         Connection conn = null;
@@ -99,5 +103,29 @@ public class CursoJDBC {
             Conexion.close(rs);
         }
         return cursos;
+    }
+    
+    public int insertInscrip(int pkeyEstudiante, Curso curso){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int rows = 0;
+        try{
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_INSERTINSCRIP);
+            int index = 1;
+            stmt.setInt(index++, pkeyEstudiante);
+            stmt.setInt(index++, Integer.parseInt(curso.getIdCurso()));
+            System.out.println("Ejecutando query "+SQL_INSERTINSCRIP);
+            rows = stmt.executeUpdate();
+            System.out.println("Registros Afectados "+rows);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            Conexion.close(conn);
+            Conexion.close(stmt);
+        }
+        return rows;
     }
 }

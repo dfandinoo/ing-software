@@ -5,13 +5,16 @@
  */
 package com.controlador;
 
+import com.BD.CursoJDBC;
 import com.modelo.Curso;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,10 +34,34 @@ public class ServletInscribirEstudiante extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
 
-            String curso = request.getParameter("curso");
+            HttpSession session = request.getSession();
+            String curso = request.getParameter("idCurso");
             String accion = request.getParameter("accion");
+            int pkeyEstudiante = (int) session.getAttribute("pkeyEstudiante");
+            boolean ban = false;
+            ArrayList<Curso> cursos = (ArrayList<Curso>) session.getAttribute("cursos");
+            String mensaje="";
+            
             if(accion.equals("inscribir")){
-
+                Curso curso1 = new Curso();
+                for(int i=0; i<cursos.size() && ban==false; i++){
+                    if(cursos.get(i).getNombre().equals(curso)){
+                        curso1=cursos.get(i);
+                        ban=true;
+                    }
+                }
+                if(ban==true){
+                    CursoJDBC cursoJDBC = new CursoJDBC();
+                    int rows = cursoJDBC.insertInscrip(pkeyEstudiante, curso1);
+                    
+                    if(rows ==1){
+                        mensaje="El estudiante se ha inscrito correctamente";
+                        session.setAttribute("mensaje", mensaje);
+                    }else{
+                        mensaje="Hubo error en la inscripción";
+                        session.setAttribute("mensaje", mensaje);
+                    }
+                }
             }
     }
 
