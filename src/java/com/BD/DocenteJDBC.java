@@ -32,6 +32,9 @@ public class DocenteJDBC {
             "UPDATE docente SET nombres = (?), apellidos = (?), username = (?), "
             + "password = (?), correo = (?) WHERE pkeyDocente = (?)";
     
+    private final String SQL_UPDATE_USUARIO =
+            "UPDATE usuario SET username = (?), password = (?) WHERE fkeydocente = (?)";
+    
     private final String SQL_SELECT =
             "SELECT * FROM docente";
     
@@ -171,6 +174,7 @@ public class DocenteJDBC {
             stmt.setString(index++, correo);
             stmt.setInt(index++, pkeyDocente);
             rows = stmt.executeUpdate();
+            updateUsuario(username, password, pkeyDocente);
             System.out.println("Registros actualizados "+rows);
         }catch(SQLException e){
             e.printStackTrace();
@@ -180,6 +184,31 @@ public class DocenteJDBC {
             Conexion.close(stmt);
         }
         return rows;
+    }
+    
+    public void updateUsuario(String username, String password, int pkeyDocente){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int rows = 0;
+        
+        try{
+            conn = Conexion.getConnection();
+            System.out.println("Ejecutando query: "+SQL_UPDATE_USUARIO);
+            stmt = conn.prepareStatement(SQL_UPDATE_USUARIO);
+            int index =1;
+
+            stmt.setString(index++, username);
+            stmt.setString(index++, password);
+            stmt.setInt(index++, pkeyDocente);
+            rows = stmt.executeUpdate();
+            System.out.println("Registros actualizados "+rows);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            Conexion.close(conn);
+            Conexion.close(stmt);
+        }
     }
     
     public List<Docente> selectDocentes(){

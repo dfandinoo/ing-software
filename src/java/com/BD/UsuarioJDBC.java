@@ -27,7 +27,6 @@ public class UsuarioJDBC {
         int pkeyAdmin = 0;
         String usuario="";
         
-        Estudiante estu = new Estudiante();
         try{
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement("SELECT fkeyEstudiante, fkeyDocente, fkeyAdmin FROM usuario WHERE username = '"+username+"' AND password = '"+password+"'");

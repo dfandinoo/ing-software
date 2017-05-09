@@ -28,6 +28,8 @@ public class AdministradorJDBC {
             "INSERT INTO usuario(username, password, fkeyAdmin)"
             + "VALUES (?, ?, ?)";
     
+    private final String SQL_UPDATE_USUARIO =
+            "UPDATE usuario SET username = (?), password = (?) WHERE fkeydocente = (?)";
     
     public int verificarUsuario(Administrador admin){
         
