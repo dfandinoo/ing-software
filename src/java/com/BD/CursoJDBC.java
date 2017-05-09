@@ -105,7 +105,7 @@ public class CursoJDBC {
         return cursos;
     }
     
-    public int insertInscrip(int pkeyEstudiante, Curso curso){
+    public int insertInscrip(int pkeyEstudiante, String idCurso){
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -115,7 +115,7 @@ public class CursoJDBC {
             stmt = conn.prepareStatement(SQL_INSERTINSCRIP);
             int index = 1;
             stmt.setInt(index++, pkeyEstudiante);
-            stmt.setInt(index++, Integer.parseInt(curso.getIdCurso()));
+            stmt.setInt(index++, Integer.parseInt(idCurso));
             System.out.println("Ejecutando query "+SQL_INSERTINSCRIP);
             rows = stmt.executeUpdate();
             System.out.println("Registros Afectados "+rows);

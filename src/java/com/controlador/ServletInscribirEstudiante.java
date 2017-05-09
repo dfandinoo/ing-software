@@ -35,32 +35,23 @@ public class ServletInscribirEstudiante extends HttpServlet {
         throws ServletException, IOException {
 
             HttpSession session = request.getSession();
-            String curso = request.getParameter("idCurso");
             String accion = request.getParameter("accion");
+            String idCurso = request.getParameter("idCurso");
             int pkeyEstudiante = (int) session.getAttribute("pkeyEstudiante");
-            boolean ban = false;
-            ArrayList<Curso> cursos = (ArrayList<Curso>) session.getAttribute("cursos");
             String mensaje="";
             
             if(accion.equals("inscribir")){
-                Curso curso1 = new Curso();
-                for(int i=0; i<cursos.size() && ban==false; i++){
-                    if(cursos.get(i).getNombre().equals(curso)){
-                        curso1=cursos.get(i);
-                        ban=true;
-                    }
-                }
-                if(ban==true){
-                    CursoJDBC cursoJDBC = new CursoJDBC();
-                    int rows = cursoJDBC.insertInscrip(pkeyEstudiante, curso1);
-                    
-                    if(rows ==1){
-                        mensaje="El estudiante se ha inscrito correctamente";
-                        session.setAttribute("mensaje", mensaje);
-                    }else{
-                        mensaje="Hubo error en la inscripción";
-                        session.setAttribute("mensaje", mensaje);
-                    }
+                CursoJDBC cursoJDBC = new CursoJDBC();
+                int rows = cursoJDBC.insertInscrip(pkeyEstudiante, idCurso);
+
+                if(rows ==1){
+                    mensaje="El estudiante se ha inscrito correctamente";
+                    session.setAttribute("mensaje", mensaje);
+                    request.getRequestDispatcher("dashboard_estudiante.jsp").forward(request, response);
+                }else{
+                    mensaje="Hubo error en la inscripción";
+                    session.setAttribute("mensaje", mensaje);
+                    request.getRequestDispatcher("inscribirse_al_curso.jsp").forward(request, response);
                 }
             }
     }

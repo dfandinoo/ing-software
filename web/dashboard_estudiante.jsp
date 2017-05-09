@@ -15,14 +15,14 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
     </head>
     <body background="" style="background-color: #FFF8DC;">
         <div class="container-fluid">
-            <form name ="dashboard_estudiante" action="ServletMostrarCursos">
+            <form name ="dashboard_estudiante" action="ServletDashboardEstu">
                 <div class="row" >
                     <div class="col-md-6">
                         <h1 style="font-style: verdana; color: green;">BIENVENIDO ESTUDIANTE : </h1>
 
                     </div>
                     <div class="col-md-6" align="center">
-                        <a href="colocar_codigo _cerrar_sesion"><button class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Cerrar Sesion</button></a>
+                        <button class="btn btn-danger" name="accion" value="cerrarSesion"><span class="glyphicon glyphicon-off"></span> Cerrar Sesion</button>
                     </div>
                 </div>
                 <div class="row" style="margin-top: 50px;">
@@ -45,7 +45,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 <img src="img/Edit.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <a href="editar_usuario.jsp"><button class="btn btn-primary">Editar Informacion</button></a>
+                                        <button class="btn btn-primary" name="accion" value="editarEstu">Editar Informacion</button></a>
                                     </caption>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 <img src="img/inscribirse.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <button class="btn btn-success" name="accion" value="mostrarCursos">Inscribirse Curso</button>
+                                        <button class="btn btn-success" name="accion" value="inscribirEstu">Inscribirse Curso</button>
                                     </caption>
                                 </div>
                             </div>

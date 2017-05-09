@@ -8,8 +8,8 @@ package com.controlador;
 import com.BD.CursoJDBC;
 import com.modelo.Curso;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-//import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +21,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Amelia
  */
-@WebServlet(name = "ServletMostrarCursos", urlPatterns = {"/ServletMostrarCursos"})
-public class ServletMostrarCursos extends HttpServlet {
+@WebServlet(name = "ServletDashboardEstu", urlPatterns = {"/ServletDashboardEstu"})
+public class ServletDashboardEstu extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,17 +35,18 @@ public class ServletMostrarCursos extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        String accion = request.getParameter("accion");
-        HttpSession session = request.getSession();
-        if(accion.equals("mostrarCursos")){
-            
-            Curso curso = new Curso();
-            CursoJDBC cursoJDBC = new CursoJDBC();
-            ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.select();            
-            session.setAttribute("cursos", cursos);
-            request.getRequestDispatcher("inscribirse_al_curso.jsp").forward(request, response); 
-
-        }
+            String accion = request.getParameter("accion");
+            HttpSession session = request.getSession();
+            if(accion.equals("inscribirEstu")){           
+                CursoJDBC cursoJDBC = new CursoJDBC();
+                ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.select();            
+                session.setAttribute("cursos", cursos);
+                request.getRequestDispatcher("inscribirse_al_curso.jsp").forward(request, response); 
+            }else if(accion.equals("editarEstu")){
+                request.getRequestDispatcher("editar_usuario.jsp").forward(request, response);
+            }else if(accion.equals("cerrarSesion")){
+                request.getRequestDispatcher("logout.jsp").forward(request, response);
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

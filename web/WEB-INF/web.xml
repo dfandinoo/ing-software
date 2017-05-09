@@ -29,8 +29,12 @@
         <servlet-class>com.controlador.ServletInscribirEstudiante</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ServletMostrarCursos</servlet-name>
-        <servlet-class>com.controlador.ServletMostrarCursos</servlet-class>
+        <servlet-name>ServletDashboardEstu</servlet-name>
+        <servlet-class>com.controlador.ServletDashboardEstu</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletDashboardAdmin</servlet-name>
+        <servlet-class>com.controlador.ServletDashboardAdmin</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginCtrl</servlet-name>
@@ -61,8 +65,12 @@
         <url-pattern>/ServletInscribirEstudiante</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ServletMostrarCursos</servlet-name>
-        <url-pattern>/ServletMostrarCursos</url-pattern>
+        <servlet-name>ServletDashboardEstu</servlet-name>
+        <url-pattern>/ServletDashboardEstu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDashboardAdmin</servlet-name>
+        <url-pattern>/ServletDashboardAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
