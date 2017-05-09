@@ -5,12 +5,14 @@
  */
 package com.controlador;
 
+import com.BD.CursoJDBC;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,13 +30,25 @@ public class ServletAsignarDocente extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String idCurso = request.getParameter("idCurso");
-        String idDocente = request.getParameter("idDocente");
-        String accion = request.getParameter("accion");
-        
-        if(accion.equals("asignar")){
+        throws ServletException, IOException {
+            HttpSession session = request.getSession();
+            String idCurso = request.getParameter("idCurso");
+            String idDocente = request.getParameter("idDocente");
+            String accion = request.getParameter("accion");       
+            String mensaje="";
             
+            if(accion.equals("asignar")){
+                CursoJDBC cursoJDBC = new CursoJDBC();
+                int rows = cursoJDBC.updateDocente(idCurso, idDocente);
+                if(rows==1){
+                    mensaje = "Docente asignado con exito";
+                    session.setAttribute("mensaje", mensaje);
+                    request.getRequestDispatcher("dashboard_admin.jsp").forward(request, response);
+                }else{
+                    mensaje = "Error en la asignación de docente";
+                    session.setAttribute("mensaje", mensaje);
+                    request.getRequestDispatcher("asignar_docente.jsp").forward(request, response);
+                }
         }
     }
 

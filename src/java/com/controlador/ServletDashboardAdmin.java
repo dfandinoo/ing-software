@@ -5,12 +5,18 @@
  */
 package com.controlador;
 
+import com.BD.CursoJDBC;
+import com.BD.DocenteJDBC;
+import com.modelo.Curso;
+import com.modelo.Docente;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,12 +35,20 @@ public class ServletDashboardAdmin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-            
+            HttpSession session = request.getSession();
             String accion = request.getParameter("accion");
             if(accion.equals("ingresarContenido")){
                 request.getRequestDispatcher("ingresar_contenido_curso.jsp").forward(request, response);
             }else if(accion.equals("asignarDocente")){
+                
+                CursoJDBC cursoJDBC = new CursoJDBC();
+                DocenteJDBC doceJDBC = new DocenteJDBC();
+                ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.selectDocente();  
+                ArrayList<Docente> docentes = (ArrayList<Docente>) doceJDBC.selectDocentes();
+                session.setAttribute("cursos", cursos);
+                session.setAttribute("docentes", docentes);
                 request.getRequestDispatcher("asignar_docente.jsp").forward(request, response);
+                
             }else if(accion.equals("crearCursos")){
                 request.getRequestDispatcher("crear_cursos.jsp").forward(request, response);
             }else if(accion.equals("cerrarSesion")){

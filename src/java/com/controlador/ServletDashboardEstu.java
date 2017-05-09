@@ -37,10 +37,12 @@ public class ServletDashboardEstu extends HttpServlet {
         throws ServletException, IOException {
             String accion = request.getParameter("accion");
             HttpSession session = request.getSession();
-            if(accion.equals("inscribirEstu")){           
+            if(accion.equals("inscribirEstu")){   
+                
                 CursoJDBC cursoJDBC = new CursoJDBC();
                 ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.select();            
                 session.setAttribute("cursos", cursos);
+                
                 request.getRequestDispatcher("inscribirse_al_curso.jsp").forward(request, response); 
             }else if(accion.equals("editarEstu")){
                 request.getRequestDispatcher("editar_usuario.jsp").forward(request, response);

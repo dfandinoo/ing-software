@@ -6,12 +6,13 @@
 package com.BD;
 
 import com.modelo.Docente;
-import com.modelo.Estudiante;
 import com.servicio.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -30,6 +31,9 @@ public class DocenteJDBC {
     private final String SQL_UPDATE =
             "UPDATE docente SET nombres = (?), apellidos = (?), username = (?), "
             + "password = (?), correo = (?) WHERE pkeyDocente = (?)";
+    
+    private final String SQL_SELECT =
+            "SELECT * FROM docente";
     
     public int verificarUsuario(Docente doce){
         
@@ -176,5 +180,48 @@ public class DocenteJDBC {
             Conexion.close(stmt);
         }
         return rows;
+    }
+    
+    public List<Docente> selectDocentes(){
+        Connection conn= null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Docente doce = null;
+        List<Docente> docentes = new ArrayList<Docente>();
+        try{
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                int pkeyDocente = rs.getInt(1);
+                String tipoIdenti = rs.getString(2);
+                String nombres = rs.getString(3);
+                String apellidos = rs.getString(4);
+                String correo = rs.getString(5);
+                String tipoUsuario = rs.getString(6);
+                String username = rs.getString(7);
+                String password = rs.getString(8);
+                String especialidad = rs.getString(9);
+                doce = new Docente();
+                doce.setNumIdentifica(pkeyDocente);
+                doce.setTipoIdentifica(tipoIdenti);
+                doce.setNombres(nombres);
+                doce.setApellidos(apellidos);
+                doce.setCorreo(correo);
+                doce.setTipoUsuario(tipoUsuario);
+                doce.setUsername(username);
+                doce.setPassword(password);
+                doce.setEspecialidad(especialidad);
+                docentes.add(doce);
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            Conexion.close(conn);
+            Conexion.close(stmt);
+            Conexion.close(rs);
+        }
+        return docentes;
     }
 }

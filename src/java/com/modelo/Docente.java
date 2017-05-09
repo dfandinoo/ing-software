@@ -51,4 +51,9 @@ public class Docente extends Usuario {
         DocenteJDBC doceJDBC = new DocenteJDBC();
         return doceJDBC.update(pkeyDocente, nombres, apellidos, username, password, correo);
     }
+    
+    @Override
+    public String toString(){
+        return getNombres()+" "+getApellidos();
+    }
 }

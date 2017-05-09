@@ -19,7 +19,7 @@ public class Curso {
     private String nombre;
     private int cantEstudiantes;
     private int duracion;
-    private Date fechaInicio;
+    private String fechaInicio;
     private Evaluacion evaluacion;
     private String idDocente;
     private boolean estado;
@@ -29,7 +29,7 @@ public class Curso {
     public Curso() {
     }
 
-    public Curso(String idCurso, String nombre, int cantEstudiantes, int duracion, Date fechaInicio, Evaluacion evaluacion, String idDocente) {
+    public Curso(String idCurso, String nombre, int cantEstudiantes, int duracion, String fechaInicio, Evaluacion evaluacion, String idDocente) {
         this.idCurso = idCurso;
         this.nombre = nombre;
         this.cantEstudiantes = cantEstudiantes;
@@ -39,7 +39,7 @@ public class Curso {
         this.idDocente = idDocente;
     }
 
-    public Curso(String idCurso, String nombre, int cantEstudiantes, int duracion, Date fechaInicio, Evaluacion evaluacion, String idDocente, boolean estado) {
+    public Curso(String idCurso, String nombre, int cantEstudiantes, int duracion, String fechaInicio, Evaluacion evaluacion, String idDocente, boolean estado) {
         this.idCurso = idCurso;
         this.nombre = nombre;
         this.cantEstudiantes = cantEstudiantes;
@@ -82,11 +82,11 @@ public class Curso {
         this.duracion = duracion;
     }
 
-    public Date getFechaInicio() {
+    public String getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
