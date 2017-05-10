@@ -20,7 +20,7 @@
             }
         </script>
 </head>
-    <body background="img/fondo_registro1.jpg">
+    <body style="background-color: #FFF8DC;">
         <div class="container-fluid"> 
  <div class="row">
                 <div class="col-md-4"align="center" style="margin-top: 10px;">
@@ -30,7 +30,7 @@
             <div class="row">
  		<div class="col-md-3">  			
  		</div>
-                <div class="col-md-6 " style="margin-top: 20px; background-color: white ;">
+                <div class="col-md-6 " style="margin-top: 20px; background-color: #DEB887 ;">
                     <form name ="registro" action="ServletRegistro">
                         <div align="center">
                             <legend align="center">Formulario De Registro</legend>

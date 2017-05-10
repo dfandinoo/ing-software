@@ -89,6 +89,18 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                         </div>
                     </div>          
                 </div>
+                 <div class="row">
+                        <div class="col-md-4 col-md-offset-4">
+                            <div class="thumbnail" align="center" style="background-color: #D2691E; color: white;">
+                                <img src="img/Edit.png" alt=""  width="150" height="150">
+                                <div>
+                                    <caption>
+                                        <button class="btn btn-primary" name="accion" value="">Editar Informacion</button></a>
+                                    </caption>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
             </form>
         </div>
 	<!-- Latest compiled and minified JavaScript -->

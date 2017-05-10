@@ -21,7 +21,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                         <h1 style="font-style: verdana; color: green;">BIENVENIDO ESTUDIANTE : </h1>
 
                     </div>
-                    <div class="col-md-6" align="center">
+                    <div class="col-md-6" align="center" style="margin-top: 20px;">
                         <button class="btn btn-danger" name="accion" value="cerrarSesion"><span class="glyphicon glyphicon-off"></span> Cerrar Sesion</button>
                     </div>
                 </div>
@@ -58,8 +58,9 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                     
                 </div>
+               
             </form>    
         </div>
         <!-- Latest compiled and minified JavaScript -->
