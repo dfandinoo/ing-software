@@ -41,6 +41,12 @@ public class CursoJDBC {
     private final String SQL_UPDATEDOCENTE =
             "UPDATE curso SET fkeydocente = (?) WHERE idcurso = (?)";
     
+    private final String SQL_SELECT_CURSOS_ESTU =
+            "SELECT pkeycurso FROM cursoestudiante where pkeyestudiante = (?)";
+    
+    private final String SQL_CURSOS_INSCRITOS =
+            "SELECT * FROM curso where idcurso = (?)";
+    
     public int insertCurso(String nombre, int cantEstudi, String fecha, int duracion, boolean estado){
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -188,4 +194,65 @@ public class CursoJDBC {
         return rows;
     }
       
+    public List<Curso> selectIdCurso(int pkeyEstudiante){
+        Connection conn= null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Curso curso = null;
+        List<Curso> cursos = new ArrayList<Curso>();
+        try{
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT_CURSOS_ESTU);
+            stmt.setInt(1, pkeyEstudiante);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                int idCurso = rs.getInt(1);
+                cursos = selectInscritos(idCurso);
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            Conexion.close(conn);
+            Conexion.close(stmt);
+            Conexion.close(rs);
+        }
+        return cursos;
+    }
+    private List<Curso> cursosInscritos = new ArrayList<Curso>();
+    public List<Curso> selectInscritos(int idCurso){
+        Connection conn= null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Curso curso = null;
+        try{
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_CURSOS_INSCRITOS);
+            stmt.setInt(1, idCurso);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                int idCurso1 = rs.getInt(1);
+                String nombre = rs.getString(2);
+                int duracion = rs.getInt(3);
+                String fechaInicio = rs.getString(4);
+                int cantEstu = rs.getInt(5);
+                int idDocente = rs.getInt(6);
+                curso = new Curso();
+                curso.setIdCurso(String.valueOf(idCurso1));
+                curso.setNombre(nombre);
+                curso.setDuracion(duracion);
+                curso.setFechaInicio(fechaInicio);
+                curso.setIdDocente(String.valueOf(idDocente));
+                cursosInscritos.add(curso);
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            Conexion.close(conn);
+            Conexion.close(stmt);
+            Conexion.close(rs);
+        }
+        return cursosInscritos;
+    }
 }

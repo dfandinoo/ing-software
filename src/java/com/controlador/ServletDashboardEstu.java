@@ -35,14 +35,17 @@ public class ServletDashboardEstu extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-            String accion = request.getParameter("accion");
             HttpSession session = request.getSession();
+            String accion = request.getParameter("accion");
+            int pkeyEstudiante = (int) session.getAttribute("pkeyEstudiante");
+            int x=0;
             if(accion.equals("inscribirEstu")){   
                 
                 CursoJDBC cursoJDBC = new CursoJDBC();
-                ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.select();            
+                ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.select(); 
+                ArrayList<Curso> cursosInscritos =  (ArrayList<Curso>) cursoJDBC.selectIdCurso(pkeyEstudiante);
                 session.setAttribute("cursos", cursos);
-                
+                session.setAttribute("cursosInscritos", cursosInscritos);
                 request.getRequestDispatcher("inscribirse_al_curso.jsp").forward(request, response); 
             }else if(accion.equals("editarEstu")){
                 request.getRequestDispatcher("editar_usuario.jsp").forward(request, response);

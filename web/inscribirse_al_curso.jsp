@@ -28,8 +28,27 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                     <legend style="font-size: 25px; ">INSCRIBIRSE EN CURSO</legend>
                     <div class="col-md-6">
                         <div class="panel panel-success" align="center">
-                            <div class="panel-heading">Cursos Disponibles</div>
-                            <div class="panel-body">Panel Content</div>
+                            <div class="panel-heading">Cursos Inscritos</div>
+                            <div class="panel-body">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                            <td>Duracion</td>
+                                            <td>Fecha de Inicio</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${cursosInscritos}" var="cursosInsc">
+                                            <tr>
+                                                <td>${cursosInsc.nombre}</td>
+                                                <td>${cursosInsc.duracion}</td>
+                                                <td>${cursosInsc.fechaInicio}</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>    
+                                </table>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
