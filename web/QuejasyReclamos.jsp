@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+	<meta charset="UTF-8">
+	<title>Quejas y Reclamos</title>
+	  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+	           <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body style="background-color: #FFF8DC;">
+   <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6" style="margin-top: 10px;">
+    	  	  <button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</button>
+    	  </div>
+    </div>
+   	   <div class="row">
+   	   	   <div class="col-md-6" style="margin-top: 130px;" align="center">
+   	   	   	  <legend> Enviar quejas y/o Reclamos </legend>
+                          <img src="img/quejas.png" alt="" width="150" height="150">
+   	   	   </div>
+   	   	   <div class="col-md-6">
+   	   	   	  <form action="">
+   	   	   	  	<div class="form-group">
+   	   	   	  		<legend>Correo:</legend>
+   	   	   	  		<input type="text" name="correo"  class="form-control" placeholder="Ingrese la direccion de correo a donde recibira respuesta">
+   	   	   	  	</div>
+   	   	   	  	<div class="form-group">
+   	   	   	  		<legend>Asunto:</legend>
+   	   	   	  		<input type="text" name="asunto"  class="form-control" placeholder="Ingrese el asunto del mensaje">
+   	   	   	  	</div>
+   	   	   	  	<div class="form-group">
+   	   	   	  		<legend>Descripcion:</legend>
+   	   	   	  		<textarea name="Descripcion" id="" cols="30" rows="12" class="form-control" placeholder="Puede introducir aqui su mesaje "></textarea>
+   	   	   	  	</div>
+
+   	   	   	  </form>
+   	   	   </div>
+
+
+   	   </div>
+   </div>
+
+
+
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

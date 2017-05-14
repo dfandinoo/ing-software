@@ -57,6 +57,14 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                     </caption>
                                 </div>
                             </div>
+                              <div class="thumbnail" align="center" style="background-color: red; color: white;">
+                                <img src="img/quejas.png" alt=""  width="150" height="150">
+                                <div>
+                                    <caption>
+                                       <a href="QuejasyReclamos.jsp"><button class="btn btn-primary" name="accion" value="">Enviar Quejas o Reclamos</button></a>
+                                    </caption>
+                                </div>
+                            </div>
                         </div>
                     </div>                     
                 </div>
