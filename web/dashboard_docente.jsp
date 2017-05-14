@@ -75,7 +75,14 @@
                      <div class="panel panel-success" align="center">
                                     <div class="panel-heading">SUS CURSOS</div>
                                             <div class="panel-body">
-                                                DATOS
+                                                <table class="table table-striped table-bordered">
+                                                    <th>columna1</th>
+                                                    <th>columna2</th>
+                                                    <th>columna3</th>
+                                                    <th>columna4</th>
+                                                    <th>columna5</th>
+                                                    
+                                                </table>
                                             </div>
                      </div>
                             <div class="panel panel-primary" align="center">

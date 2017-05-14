@@ -30,13 +30,12 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                         <div class="panel panel-success" align="center">
                             <div class="panel-heading">Cursos Inscritos</div>
                             <div class="panel-body">
-                                <table>
-                                    <thead>
-                                        <tr>
+                                <table class="table table-striped table-bordered">
+                                    <thead>                                         
                                             <td>Nombre</td>
                                             <td>Duracion</td>
                                             <td>Fecha de Inicio</td>
-                                        </tr>
+                                        
                                     </thead>
                                     <tbody>
                                         <c:forEach items="${cursosInscritos}" var="cursosInsc">
@@ -44,6 +43,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                                 <td>${cursosInsc.nombre}</td>
                                                 <td>${cursosInsc.duracion}</td>
                                                 <td>${cursosInsc.fechaInicio}</td>
+                                                
                                             </tr>
                                         </c:forEach>
                                     </tbody>    
