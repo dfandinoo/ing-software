@@ -37,7 +37,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 				    </div>
 				    <div class="form-group">
 						<label>Fecha inicio del Curso: dd/mm/aa</label>
-						<input type="date" class="form-control" name="fechini" placeholder="Ingresa la fecha de inicio del curso">
+						<input type="datetime-local" class="form-control" name="fechini" placeholder="Ingresa la fecha de inicio del curso">
 				    </div>
 				    <div class="form-group">
 						<label>Duracion:</label>
