@@ -37,15 +37,15 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 				    </div>
 				    <div class="form-group">
 						<label>Fecha inicio del Curso: dd/mm/aa</label>
-						<input type="text" class="form-control" name="fechini" placeholder="Ingresa la fecha de inicio del curso">
+						<input type="date" class="form-control" name="fechini" placeholder="Ingresa la fecha de inicio del curso">
 				    </div>
 				    <div class="form-group">
 						<label>Duracion:</label>
-						<input type="text" class="form-control" name="duracion" placeholder="Ingresa la Duracion curso">
+						<input type="number" class="form-control" name="duracion" placeholder="Ingresa la Duracion curso">
 				    </div>
 				    <div class="form-group">
 					        <label>Cantidad Maxima de Estudiantes:</label>
-						<input type="text" class="form-control" name="cantmaxima" placeholder="Ingresa la cantidd maxima de estudiantes">
+						<input type="number" class="form-control" name="cantmaxima" placeholder="Ingresa la cantidd maxima de estudiantes">
 						<div style="margin-top: 20px;">
 						   <button class="btn btn-success" class="glyphicon glyphicon-ok" name="accion" value="crear"> Crear Curso</button>
                                                    <button class="btn btn-danger" class="glyphicon glyphicon-ok" name="accion" value="cancelar"> Cancelar</button>

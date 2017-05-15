@@ -66,7 +66,7 @@ if(sesion.getAttribute("administrador") != null){
 
                                 <div style="margin-top: 20px;">
                                     <button class="btn btn-info"  name="accion" value="asignar"><span class="glyphicon glyphicon-ok"></span> Asignar Docente</button>
-                                    <a href="asignar_docente.jsp"><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>Cancelar</button></a>
+                                    <a href="asignar_docente.jsp"><button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove"></span>Cancelar</button></a>
                                 </div>
                             </form>
                         </div>

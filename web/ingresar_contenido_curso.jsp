@@ -52,7 +52,7 @@
                                 </div>
                                 <div style="margin-top: 20px;">
                                     <button class="btn btn-info"><span class="glyphicon glyphicon-ok" name="accion" value="ingresar"></span> Ingresar Contenido</button>
-                                    <a href="ingresar_contenido_curso.jsp"><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>Cancelar</button></a>
+                                    <a href="ingresar_contenido_curso.jsp"><button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove"></span>Cancelar</button></a>
                                 </div>
                             </form>
                         </div>

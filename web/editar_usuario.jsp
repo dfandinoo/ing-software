@@ -53,7 +53,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null || sesion.getAttribute("pkeyDoc
                         <%}--%>
                         <div style="margin:19px;" align="center">
                            <button class="btn btn-info" style="font-size: 20px;" name="accion" value="editar"><span class="glyphicon glyphicon-pencil" name="accion" value="editar"> Editar</span></button>
-                           <button class="btn btn-danger" style="font-size: 20px;"><span class="glyphicon glyphicon-remove">Cancelar</span></button>
+                           <button class="btn btn-danger" style="font-size: 20px;" type="reset"><span class="glyphicon glyphicon-remove">Cancelar</span></button>
                         </div>
                     </form>
                 </div>

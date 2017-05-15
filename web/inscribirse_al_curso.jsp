@@ -69,7 +69,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 </div>  
                                 <div style="margin-top: 20px;">
                                     <button class="btn btn-success" name="accion" value="inscribir"><span class="glyphicon glyphicon-ok"></span> Inscribir al Curso</button>
-                                    <a href="inscribirse_al_curso.jsp"><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>Cancelar</button></a>
+                                    <a href="inscribirse_al_curso.jsp"><button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove"></span>Cancelar</button></a>
                                 </div>
                             </form>
                         </div>
