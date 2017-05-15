@@ -36,6 +36,38 @@
         <servlet-name>ServletDashboardAdmin</servlet-name>
         <servlet-class>com.controlador.ServletDashboardAdmin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletCrearActividades</servlet-name>
+        <servlet-class>com.controlador.ServletCrearActividades</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletDesarrollarActividades</servlet-name>
+        <servlet-class>com.controlador.ServletDesarrollarActividades</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletCrearEvaluacionEstudiante</servlet-name>
+        <servlet-class>com.controlador.ServletCrearEvaluacionEstudiante</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletPresentarEvaluacionEstudiante</servlet-name>
+        <servlet-class>com.controlador.ServletPresentarEvaluacionEstudiante</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletCrearEvaluacionDocente</servlet-name>
+        <servlet-class>com.controlador.ServletCrearEvaluacionDocente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletResponderEvaluacionDocente</servlet-name>
+        <servlet-class>com.controlador.ServletResponderEvaluacionDocente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletGenerarReportes</servlet-name>
+        <servlet-class>com.controlador.ServletGenerarReportes</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletQuejasYReclamos</servlet-name>
+        <servlet-class>com.controlador.ServletQuejasYReclamos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginCtrl</servlet-name>
         <url-pattern>/loginCtrl</url-pattern>
@@ -71,6 +103,38 @@
     <servlet-mapping>
         <servlet-name>ServletDashboardAdmin</servlet-name>
         <url-pattern>/ServletDashboardAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCrearActividades</servlet-name>
+        <url-pattern>/ServletCrearActividades</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDesarrollarActividades</servlet-name>
+        <url-pattern>/ServletDesarrollarActividades</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCrearEvaluacionEstudiante</servlet-name>
+        <url-pattern>/ServletCrearEvaluacionEstudiante</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletPresentarEvaluacionEstudiante</servlet-name>
+        <url-pattern>/ServletPresentarEvaluacionEstudiante</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCrearEvaluacionDocente</servlet-name>
+        <url-pattern>/ServletCrearEvaluacionDocente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletResponderEvaluacionDocente</servlet-name>
+        <url-pattern>/ServletResponderEvaluacionDocente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletGenerarReportes</servlet-name>
+        <url-pattern>/ServletGenerarReportes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletQuejasYReclamos</servlet-name>
+        <url-pattern>/ServletQuejasYReclamos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
