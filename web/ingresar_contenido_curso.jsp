@@ -28,7 +28,7 @@
                             <img src="img/ingresar.jpg" alt="">
                         </div>
                         <div>
-                            <form action="ServletIngresarContenidoCurso">     
+                            <form action="ServletIngresarContenido">     
                                 <div class="form-group">
                                     <label>Selecciona el curso</label>
                                     <select name="idCurso" class="form-control selectpicker" required>
@@ -39,7 +39,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Nombre del Unidad:</label>
+                                    <label>Nombre de la Unidad:</label>
                                     <input type="text" class="form-control" name="nombre" placeholder="Ingresa el nombre de la unidad" required>
                                 </div>
                                 <div class="form-group">

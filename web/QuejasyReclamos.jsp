@@ -32,7 +32,7 @@
    	   	   	  	</div>
    	   	   	  	<div class="form-group">
    	   	   	  		<legend>Descripcion:</legend>
-   	   	   	  		<textarea name="Descripcion" id="" cols="30" rows="12" class="form-control" placeholder="Puede introducir aqui su mesaje " required></textarea>
+   	   	   	  		<textarea name="descripcion" id="" cols="30" rows="12" class="form-control" placeholder="Puede introducir aqui su mesaje " required></textarea>
    	   	   	  	</div>
 
    	   	   	  </form>

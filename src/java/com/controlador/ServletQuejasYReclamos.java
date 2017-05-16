@@ -29,7 +29,13 @@ public class ServletQuejasYReclamos extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        String correo = request.getParameter("correo");
+        String asunto = request.getParameter("asunto");
+        String descripcion = request.getParameter("descripcion");
+        String accion = request.getParameter("accion");
+        if(accion.equals("enviar")){
+            //aqui se ingresa a la BD
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
