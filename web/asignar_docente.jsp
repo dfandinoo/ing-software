@@ -44,7 +44,7 @@ if(sesion.getAttribute("administrador") != null){
                             <form action="ServletAsignarDocente">
                                 <div class="form-group">
                                     <label>Seleccione el curso</label>
-                                    <select name="idCurso" class="form-control selectpicker">
+                                    <select name="idCurso" class="form-control selectpicker" required>
                                         <c:forEach items="${cursos}" var="curso">
                                             <option value="${curso.idCurso}">
                                                 ${curso}
@@ -55,7 +55,7 @@ if(sesion.getAttribute("administrador") != null){
 
                                 <div class="form-group">
                                     <label>Seleccione el docente para el curso</label>
-                                    <select name="idDocente" class="form-control selectpicker">
+                                    <select name="idDocente" class="form-control selectpicker" required>
                                         <c:forEach items="${docentes}" var="docente">
                                             <option value="${docente.numIdentifica}">
                                                 ${docente}

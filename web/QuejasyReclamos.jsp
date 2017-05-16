@@ -24,15 +24,15 @@
    	   	   	  <form action="">
    	   	   	  	<div class="form-group">
    	   	   	  		<legend>Correo:</legend>
-   	   	   	  		<input type="text" name="correo"  class="form-control" placeholder="Ingrese la direccion de correo a donde recibira respuesta">
+   	   	   	  		<input type="text" name="correo"  class="form-control" placeholder="Ingrese la direccion de correo a donde recibira respuesta" required>
    	   	   	  	</div>
    	   	   	  	<div class="form-group">
    	   	   	  		<legend>Asunto:</legend>
-   	   	   	  		<input type="text" name="asunto"  class="form-control" placeholder="Ingrese el asunto del mensaje">
+   	   	   	  		<input type="text" name="asunto"  class="form-control" placeholder="Ingrese el asunto del mensaje" required>
    	   	   	  	</div>
    	   	   	  	<div class="form-group">
    	   	   	  		<legend>Descripcion:</legend>
-   	   	   	  		<textarea name="Descripcion" id="" cols="30" rows="12" class="form-control" placeholder="Puede introducir aqui su mesaje "></textarea>
+   	   	   	  		<textarea name="Descripcion" id="" cols="30" rows="12" class="form-control" placeholder="Puede introducir aqui su mesaje " required></textarea>
    	   	   	  	</div>
 
    	   	   	  </form>

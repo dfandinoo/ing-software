@@ -38,16 +38,16 @@
                         </div>
                         <div class="form-group">
                             <label>Nombres:</label>	
-                            <input type="text" class="form-control" name="nombres" placeholder="Ingrese su nombre ">
+                            <input type="text" class="form-control" name="nombres" placeholder="Ingrese su nombre " required>
                         </div>
                         <div class="form-group">                   	                 
                             <label>Apellidos:</label>
-                            <input type="text" class="form-control" name="apellidos" placeholder="Ingrese sus  apellidos">
+                            <input type="text" class="form-control" name="apellidos" placeholder="Ingrese sus  apellidos" required>
                         </div>
                         <div class="form-group">                                      
                             <div class="form-group">
                                 <label for="sel1">Tipo de Identificacion:</label>
-                                <select class="form-control" id="sel1" name="tipoIdentificacion">
+                                <select class="form-control" id="sel1" name="tipoIdentificacion" required>
                                     <option value="0">Ninguno</option>
                                     <option value="CC">Cedula De Ciudadania</option>
                                     <option value="TI">Tarjeta Identidad</option>
@@ -57,19 +57,19 @@
                         </div>
                         <div class="form-group">                                     
                             <label>Numero Identificacion:</label>
-                            <input type="number" class="form-control" name="numidentifica" placeholder="Digite su Numero de Identificacion">
+                            <input type="number" class="form-control" name="numidentifica" placeholder="Digite su Numero de Identificacion" required>
                         </div>
                         <div class="form-group">                                     
                             <label>Correo</label>
-                            <input type="email" class="form-control" name="correo" placeholder="Digite su Correo Electronico">
+                            <input type="email" class="form-control" name="correo" placeholder="Digite su Correo Electronico" required>
                         </div>
                         <div class="form-group">                                     
                             <label>Username:</label>
-                            <input type="text" class="form-control" name="username" placeholder="Digite su usuario">
+                            <input type="text" class="form-control" name="username" placeholder="Digite su usuario" required>
                         </div>
                         <div class="form-group">                                     
                             <label>Password:</label>
-                            <input type="password" class="form-control" name="password" placeholder="Digite su contraseña">
+                            <input type="password" class="form-control" name="password" placeholder="Digite su contraseña" required>
                         </div>
                   
                         <div class="form-group" align="center" >
@@ -83,7 +83,7 @@
                         </div>
                         <div class="form-group" id="especialidaddocente">
                             <label>Especialidad Docente:</label>
-                            <input type="text" class="form-control" name="especialidaddocente" placeholder="Digite su especialidad o area de conocimiento">
+                            <input type="text" class="form-control" name="especialidaddocente" placeholder="Digite su especialidad o area de conocimiento" required>
                         </div>
                         <div class="form-group" align="center">
                             <button class="btn btn-success" onclick="submit();" name="accion" value="crear">Registrar</button>

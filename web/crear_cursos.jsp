@@ -33,19 +33,19 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 				<form name="CrearCurso" action="ServletCrearCurso">
 			            <div class="form-group">
 					        <label>Nombre del Curso:</label>
-						<input type="text" class="form-control" name="nombrecurso" placeholder="Ingresa el nombre del curso">
+						<input type="text" class="form-control" name="nombrecurso" placeholder="Ingresa el nombre del curso" required>
 				    </div>
 				    <div class="form-group">
 						<label>Fecha inicio del Curso: dd/mm/aa</label>
-						<input type="datetime-local" class="form-control" name="fechini" placeholder="Ingresa la fecha de inicio del curso">
+						<input type="datetime-local" class="form-control" name="fechini" placeholder="Ingresa la fecha de inicio del curso" required>
 				    </div>
 				    <div class="form-group">
 						<label>Duracion:</label>
-						<input type="number" class="form-control" name="duracion" placeholder="Ingresa la Duracion curso">
+						<input type="number" class="form-control" name="duracion" placeholder="Ingresa la Duracion curso" required>
 				    </div>
 				    <div class="form-group">
 					        <label>Cantidad Maxima de Estudiantes:</label>
-						<input type="number" class="form-control" name="cantmaxima" placeholder="Ingresa la cantidd maxima de estudiantes">
+						<input type="number" class="form-control" name="cantmaxima" placeholder="Ingresa la cantidd maxima de estudiantes" required>
 						<div style="margin-top: 20px;">
 						   <button class="btn btn-success" class="glyphicon glyphicon-ok" name="accion" value="crear"> Crear Curso</button>
                                                    <button class="btn btn-danger" class="glyphicon glyphicon-ok" name="accion" value="cancelar"> Cancelar</button>

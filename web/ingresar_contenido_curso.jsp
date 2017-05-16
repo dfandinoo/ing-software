@@ -31,7 +31,7 @@
                             <form action="ServletIngresarContenidoCurso">     
                                 <div class="form-group">
                                     <label>Selecciona el curso</label>
-                                    <select name="idCurso" class="form-control selectpicker">
+                                    <select name="idCurso" class="form-control selectpicker" required>
                                         <option value="">.</option>
                                         <option value="">...</option>
                                         <option value="">..</option>
@@ -40,15 +40,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Nombre del Unidad:</label>
-                                    <input type="text" class="form-control" name="nombre" placeholder="Ingresa el nombre de la unidad">
+                                    <input type="text" class="form-control" name="nombre" placeholder="Ingresa el nombre de la unidad" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Nombre del Tema:</label>
-                                    <input type="text" class="form-control" name="tema" placeholder="Ingresa el nombre del tema">
+                                    <input type="text" class="form-control" name="tema" placeholder="Ingresa el nombre del tema" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Descripcion:</label>
-                                    <textarea name="descripcion" id="" class="form-control" cols="30" rows="10"></textarea>
+                                    <textarea name="descripcion" id="" class="form-control" cols="30" rows="10" required></textarea>
                                 </div>
                                 <div style="margin-top: 20px;">
                                     <button class="btn btn-info"><span class="glyphicon glyphicon-ok" name="accion" value="ingresar"></span> Ingresar Contenido</button>

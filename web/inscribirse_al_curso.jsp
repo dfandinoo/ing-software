@@ -59,7 +59,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                             <form action="ServletInscribirEstudiante">
                                 <div class="form-group">
                                     <label>Seleccione el curso</label>
-                                        <select name="idCurso" class="form-control selectpicker">
+                                        <select name="idCurso" class="form-control selectpicker" required>
                                             <c:forEach items="${cursos}" var="curso">
                                                 <option value="${curso.idCurso}">
                                                     ${curso}

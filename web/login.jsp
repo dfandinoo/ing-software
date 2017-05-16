@@ -34,12 +34,12 @@
 
                         <div class="form-group">
                             <label>Usuario:</label>	
-                            <input type="text" class="form-control" name="username" placeholder="Ingrese su nombre de usuario">
+                            <input type="text" class="form-control" name="username" placeholder="Ingrese su nombre de usuario" required>
                         </div>
 
                         <div class="form-group">                   	                 
                             <label>Contrase�a</label>
-                            <input type="password" class="form-control" name=password placeholder="Digite su contraseña">
+                            <input type="password" class="form-control" name=password placeholder="Digite su contraseña" required>
                         </div>
 
                         <div class="form-group" align="center">

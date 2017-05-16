@@ -30,19 +30,19 @@ if(sesion.getAttribute("pkeyEstudiante") != null || sesion.getAttribute("pkeyDoc
                         </div>
                         <div class="form-group" align="center" style="margin-top: 19px; ">
                             <label>Nombres</label>	
-                            <input type="text" class="form-control" name="nombres" placeholder="Ingrese su nombre " value="${nombres}">
+                            <input type="text" class="form-control" name="nombres" placeholder="Ingrese su nombre " value="${nombres}" required>
 
                             <label>Apellidos</label>
-                            <input type="text" class="form-control" name="apellidos" placeholder="Ingrese sus  apellidos" value="${apellidos}">
+                            <input type="text" class="form-control" name="apellidos" placeholder="Ingrese sus  apellidos" value="${apellidos}" required>
                                                                   
                             <label>Username</label>
-                            <input type="text" class="form-control" name="username" placeholder="Digite su usuario" value="${username}">
+                            <input type="text" class="form-control" name="username" placeholder="Digite su usuario" value="${username}" required>
                           
                             <label>Password</label>	
-                            <input type="Password" class="form-control" name="password" placeholder="Ingrese su nueva password " value="${password}">
+                            <input type="Password" class="form-control" name="password" placeholder="Ingrese su nueva password " value="${password}" required>
                 
                             <label>Correo</label>	
-                            <input type="email" class="form-control" name="correo" placeholder="Ingrese su correo " value="${correo}">
+                            <input type="email" class="form-control" name="correo" placeholder="Ingrese su correo " value="${correo}" required>
                         </div>
                         <%-- if(sesion.getAttribute("estudiante") != null){  %>
                         <input type="hidden" name="tipoUsuario" value="estudiante">
