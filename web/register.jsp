@@ -72,7 +72,7 @@
                             <input type="password" class="form-control" name="password" placeholder="Digite su contraseña" required>
                         </div>
                   
-                        <div class="form-group" align="center" >
+<!--                        <div class="form-group" align="center" >
                             <label>Tipo de usuario</label>
                             <div class="radio">
                                 <label class="radio-inline"><input type="radio" value="estudiante" name="tipoUsuario" onclick="desactivado();">Estudiante </label> 
@@ -80,7 +80,7 @@
                                 <label class="radio-inline"><input type="radio" value="administrador" name="tipoUsuario" onclick="desactivado();"> Administrador </label>
                             </div>
 
-                        </div>
+                        </div>-->
                         <div class="form-group" id="especialidaddocente">
                             <label>Especialidad Docente:</label>
                             <input type="text" class="form-control" name="especialidaddocente" placeholder="Digite su especialidad o area de conocimiento" required>
