@@ -54,7 +54,7 @@ public class ServletDashboardAdmin extends HttpServlet {
             }else if(accion.equals("cerrarSesion")){
                 request.getRequestDispatcher("logout.jsp").forward(request, response);
             }else if(accion.equals("registeradmin")){
-                request.getRequestDispatcher("register_admin").forward(request, response);
+                request.getRequestDispatcher("register_admin.jsp").forward(request, response);
             }
     }
 
