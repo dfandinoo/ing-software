@@ -22,7 +22,7 @@
 </head>
     <body style="background-color: #FFF8DC;">
         <div class="container-fluid"> 
- <div class="row">
+            <div class="row">
                 <div class="col-md-4"align="center" style="margin-top: 10px;">
                     <a href="index.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> volver</button></a>
                 </div>
@@ -31,7 +31,7 @@
  		<div class="col-md-3">  			
  		</div>
                 <div class="col-md-6 " style="margin-top: 20px; background-color: #DEB887 ;">
-                    <form name ="registro" action="ServletRegistro">
+                    <form name ="registro" action="ServletRegistroAdmin">
                         <div align="center">
                             <legend align="center">Formulario De Registro</legend>
                             <span  > <img src="img/registro_logo.png" alt="" width="100" height="100"></span>
