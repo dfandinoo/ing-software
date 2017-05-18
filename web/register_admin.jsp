@@ -8,7 +8,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
             <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        
+        <script> 
+            $(function() {
+                $('#especialidaddocente').hide();
+            })
+            function activado(argument) {
+                $('#especialidaddocente').show();
+            }
+            function desactivado(argument) {
+              $('#especialidaddocente').hide();
+            }
+        </script>
 </head>
     <body style="background-color: #FFF8DC;">
         <div class="container-fluid"> 
@@ -62,8 +72,19 @@
                             <input type="password" class="form-control" name="password" placeholder="Digite su contraseña" required>
                         </div>
                   
-                        
-                       
+                        <div class="form-group" align="center" >
+                            <label>Tipo de usuario</label>
+                            <div class="radio">
+                                <label class="radio-inline"><input type="radio" value="estudiante" name="tipoUsuario" onclick="desactivado();">Estudiante </label> 
+                                <label class="radio-inline"><input type="radio" value="docente" name="tipoUsuario" onclick="activado();"> Docente </label>
+                                <label class="radio-inline"><input type="radio" value="administrador" name="tipoUsuario" onclick="desactivado();"> Administrador </label>
+                            </div>
+
+                        </div>
+                        <div class="form-group" id="especialidaddocente">
+                            <label>Especialidad Docente:</label>
+                            <input type="text" class="form-control" name="especialidaddocente" placeholder="Digite su especialidad o area de conocimiento" required>
+                        </div>
                         <div class="form-group" align="center">
                             <button class="btn btn-success" onclick="submit();" name="accion" value="crear">Registrar</button>
                             <button class="btn btn-danger"  name="accion" value="cancelar" type="reset">Cancelar</button>
