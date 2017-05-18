@@ -105,7 +105,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                                 <img src="img/registrar_usuarios.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <button class="btn btn-primary" name="accion" action="registraradmin" >Registrar Usuarios</button></a
+                                        <button class="btn btn-primary" name="accion" value="registrarAdmin">Registrar Usuarios</button></a
                                     </caption>
                                 </div>
                             </div>
