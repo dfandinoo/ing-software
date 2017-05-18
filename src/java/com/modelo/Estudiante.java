@@ -22,6 +22,11 @@ public class Estudiante extends Usuario {
         super(nombres, apellidos, correo, tipoIdentifica, numIdentifica, tipoUsuario, username, password);
         this.estado = estado;
     }
+
+    public Estudiante(String nombres, String apellidos, String correo, String tipoIdentifica, int numIdentifica, String username, String password, boolean estado) {
+        super(nombres, apellidos, correo, tipoIdentifica, numIdentifica, username, password);
+        this.estado = estado;
+    }
     
     public Estudiante(String username, String password){
         super(username, password);
