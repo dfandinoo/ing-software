@@ -68,6 +68,10 @@
         <servlet-name>ServletQuejasYReclamos</servlet-name>
         <servlet-class>com.controlador.ServletQuejasYReclamos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletRegistroAdmin</servlet-name>
+        <servlet-class>com.controlador.ServletRegistroAdmin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginCtrl</servlet-name>
         <url-pattern>/loginCtrl</url-pattern>
@@ -135,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>ServletQuejasYReclamos</servlet-name>
         <url-pattern>/ServletQuejasYReclamos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletRegistroAdmin</servlet-name>
+        <url-pattern>/ServletRegistroAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
