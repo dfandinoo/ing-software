@@ -5,12 +5,19 @@
  */
 package com.controlador;
 
+import com.BD.AdministradorJDBC;
+import com.BD.DocenteJDBC;
+import com.BD.EstudianteJDBC;
+import com.modelo.Administrador;
+import com.modelo.Docente;
+import com.modelo.Estudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,19 +36,55 @@ public class ServletRegistroAdmin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ServletRegistroAdmin</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletRegistroAdmin at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        
+            String nombres = request.getParameter("nombres");
+            String apelildos = request.getParameter("apellidos");
+            String tipoIdentifiacion = request.getParameter("tipoIdentificacion");
+            int numIdentificacion = Integer.parseInt(request.getParameter("numidentifica"));
+            String correo = request.getParameter("correo");
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            String tipoUsuario = request.getParameter("tipoUsuario");
+            String accion = request.getParameter("accion");
+            
+            HttpSession sesion = request.getSession();
+            String mensaje = null;
+            
+            if(accion.equals("crear")){
+                if(tipoUsuario.equals("docente")){
+                    String especialidad = request.getParameter("especialidaddocente");
+                    Docente docente = new Docente(especialidad, nombres, apelildos, correo, tipoIdentifiacion, numIdentificacion, tipoUsuario, username, password);
+                    DocenteJDBC doceJDBC = new DocenteJDBC();
+                    int rows = doceJDBC.insertDocente(docente);
+                    if(rows==1){
+                        mensaje = "Registro de Docente Exitoso";
+                    }else{
+                        mensaje = "Error, Registro Docente";
+                    }
+                }else if(tipoUsuario.equals("estudiante")){
+                    Estudiante estudiante = new Estudiante(nombres, apelildos, correo, tipoIdentifiacion, numIdentificacion, tipoUsuario, username, password, false);
+                    EstudianteJDBC estuJDBC = new EstudianteJDBC();
+                    int rows = estuJDBC.verificarUsuario(estudiante);
+                    if(rows==1){
+                        mensaje = "Registro de Estudiante Exitoso";
+                    }else{
+                        mensaje = "Error, Registro Estudiante";
+                    }
+                }else{
+                    if(tipoUsuario.equals("administrador")){
+                        Administrador admin = new Administrador(nombres, apelildos, correo, tipoIdentifiacion, numIdentificacion, tipoUsuario, username, password);
+                        AdministradorJDBC adminJDBC = new AdministradorJDBC();
+                        int rows = adminJDBC.verificarUsuario(admin);
+                        if(rows==1){
+                            mensaje = "Registro de Administrador Exitoso";
+                        }else{
+                            mensaje = "Error, Registro Administrador";
+                        }
+                    }
+                }
+                sesion.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
