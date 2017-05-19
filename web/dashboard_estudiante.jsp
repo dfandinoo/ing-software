@@ -74,7 +74,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 <img src="img/Edit.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <button onclick="parent.principal.location='ServletDashboardEstu'" class="btn btn-primary" name="accion" value="editarEstu">Editar Informacion</button></a>
+                                        <a href="ServletDashboardEstu?accion=editarEstu"><button  class="btn btn-primary">Editar Informacion</button></a>
                                     </caption>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 <img src="img/inscribirse.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <button onclick="parent.principal.location='ServletDashboardEstu'" class="btn btn-success" name="accion" value="inscribirEstu">Inscribirse Curso</button>
+                                        <a href="ServletDashboardEstu?accion=editarEstu?accion=inscribirEstu"><button  class="btn btn-success" name="accion" value="inscribirEstu">Inscribirse Curso</button></a>
                                     </caption>
                                 </div>
                             </div>
