@@ -34,7 +34,11 @@
    	   	   	  		<legend>Descripcion:</legend>
    	   	   	  		<textarea name="descripcion" id="" cols="30" rows="12" class="form-control" placeholder="Puede introducir aqui su mesaje " required></textarea>
    	   	   	  	</div>
+                                                <div style="margin-top: 20px;">
+                                                    <button class="btn btn-success"  name="accion" value=""><span class="glyphicon glyphicon-ok"></span> Enviar </button>
+                                                    <button class="btn btn-danger"  name="accion" value="" type="reset"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
 
+						</div>
    	   	   	  </form>
    	   	   </div>
 
