@@ -14,7 +14,7 @@
         <div class="container-fluid"> 
  <div class="row">
                 <div class="col-md-4"align="center" style="margin-top: 10px;">
-                    <a href="index.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> volver</button></a>
+                    <a href="index.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span>Volver</button></a>
                 </div>
             </div>            
             <div class="row">
@@ -26,6 +26,7 @@
                             <legend align="center">Formulario De Registro</legend>
                             <span  > <img src="img/registro_logo.png" alt="" width="100" height="100"></span>
                         </div>
+                        <div class="alert alert-danger alert-dismissible" role="alert">${mensaje}</div>
                         <div class="form-group">
                             <label>Nombres:</label>	
                             <input type="text" class="form-control" name="nombres" placeholder="Ingrese su nombre " required>

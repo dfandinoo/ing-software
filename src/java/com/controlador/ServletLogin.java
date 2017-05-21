@@ -120,7 +120,10 @@ public class ServletLogin extends HttpServlet {
                         }
                     } 
                 } 
-            }        
+            }
+            mensaje="El Usuario no ha sido Registrado";
+            sesion.setAttribute("mensaje", mensaje);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 

@@ -63,7 +63,7 @@ public class ServletRegistro extends HttpServlet {
                     mensaje = "Error, Registro Estudiante";
                 }
                 sesion.setAttribute("mensaje", mensaje);
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("register.jsp").forward(request, response);
             }
         
         }
