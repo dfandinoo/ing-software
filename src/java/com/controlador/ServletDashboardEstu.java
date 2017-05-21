@@ -49,8 +49,6 @@ public class ServletDashboardEstu extends HttpServlet {
                 request.getRequestDispatcher("inscribirse_al_curso.jsp").forward(request, response); 
             }else if(accion.equals("editarEstu")){
                 request.getRequestDispatcher("editar_usuario.jsp").forward(request, response);
-            }else if(accion.equals("cerrarSesion")){
-                request.getRequestDispatcher("logout.jsp").forward(request, response);
             }
     }
 

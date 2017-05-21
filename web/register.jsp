@@ -60,10 +60,7 @@
                         <div class="form-group">                                     
                             <label>Password:</label>
                             <input type="password" class="form-control" name="password" placeholder="Digite su contraseña" required>
-                        </div>
-                  
-                        
-                       
+                        </div>      
                         <div class="form-group" align="center">
                             <button class="btn btn-success" onclick="submit();" name="accion" value="crear">Registrar</button>
                             <button class="btn btn-danger"  name="accion" value="cancelar" type="reset">Cancelar</button>

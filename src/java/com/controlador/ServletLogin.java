@@ -41,7 +41,7 @@ public class ServletLogin extends HttpServlet {
         throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String tipoUsuario = request.getParameter("tipoUsuario");
+//        String tipoUsuario = request.getParameter("tipoUsuario");
         String accion = request.getParameter("accion");
         
         HttpSession sesion = request.getSession();

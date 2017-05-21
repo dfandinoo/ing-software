@@ -22,17 +22,12 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
 
                     </div>
                     <div class="col-md-6" align="center" style="margin-top: 20px;">
-                        <button class="btn btn-danger" name="accion" value="cerrarSesion"><span class="glyphicon glyphicon-off"></span> Cerrar Sesion</button>
+                        <a href="logout.jsp"><button class="btn btn-danger" name="accion" value="cerrarSesion"><span class="glyphicon glyphicon-off"></span> Cerrar Sesion</button></a>
                     </div>
                 </div>
                 <div class="row" style="margin-top: 50px;">
                     <div class="col-md-8">
                         <div class="panel-group">
-                            <div class="panel panel-success" align="center">
-                                <div class="panel-heading">Cursos Disponibles</div>
-                                    <div class="panel-body">Panel Content</div>
-                            </div>
-
                             <div class="panel panel-primary" align="center">
                                 <div class="panel-heading">Cursos en los cuales esta inscrito</div>
                                     <div class="panel-body">

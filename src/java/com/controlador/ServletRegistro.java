@@ -53,17 +53,7 @@ public class ServletRegistro extends HttpServlet {
             String mensaje = null;
             
             if(accion.equals("crear")){
-//                if(tipoUsuario.equals("docente")){
-//                    String especialidad = request.getParameter("especialidaddocente");
-//                    Docente docente = new Docente(especialidad, nombres, apelildos, correo, tipoIdentifiacion, numIdentificacion, tipoUsuario, username, password);
-//                    DocenteJDBC doceJDBC = new DocenteJDBC();
-//                    int rows = doceJDBC.insertDocente(docente);
-//                    if(rows==1){
-//                        mensaje = "Registro de Docente Exitoso";
-//                    }else{
-//                        mensaje = "Error, Registro Docente";
-//                    }
-//                }else if(tipoUsuario.equals("estudiante")){
+
                 Estudiante estudiante = new Estudiante(nombres, apelildos, correo, tipoIdentifiacion, numIdentificacion, username, password, false);
                 EstudianteJDBC estuJDBC = new EstudianteJDBC();
                 int rows = estuJDBC.verificarUsuario(estudiante);
@@ -72,18 +62,6 @@ public class ServletRegistro extends HttpServlet {
                 }else{
                     mensaje = "Error, Registro Estudiante";
                 }
-//                }else{
-//                    if(tipoUsuario.equals("administrador")){
-//                        Administrador admin = new Administrador(nombres, apelildos, correo, tipoIdentifiacion, numIdentificacion, tipoUsuario, username, password);
-//                        AdministradorJDBC adminJDBC = new AdministradorJDBC();
-//                        int rows = adminJDBC.verificarUsuario(admin);
-//                        if(rows==1){
-//                            mensaje = "Registro de Administrador Exitoso";
-//                        }else{
-//                            mensaje = "Error, Registro Administrador";
-//                        }
-//                    }
-//                }
                 sesion.setAttribute("mensaje", mensaje);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }

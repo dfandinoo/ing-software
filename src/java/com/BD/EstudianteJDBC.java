@@ -128,21 +128,23 @@ public class EstudianteJDBC {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         int rows = 0;
-        Estudiante estu = new Estudiante();
+        Estudiante estu = null;
         try{
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement("SELECT * FROM estudiante WHERE username = '"+estudi.getUsername()+
-                    "' AND password = '"+estudi.getPassword()+"'");
+                    "' AND password = '"+estudi.getPassword()+"' AND estado = true");
             rs = stmt.executeQuery();
-            rs.next();
-            estu.setNumIdentifica(rs.getInt(1));
-            estu.setTipoIdentifica(rs.getString(2));
-            estu.setNombres(rs.getString(3));
-            estu.setApellidos(rs.getString(4));
-            estu.setCorreo(rs.getString(5));
-            estu.setTipoUsuario(rs.getString(6));
-            estu.setUsername(rs.getString(7));
-            estu.setPassword(rs.getString(8));
+            while(rs.next()){
+                estu = new Estudiante();
+                estu.setNumIdentifica(rs.getInt(1));
+                estu.setTipoIdentifica(rs.getString(2));
+                estu.setNombres(rs.getString(3));
+                estu.setApellidos(rs.getString(4));
+                estu.setCorreo(rs.getString(5));
+                estu.setTipoUsuario(rs.getString(6));
+                estu.setUsername(rs.getString(7));
+                estu.setPassword(rs.getString(8));
+            }
         }catch(SQLException e){
             e.printStackTrace();
         }
