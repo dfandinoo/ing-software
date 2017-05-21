@@ -31,7 +31,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                             <img src="img/docente.jpg" alt="">
                         </div>
                         <div>                            
-                            <form action="ServletInscribirEstudiante">
+                            <form action="">
                                 <div class="form-group">
                                     <label>Seleccione el Docente</label>
                                         <select name="" class="form-control selectpicker" required>
