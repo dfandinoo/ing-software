@@ -41,7 +41,7 @@
                                              <img src="img/actividades.png" alt=""  width="185" height="185">
                                                     <div>
                                                         <caption>
-                                                            <button class="btn btn-danger" name="accion" value="">Crear Actividades</button></a>
+                                                            <a href="crear_actividad.jsp"><button class="btn btn-danger" name="accion" value="">Crear Actividades</button></a>
                                                         </caption>
                                                     </div>
                                    </div>

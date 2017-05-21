@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title>Crear Actividad</title>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
                    <!-- Latest compiled and minified CSS -->
@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12"align="center" style="margin-top: 20px;">
-                    <a href=""><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Volver</button></a>
+                    <a href="dashboard_docente.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Volver</button></a>
                 </div>
             </div>
             <div class="row" style="margin-top: 60px;">
