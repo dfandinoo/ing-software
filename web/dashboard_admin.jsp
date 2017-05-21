@@ -3,7 +3,7 @@
     Created on : 26/04/2017, 11:18:04 AM
     Author     : DANNY
 --%>
-<%-- 
+<%--
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("pkeyAdmin") != null){
 --%>
