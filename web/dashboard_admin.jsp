@@ -77,7 +77,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="thumbnail" align="center" style="background-color: #1E90FF; color: white;">
+                        <div class="thumbnail" align="center" style="background-color: red; color: white;">
                             <img src="img/docente1.png" alt="" width="200" height="200">
                              <div>
                                  <caption>
@@ -91,7 +91,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                 </div>
                  <div class="row">
                         <div class="col-md-4 ">
-                            <div class="thumbnail" align="center" style="background-color: #1E90FF; color: white;">
+                            <div class="thumbnail" align="center" style="background-color: red; color: white;">
                                 <img src="img/Edit.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
@@ -101,7 +101,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                             </div>
                         </div>
                      <div class="col-md-4 ">
-                            <div class="thumbnail" align="center" style="background-color: #1E90FF; color: white;">
+                            <div class="thumbnail" align="center" style="background-color: red; color: white;">
                                 <img src="img/registrar_usuarios.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
@@ -111,7 +111,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                             </div>
                         </div>
                       <div class="col-md-4 ">
-                            <div class="thumbnail" align="center" style="background-color: #1E90FF; color: white;">
+                            <div class="thumbnail" align="center" style="background-color: red; color: white;">
                                 <img src="img/cambiar.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
