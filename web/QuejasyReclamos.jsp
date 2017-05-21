@@ -11,11 +11,11 @@
 <body style="background-color: #FFF8DC;">
    <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6" style="margin-top: 10px;">
+        <div class="col-md-12" style="margin-top: 10px;" align="center">
     	  	  <button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</button>
     	  </div>
     </div>
-   	   <div class="row">
+       <div class="row" style="margin-top: 15px;">
    	   	   <div class="col-md-6" style="margin-top: 130px;" align="center">
    	   	   	  <legend> Enviar quejas y/o Reclamos </legend>
                           <img src="img/quejas.png" alt="" width="150" height="150">

@@ -76,12 +76,27 @@
                                     <div class="panel-heading">SUS CURSOS</div>
                                             <div class="panel-body">
                                                 <table class="table table-striped table-bordered">
+                                                    <thead>
+                                                    <tr>
                                                     <th>columna1</th>
                                                     <th>columna2</th>
                                                     <th>columna3</th>
                                                     <th>columna4</th>
                                                     <th>columna5</th>
-                                                    
+                                                    <th>boton</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                        <tr>
+                                                    <th>datos1</th>
+                                                     <th>datos1</th>
+                                                      <th>datos1</th>
+                                                       <th>datos1</th>
+                                                        <th>datos1</th>
+                                                        <th><a href="ServletDashboardAdmin?accion=vercont">button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></th>
+                                                        </tr>
+                                                    </tbody>
                                                 </table>
                                             </div>
                      </div>

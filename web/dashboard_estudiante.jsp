@@ -15,7 +15,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
     </head>
     <body background="" style="background-color: #FFF8DC;">
         <div class="container-fluid">
-            <form name ="dashboard_estudiante" action="ServletDashboardEstu">
+       <%--     <form name ="dashboard_estudiante" action="ServletDashboardEstu"> --%>
                 <div class="row" >
                     <div class="col-md-6">
                         <h1 style="font-style: verdana; color: green;">BIENVENIDO ESTUDIANTE : </h1>
@@ -35,7 +35,36 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
 
                             <div class="panel panel-primary" align="center">
                                 <div class="panel-heading">Cursos en los cuales esta inscrito</div>
-                                    <div class="panel-body">Panel Content</div>
+                                    <div class="panel-body">
+                                        <table class="table table-striped table-bordered">
+                                                    <thead>
+                                                    <tr>
+                                                    <th>columna1</th>
+                                                    <th>columna2</th>
+                                                    <th>columna3</th>
+                                                    <th>columna4</th>
+                                                    <th>columna5</th>
+                                                    <th>Accion</th>
+                                                    <th>Accion</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                        <tr>
+                                                    <th>datos1</th>
+                                                     <th>datos1</th>
+                                                      <th>datos1</th>
+                                                       <th>datos1</th>
+                                                        <th>datos1</th>
+                                                        <th><a href="ServletDashboardEstu?idcurso=poner_el_id&accion=vercontenidosestudiante"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></th>
+                                                        <th><a href="ServletDashboardEstu?idcurso=poner_el_id&accion=presentarevaluacion"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Presentar Evaluacion</button></a></th>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                    </div>
+                                    
                             </div>
                         </div>
                     </div>
@@ -45,7 +74,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 <img src="img/Edit.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <button class="btn btn-primary" name="accion" value="editarEstu">Editar Informacion</button></a>
+                                        <a href="ServletDashboardEstu?accion=editarEstu"><button  class="btn btn-primary">Editar Informacion</button></a>
                                     </caption>
                                 </div>
                             </div>
@@ -53,7 +82,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 <img src="img/inscribirse.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <button class="btn btn-success" name="accion" value="inscribirEstu">Inscribirse Curso</button>
+                                        <a href="ServletDashboardEstu?accion=editarEstu?accion=inscribirEstu"><button  class="btn btn-success" name="accion" value="inscribirEstu">Inscribirse Curso</button></a>
                                     </caption>
                                 </div>
                             </div>
@@ -61,7 +90,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 <img src="img/quejas.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                       <a href="QuejasyReclamos.jsp"><button class="btn btn-primary" name="accion" value="">Enviar Quejas o Reclamos</button></a>
+                                       <a href="QuejasyReclamos.jsp"><button  class="btn btn-primary" value="">Enviar Quejas o Reclamos</button></a>
                                     </caption>
                                 </div>
                             </div>
@@ -69,7 +98,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                     </div>                     
                 </div>
                
-            </form>    
+           <%-- </form> --%>    
         </div>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
