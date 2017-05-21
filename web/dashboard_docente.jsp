@@ -94,7 +94,7 @@
                                                       <th>datos1</th>
                                                        <th>datos1</th>
                                                         <th>datos1</th>
-                                                        <th><a href="ServletDashboardAdmin?accion=vercont">button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></th>
+                                                        <th><a href="ServletDashboardAdmin?accion=vercont"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></th>
                                                         </tr>
                                                     </tbody>
                                                 </table>
