@@ -26,18 +26,18 @@
                     <form>
                         <div class="form-group">
 					        <label>Nombre Actividad:</label>
-						<input type="text" class="form-control" name="nombActividad" placeholder="Ingresa el nombre del curso" required>
+						<input type="text" class="form-control" name="nombActividad" placeholder="Ingresa el nombre de la Actividad" required>
 				    </div>
                         <div class="form-group">
 					        <label>Tipo Actividad:</label>
-						<input type="text" class="form-control" name="tipoActividad" placeholder="Ingresa el nombre del curso" required>
+						<input type="text" class="form-control" name="tipoActividad" placeholder="Ingresa el Tipo de la actividad" required>
 				    </div>
                         <div class="form-group">
 					        <label>Fecha Entrega:</label>
-						<input type="date" class="form-control" name="fechaEntrega" placeholder="Ingresa el nombre del curso" required>
+						<input type="date" class="form-control" name="fechaEntrega" placeholder="Ingresa la fecha de Entrega" required>
 				    </div>
                          <div class="form-group">
-					        <label>Fecha Entrega:</label>
+					        <label>Descripcion:</label>
                                                 <textarea class="form-control" cols="20" rows="7" name="descripcion" required></textarea>
                                                 
 				    </div>
