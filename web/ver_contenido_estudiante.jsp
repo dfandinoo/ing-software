@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title>Contenidos_Estuiante</title>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
                    <!-- Latest compiled and minified CSS -->
@@ -31,7 +31,7 @@
                                                     <th>columna3</th>
                                                     <th>columna4</th>
                                                     <th>columna5</th>
-                                                    <th>Crear Actividad</th>
+                                                    <th>Enviar Actividad</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -42,7 +42,15 @@
                                                       <th>datos1</th>
                                                        <th>datos1</th>
                                                         <th>datos1</th>
-                                                        <th><a href="crear_actividad.jsp"><button class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-list"></span> Crear Actividad </button></a></th>
+                                                        <th><button class="btn btn-success"><span class="glyphicon glyphicon glyphicon-list"></span> Enviar Actividad </button></th>
+                                                        </tr>
+                                                           <tr>
+                                                    <th>datos2</th>
+                                                     <th>datos2</th>
+                                                      <th>datos2</th>
+                                                       <th>datos2</th>
+                                                        <th>datos2</th>
+                                                        <th><button class="btn btn-success"><span class="glyphicon glyphicon glyphicon-list"></span> Enviar Actividad </button></th>
                                                         </tr>
                                                     </tbody>
                                                 </table>
