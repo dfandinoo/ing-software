@@ -26,47 +26,40 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
             <div class="row">
                 <div class="col-md-12" align="center">
                     <legend style="font-size: 25px; ">Cambiar Estado</legend>
-                            
-                        <div>
-                            <img src="img/docente.jpg" alt="">
-                        </div>
-                        <div>                            
-                            <form action="">
-                                <div class="form-group">
-                                    <label>Seleccione el Docente</label>
-                                        <select name="" class="form-control selectpicker" required>
-                                                 <option value="">
-                                                 Eliga el docente al cual le quiere cambiar el estado
-                                                </option>
-                                                <option value="">Eliga el docente al cual le quiere cambiar el estado</option>
-                                    <option value="">docente1</option>
-                                     <option value="">docente2</option>
-                                      <option value="">docente3</option>
-                                       <option value="">docente4</option>
-                                          </select>
-                                </div>
-                                <label>Seleccione El Estado</label>                                  
-                                
-                                
-                            <div class="radio form-group">
-                                <label class="radio-inline "><input type="radio" value="ACTIVO" name="tipoUsuario" >Activo </label> 
-                                <label class="radio-inline "><input type="radio" value="INACTIVO" name="tipoUsuario" > Inactivo </label>
-                              
+                    <div>
+                        <img src="img/docente.jpg" alt="">
+                    </div>
+                    <div>                            
+                        <form action="ServletCambiarEstado">
+                            <div class="form-group">
+                                <label>Seleccione el Docente</label>
+                                <select name="idEstudiante" class="form-control selectpicker" required>
+                                        <c:forEach items="${estudiantes}" var="estu">
+                                            <option value="${estu.numIdentifica}">
+                                                ${estu}
+                                            </option>
+                                        </c:forEach>    
+                                </select>    
                             </div>
-                                
-                                <div style="margin-top: 20px;">
-                                    <button class="btn btn-success" name="" value=""><span class="glyphicon glyphicon-ok"></span> Cambiar Estado</button>
-                                </div>
-                            </form>
+                            <label>Seleccione El Estado</label>                                  
+
+
+                        <div class="radio form-group">
+                            <label class="radio-inline "><input type="radio" value="activo" name="estado" >Activo </label> 
+                            <label class="radio-inline "><input type="radio" value="inactivo" name="estado" > Inactivo </label>
+
                         </div>
-                    
+
+                            <div style="margin-top: 20px;">
+                                <button class="btn btn-success" name="accion" value="cambiarEstado"><span class="glyphicon glyphicon-ok"></span> Cambiar Estado</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            </div>  
         </div>
-
-
-            <!-- Latest compiled and minified JavaScript -->
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>
 <%-- }else{

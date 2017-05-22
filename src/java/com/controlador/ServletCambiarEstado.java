@@ -5,15 +5,9 @@
  */
 package com.controlador;
 
-import com.BD.CursoJDBC;
-import com.BD.DocenteJDBC;
 import com.BD.EstudianteJDBC;
-import com.modelo.Curso;
-import com.modelo.Docente;
-import com.modelo.Estudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Amelia
  */
-public class ServletDashboardAdmin extends HttpServlet {
+public class ServletCambiarEstado extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,31 +33,28 @@ public class ServletDashboardAdmin extends HttpServlet {
         throws ServletException, IOException {
             HttpSession session = request.getSession();
             String accion = request.getParameter("accion");
-            if(accion.equals("ingresarContenido")){
-                request.getRequestDispatcher("ingresar_contenido_curso.jsp").forward(request, response);
-            }else if(accion.equals("asignarDocente")){
-                
-                CursoJDBC cursoJDBC = new CursoJDBC();
-                DocenteJDBC doceJDBC = new DocenteJDBC();
-                ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.selectDocente();  
-                ArrayList<Docente> docentes = (ArrayList<Docente>) doceJDBC.selectDocentes();
-                session.setAttribute("cursos", cursos);
-                session.setAttribute("docentes", docentes);
-                request.getRequestDispatcher("asignar_docente.jsp").forward(request, response);
-                
-            }else if(accion.equals("crearCursos")){
-                request.getRequestDispatcher("crear_cursos.jsp").forward(request, response);
-            }else if(accion.equals("cerrarSesion")){
-                request.getRequestDispatcher("logout.jsp").forward(request, response);
-            }else if(accion.equals("registrarAdmin")){
-                request.getRequestDispatcher("register_admin.jsp").forward(request, response);
-            }else if(accion.equals("cambiarEstado")){
+            String pkeyEstudiante = request.getParameter("idEstudiante");
+            String estado = request.getParameter("estado");
+            boolean band = false;
+            String mensaje="";
+            if(accion.equals("cambiarEstado")){
+                if(estado.equals("activo")){
+                    band = true;
+                }else if(estado.equals("inactivo")){
+                    band = false;
+                }
                 EstudianteJDBC estuJDBC = new EstudianteJDBC();
-                ArrayList<Estudiante> estudiantes = (ArrayList<Estudiante>) estuJDBC.selectEstu();
-                session.setAttribute("estudiantes", estudiantes);
+                int rows = estuJDBC.updateEstado(Integer.parseInt(pkeyEstudiante), band);
+                if(rows>0){
+                    mensaje="Cambio de Estado Exitoso";
+                }else{
+                    mensaje="Cambio de Estado Fallido";
+                }
+                session.setAttribute("mensaje", mensaje);
                 request.getRequestDispatcher("cambiar_estado.jsp").forward(request, response);
             }
-    }
+        }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -103,5 +94,5 @@ public class ServletDashboardAdmin extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
+

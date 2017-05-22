@@ -115,7 +115,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                                 <img src="img/cambiar.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <button class="btn btn-success" name="accion" value="">Cambiar Estado Usuario</button>
+                                        <button class="btn btn-success" name="accion" value="cambiarEstado">Cambiar Estado Usuario</button>
                                     </caption>
                                 </div>
                             </div>  

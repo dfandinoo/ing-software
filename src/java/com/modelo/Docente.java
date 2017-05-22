@@ -54,6 +54,6 @@ public class Docente extends Usuario {
     
     @Override
     public String toString(){
-        return getNombres()+" "+getApellidos();
+        return getNombres()+" "+getApellidos()+"("+especialidad+")";
     }
 }

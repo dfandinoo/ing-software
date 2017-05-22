@@ -35,6 +35,9 @@ public class EstudianteJDBC {
     private final String SQL_UPDATE_USUARIO =
             "UPDATE usuario SET username = (?), password = (?) WHERE fkeyestudiante = (?)";
     
+    private final String SQL_UPDATE_ESTADO =
+            "UPDATE estudiante SET estado = (?) WHERE pkeyEstudiante = (?)";
+    
     public int verificarUsuario(Estudiante estu){
         
         Connection conn = null;
@@ -156,6 +159,41 @@ public class EstudianteJDBC {
         return estu;
     }
     
+    public List<Estudiante> selectEstu(){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int rows = 0;
+        Estudiante estu = null;
+        ArrayList<Estudiante> estudiantes = new ArrayList<Estudiante >();
+        try{
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement("SELECT * FROM estudiante");
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                estu = new Estudiante();
+                estu.setNumIdentifica(rs.getInt(1));
+                estu.setTipoIdentifica(rs.getString(2));
+                estu.setNombres(rs.getString(3));
+                estu.setApellidos(rs.getString(4));
+                estu.setCorreo(rs.getString(5));
+                estu.setTipoUsuario(rs.getString(6));
+                estu.setUsername(rs.getString(7));
+                estu.setPassword(rs.getString(8));
+                estu.setEstado(rs.getBoolean(9));
+                estudiantes.add(estu);
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            Conexion.close(conn);
+            Conexion.close(stmt);
+            Conexion.close(rs);
+        }
+        return estudiantes;
+    }
+    
     public int update(int pkeyEstudiante, String nombres, String apellidos, String username, String password, String correo){
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -174,6 +212,30 @@ public class EstudianteJDBC {
             stmt.setInt(index++, pkeyEstudiante);
             rows = stmt.executeUpdate();
             updateUsuario(username, password, pkeyEstudiante);         
+            System.out.println("Registros actualizados "+rows);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            Conexion.close(conn);
+            Conexion.close(stmt);
+        }
+        return rows;
+    }
+
+    public int updateEstado(int pkeyEstudiante, boolean band){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int rows = 0;
+        
+        try{
+            conn = Conexion.getConnection();
+            System.out.println("Ejecutando query: "+SQL_UPDATE_ESTADO);
+            stmt = conn.prepareStatement(SQL_UPDATE_ESTADO);
+            int index =1;
+            stmt.setBoolean(index++, band);
+            stmt.setInt(index++, pkeyEstudiante);
+            rows = stmt.executeUpdate();          
             System.out.println("Registros actualizados "+rows);
         }catch(SQLException e){
             e.printStackTrace();

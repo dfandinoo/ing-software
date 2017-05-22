@@ -72,6 +72,10 @@
         <servlet-name>ServletRegistroAdmin</servlet-name>
         <servlet-class>com.controlador.ServletRegistroAdmin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletCambiarEstado</servlet-name>
+        <servlet-class>com.controlador.ServletCambiarEstado</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginCtrl</servlet-name>
         <url-pattern>/loginCtrl</url-pattern>
@@ -143,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>ServletRegistroAdmin</servlet-name>
         <url-pattern>/ServletRegistroAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCambiarEstado</servlet-name>
+        <url-pattern>/ServletCambiarEstado</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

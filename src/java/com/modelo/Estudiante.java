@@ -51,4 +51,7 @@ public class Estudiante extends Usuario {
         return estuJDBC.update(pkeyEstudiante, nombres, apellidos, username, password, correo);
     }
     
+    public String toString(){
+        return getNombres()+" "+getApellidos();
+    }
 }

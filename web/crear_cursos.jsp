@@ -52,7 +52,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 
 						</div>
 				    </div>
-                                    <div class="alert alert-danger alert-dismissible" role="alert">aqui van los mensajes correspondientes</div>
+                                    <div class="alert alert-danger alert-dismissible" role="alert">${mensaje}</div>
 				</form>
 			</div>
 		   </div>
