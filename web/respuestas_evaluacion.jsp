@@ -64,7 +64,13 @@
                                       <option value="C">Respuesta C</option>
                                        <option value="D">Respuesta D</option>
                                           </select>
+                                
                         </div>  
+                <div class="form-group" align="center">
+                    <button class="btn btn-success" name="accion" value=""><span class="glyphicon glyphicon-ok"  ></span> Registrar Respuestas</button>
+                    <button class="btn btn-danger" name="accion" value="" type="reset"><span class="glyphicon glyphicon-ok" ></span> Cancelar</button>
+
+                </div>
    	   </div>
        </div>
    </div>
