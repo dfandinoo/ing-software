@@ -20,6 +20,10 @@ public class Administrador extends Usuario{
         super(nombres, apellidos, correo, tipoIdentifica, numIdentifica, tipoUsuario, username, password);
     }
 
+    public Administrador(int numIdentifica, String nombres, String apellidos, String username, String password, String correo) {
+        super(numIdentifica, nombres, apellidos, username, password, correo);
+    }
+
     public Administrador(String username, String password) {
         super(username, password);
     }

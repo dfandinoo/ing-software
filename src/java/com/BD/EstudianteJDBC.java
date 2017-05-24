@@ -194,7 +194,7 @@ public class EstudianteJDBC {
         return estudiantes;
     }
     
-    public int update(int pkeyEstudiante, String nombres, String apellidos, String username, String password, String correo){
+    public int update(Estudiante estu){
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -204,14 +204,14 @@ public class EstudianteJDBC {
             System.out.println("Ejecutando query: "+SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
             int index =1;
-            stmt.setString(index++, nombres);
-            stmt.setString(index++, apellidos);
-            stmt.setString(index++, username);
-            stmt.setString(index++, password);
-            stmt.setString(index++, correo);
-            stmt.setInt(index++, pkeyEstudiante);
+            stmt.setString(index++, estu.getNombres());
+            stmt.setString(index++, estu.getApellidos());
+            stmt.setString(index++, estu.getUsername());
+            stmt.setString(index++, estu.getPassword());
+            stmt.setString(index++, estu.getCorreo());
+            stmt.setInt(index++, estu.getNumIdentifica());
             rows = stmt.executeUpdate();
-            updateUsuario(username, password, pkeyEstudiante);         
+            updateUsuario(estu.getUsername(), estu.getPassword(), estu.getNumIdentifica());         
             System.out.println("Registros actualizados "+rows);
         }catch(SQLException e){
             e.printStackTrace();

@@ -44,6 +44,15 @@ public abstract class Usuario {
         this.password = password;
     }
     
+    public Usuario(int numIdentifica, String nombres, String apellidos, String username, String password, String correo) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.numIdentifica = numIdentifica;
+        this.username = username;
+        this.password = password;
+    }
+    
     public Usuario(String username, String password){
         this.username=username;
         this.password=password;

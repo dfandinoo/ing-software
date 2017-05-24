@@ -62,6 +62,8 @@ public class ServletDashboardAdmin extends HttpServlet {
                 ArrayList<Estudiante> estudiantes = (ArrayList<Estudiante>) estuJDBC.selectEstu();
                 session.setAttribute("estudiantes", estudiantes);
                 request.getRequestDispatcher("cambiar_estado.jsp").forward(request, response);
+            }else if(accion.equals("editarUsuario")){
+                request.getRequestDispatcher("editar_usuario.jsp").forward(request, response);
             }
     }
 

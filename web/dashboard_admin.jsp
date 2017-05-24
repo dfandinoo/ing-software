@@ -95,7 +95,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                                 <img src="img/Edit.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <button class="btn btn-success" name="accion" value="">Editar Informacion</button></a>
+                                        <button class="btn btn-success" name="accion" value="editarUsuario">Editar Informacion</button></a>
                                     </caption>
                                 </div>
                             </div>

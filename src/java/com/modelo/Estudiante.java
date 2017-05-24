@@ -27,6 +27,10 @@ public class Estudiante extends Usuario {
         super(nombres, apellidos, correo, tipoIdentifica, numIdentifica, username, password);
         this.estado = estado;
     }
+
+    public Estudiante(int numIdentifica, String nombres, String apellidos, String username, String password, String correo) {
+        super(numIdentifica, nombres, apellidos, username, password, correo);
+    }
     
     public Estudiante(String username, String password){
         super(username, password);
@@ -43,12 +47,6 @@ public class Estudiante extends Usuario {
     @Override
     public int registrarUsuario() {
         return 0;
-    }
-    
-    public int editarUsuario(int pkeyEstudiante, String nombres, String apellidos, String username, String password, String correo){
-        
-        EstudianteJDBC estuJDBC = new EstudianteJDBC();
-        return estuJDBC.update(pkeyEstudiante, nombres, apellidos, username, password, correo);
     }
     
     public String toString(){
