@@ -6,14 +6,17 @@
 package com.controlador;
 
 import com.BD.AdministradorJDBC;
+import com.BD.CursoJDBC;
 import com.BD.DocenteJDBC;
 import com.BD.EstudianteJDBC;
 import com.BD.UsuarioJDBC;
 import com.modelo.Administrador;
+import com.modelo.Curso;
 import com.modelo.Docente;
 import com.modelo.Estudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -101,6 +104,12 @@ public class ServletLogin extends HttpServlet {
                         admin=adminJDBC.select(admin);
                         if(admin != null){
                             mensaje="Login Correcto";
+                            CursoJDBC cursoJDBC = new CursoJDBC();
+                            ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.select(); 
+                            DocenteJDBC doceJDBC = new DocenteJDBC();
+                            ArrayList<Docente> docentes = (ArrayList<Docente>) doceJDBC.selectDocentes();
+                            sesion.setAttribute("docentes", docentes);
+                            sesion.setAttribute("cursos", cursos);
                             sesion.setAttribute("mensaje", mensaje);
                             sesion.setAttribute("pkeyAdmin", admin.getNumIdentifica());
                             sesion.setAttribute("nombres", admin.getNombres());
