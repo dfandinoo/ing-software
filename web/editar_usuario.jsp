@@ -1,12 +1,8 @@
-<%--
-HttpSession sesion = request.getSession();
-if(sesion.getAttribute("pkeyEstudiante") != null || sesion.getAttribute("pkeyDocente") != null || sesion.getAttribute("pkeyAdmin") != null){
---%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
 	<meta charset="UTF-8">
-	<title>Editar-Usuario</title>
+	<title>Editar Usuario</title>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 	           <!-- Latest compiled and minified CSS -->
@@ -57,13 +53,6 @@ if(sesion.getAttribute("pkeyEstudiante") != null || sesion.getAttribute("pkeyDoc
                             <label>Correo</label>	
                             <input type="email" class="form-control" name="correo" placeholder="Ingrese su correo " value="${correo}" required>
                         </div>
-                        <%-- if(sesion.getAttribute("estudiante") != null){  %>
-                        <input type="hidden" name="tipoUsuario" value="estudiante">
-                        <%}else if(sesion.getAttribute("docente") != null){%>
-                        <input type="hidden" name="tipoUsuario" value="docente">
-                        <%}else if(sesion.getAttribute("administrador") != null){%>
-                        <input type="hidden" name="tipoUsuario" value="administrador">
-                        <%}--%>
                         <div style="margin:19px;" align="center">
                            <button class="btn btn-info" style="font-size: 20px;" name="accion" value="editar"><span class="glyphicon glyphicon-pencil" name="accion" value="editar"> Editar</span></button>
                            <button class="btn btn-danger" style="font-size: 20px;" type="reset"><span class="glyphicon glyphicon-remove">Cancelar</span></button>
@@ -77,7 +66,3 @@ if(sesion.getAttribute("pkeyEstudiante") != null || sesion.getAttribute("pkeyDoc
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 	
     </body>
 </html>
-<%-- }else{
-    request.getRequestDispatcher("index.jsp").forward(request, response);  
-}
---%>

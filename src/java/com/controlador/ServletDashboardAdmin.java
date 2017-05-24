@@ -40,6 +40,9 @@ public class ServletDashboardAdmin extends HttpServlet {
             HttpSession session = request.getSession();
             String accion = request.getParameter("accion");
             if(accion.equals("ingresarContenido")){
+                CursoJDBC cursoJDBC = new CursoJDBC();
+                ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.select(); 
+                session.setAttribute("cursos", cursos);
                 request.getRequestDispatcher("ingresar_contenido_curso.jsp").forward(request, response);
             }else if(accion.equals("asignarDocente")){
                 

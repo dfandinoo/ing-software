@@ -36,7 +36,7 @@ public class EstudianteJDBC {
             "UPDATE usuario SET username = (?), password = (?) WHERE fkeyestudiante = (?)";
     
     private final String SQL_UPDATE_ESTADO =
-            "UPDATE estudiante SET estado = (?) WHERE pkeyEstudiante = (?)";
+            "UPDATE estudiante SET estado = (?), tipoUsuario = 'estudiante' WHERE pkeyEstudiante = (?)";
     
     public int verificarUsuario(Estudiante estu){
         

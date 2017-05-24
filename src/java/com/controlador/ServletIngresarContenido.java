@@ -5,6 +5,8 @@
  */
 package com.controlador;
 
+import com.BD.ContenidoJDBC;
+import com.modelo.Contenido;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -29,12 +31,18 @@ public class ServletIngresarContenido extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idCurso = request.getParameter("idCurso");
+        String pkeyCurso = request.getParameter("idCurso");
         String nombre = request.getParameter("nombre");
-        String tema = request.getParameter("tema");
         String descripcion = request.getParameter("descripcion");
         String accion = request.getParameter("accion");
-        
+        if(accion.equals("ingresar")){
+            Contenido conten = new Contenido(nombre, descripcion);
+            ContenidoJDBC contenJDBC = new ContenidoJDBC();
+            int rows = contenJDBC.insertContenido(conten, Integer.parseInt(pkeyCurso));
+            if(rows==1){
+                
+            }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

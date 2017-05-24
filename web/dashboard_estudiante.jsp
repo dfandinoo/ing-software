@@ -77,7 +77,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 <img src="img/inscribirse.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <a href="ServletDashboardEstu?accion=editarEstu?accion=inscribirEstu"><button  class="btn btn-success" name="accion" value="inscribirEstu">Inscribirse Curso</button></a>
+                                        <a href="ServletDashboardEstu?accion=inscribirEstu"><button  class="btn btn-success" name="accion" value="inscribirEstu">Inscribirse Curso</button></a>
                                     </caption>
                                 </div>
                             </div>

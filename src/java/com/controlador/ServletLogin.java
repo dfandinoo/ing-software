@@ -88,7 +88,7 @@ public class ServletLogin extends HttpServlet {
                         sesion.setAttribute("password", doce.getPassword());
                         sesion.setAttribute("correo", doce.getCorreo());
                         sesion.setAttribute("tipoUsuario", doce.getTipoUsuario());
-                        request.getRequestDispatcher("editar_usuario.jsp").forward(request, response); 
+                        request.getRequestDispatcher("dashboard_docente.jsp").forward(request, response); 
                     }else{
                         mensaje="Login Incorrecto";
                         sesion.setAttribute("mensaje", mensaje);
