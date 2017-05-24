@@ -24,7 +24,7 @@
         <div class="container-fluid"> 
             <div class="row">
                 <div class="col-md-4"align="center" style="margin-top: 10px;">
-                    <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> volver</button></a>
+                    <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Volver</button></a>
                 </div>
             </div>            
             <div class="row">

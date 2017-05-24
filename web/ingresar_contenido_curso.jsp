@@ -15,7 +15,7 @@
                 <div class="col-md-12" align="center">                                 
                     <legend style="font-size: 25px; ">INGRESAR CONTENIDO AL CURSO</legend>
                     <div align="left">
-                        <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</button></a>
+                        <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Volver</button></a>
                     </div>
                     <div class="col-md-6" style="margin-top: 10px;">
                         <div class="panel panel-success" align="center">

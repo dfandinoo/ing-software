@@ -17,7 +17,20 @@ if(sesion.getAttribute("pkeyEstudiante") != null || sesion.getAttribute("pkeyDoc
             <div class="row" style="padding-top: 40px;">
                 <div class="col-md-6">
                      <div align="left">
-                        <a href="dashboard_estudiante.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</button></a>
+                        <%
+                            HttpSession sesion = request.getSession();
+                            String tipoUsu = (String) request.getSession().getAttribute("tipoUsuario");
+                            String dashboard="";
+                            if(tipoUsu.equalsIgnoreCase("estudiante")){
+                                dashboard = "dashboard_estudiante.jsp";
+                            }else if(tipoUsu.equalsIgnoreCase("docente")){
+                                dashboard = "dashboard_docente.jsp";
+                            }else if(tipoUsu.equalsIgnoreCase("administrador")){
+                                dashboard = "dashboard_admin.jsp";
+                            }
+                            session.setAttribute("dashboard", dashboard);
+                         %>   
+                        <a href=${dashboard}><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Volver</button></a>
                      </div>
                 </div>
             </div>
@@ -39,7 +52,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null || sesion.getAttribute("pkeyDoc
                             <input type="text" class="form-control" name="username" placeholder="Digite su usuario" value="${username}" required>
                           
                             <label>Password</label>	
-                            <input type="Password" class="form-control" name="password" placeholder="Ingrese su nueva password " value="${password}" required>
+                            <input type="text" class="form-control" name="password" placeholder="Ingrese su nueva password " value="${password}" required>
                 
                             <label>Correo</label>	
                             <input type="email" class="form-control" name="correo" placeholder="Ingrese su correo " value="${correo}" required>

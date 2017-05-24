@@ -29,7 +29,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                     <div class="col-md-8">
                         <div class="panel-group">
                             <div class="panel panel-primary" align="center">
-                                <div class="panel-heading">Cursos en los cuales esta inscrito</div>
+                                <div class="panel-heading">Cursos en los que se encuentra Inscrito</div>
                                     <div class="panel-body">
                                         <table class="table table-striped table-bordered">
                                                     <thead>
