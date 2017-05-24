@@ -47,11 +47,13 @@ public class ServletCambiarEstado extends HttpServlet {
                 int rows = estuJDBC.updateEstado(Integer.parseInt(pkeyEstudiante), band);
                 if(rows>0){
                     mensaje="Cambio de Estado Exitoso";
+                    session.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("dashboard_admin.jsp").forward(request, response);
                 }else{
                     mensaje="Cambio de Estado Fallido";
+                    session.setAttribute("mensaje", mensaje);
+                    request.getRequestDispatcher("cambiar_estado.jsp").forward(request, response);
                 }
-                session.setAttribute("mensaje", mensaje);
-                request.getRequestDispatcher("cambiar_estado.jsp").forward(request, response);
             }
         }
     

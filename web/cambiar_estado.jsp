@@ -36,7 +36,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 <select name="idEstudiante" class="form-control selectpicker" required>
                                         <c:forEach items="${estudiantes}" var="estu">
                                             <option value="${estu.numIdentifica}">
-                                                ${estu}
+                                                ${estu} (Estado:${estu.estado})
                                             </option>
                                         </c:forEach>    
                                 </select>    
