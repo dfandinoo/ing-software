@@ -34,6 +34,9 @@ public class CursoJDBC {
     private final String SQL_SELECTDOCENTE =
             "SELECT * FROM curso WHERE estado = true AND fkeydocente is null";
     
+    private final String SQL_SELECT_CURSO_DOCENTE =
+            "SELECT * FROM curso WHERE estado = true AND fkeydocente = (?)";
+    
     private final String SQL_INSERTINSCRIP =
             "INSERT INTO cursoestudiante(pkeyestudiante, pkeycurso)"
             + "VALUES (?, ?)";
@@ -143,6 +146,43 @@ public class CursoJDBC {
         try{
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECTDOCENTE);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                int idCurso = rs.getInt(1);
+                String nombre = rs.getString(2);
+                int duracion = rs.getInt(3);
+                String fechaInicio = rs.getString(4);
+                int cantEstu = rs.getInt(5);
+                int idDocente = rs.getInt(6);
+                curso = new Curso();
+                curso.setIdCurso(String.valueOf(idCurso));
+                curso.setNombre(nombre);
+                curso.setDuracion(duracion);
+                curso.setFechaInicio(fechaInicio);
+                curso.setIdDocente(String.valueOf(idDocente));
+                cursos.add(curso);
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            Conexion.close(conn);
+            Conexion.close(stmt);
+            Conexion.close(rs);
+        }
+        return cursos;
+    }
+    
+    public List<Curso> selectCursosDocente(int pkeyDocente){
+        Connection conn= null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Curso curso = null;
+        List<Curso> cursos = new ArrayList<Curso>();
+        try{
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT_CURSO_DOCENTE);
+            stmt.setInt(1, pkeyDocente);
             rs = stmt.executeQuery();
             while(rs.next()){
                 int idCurso = rs.getInt(1);

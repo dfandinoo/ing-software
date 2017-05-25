@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12"align="center" style="margin-top: 20px;">
-                    <a href="index.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Volver</button></a>
+                    <a href="dashboard_estudiante.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Volver</button></a>
                 </div>
             </div>
             <div class="row">
@@ -27,6 +27,7 @@
                                         <tr>
                                             <td>Nombre</td>
                                             <td>Descripción</td>
+                                            <td>Desarrollar Activiad</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -34,8 +35,7 @@
                                             <tr>
                                                 <td>${contenido.nombre}</td>
                                                 <td>${contenido.descripcion}</td>
-                                                <td><a href="ServletDashboardEstu?idCurso=${cursoIns.idCurso}&accion=verContenido"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></td>
-                                                <td><a href="ServletDashboardEstu?idCurso=${cursoIns.idCurso}&accion=presentarevaluacion"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Presentar Evaluacion</button></a></td>
+                                                <td><a href="ServletDashboardEstu?idCurso=${cursoIns.idCurso}&accion=verContenido"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Desarrollar Actividad</button></a></td>
                                             </tr>
                                         </c:forEach>    
                                     </tbody>
