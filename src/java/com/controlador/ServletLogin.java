@@ -86,6 +86,9 @@ public class ServletLogin extends HttpServlet {
                     doce=doceJDBC.select(doce);
                     if(doce!=null){
                         mensaje="Login Correcto";
+                        CursoJDBC cursoJDBC = new CursoJDBC();
+                        ArrayList<Curso> cursosDocente = (ArrayList<Curso>) cursoJDBC.selectCursosDocente(doce.getNumIdentifica());
+                        sesion.setAttribute("cursosDocente", cursosDocente);
                         sesion.setAttribute("mensaje", mensaje);
                         sesion.setAttribute("pkeyDocente", doce.getNumIdentifica());
                         sesion.setAttribute("nombres", doce.getNombres());

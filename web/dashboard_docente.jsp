@@ -3,6 +3,7 @@
     Created on : 14/05/2017, 11:35:15 AM
     Author     : DANNY
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -62,40 +63,33 @@
                 </div>
            
                 <div class="col-md-6">
-                     <div class="panel panel-success" align="center">
-                                    <div class="panel-heading">SUS CURSOS</div>
-                                            <div class="panel-body">
-                                                <table class="table table-striped table-bordered">
-                                                    <thead>
-                                                    <tr>
-                                                    <th>columna1</th>
-                                                    <th>columna2</th>
-                                                    <th>columna3</th>
-                                                    <th>columna4</th>
-                                                    <th>columna5</th>
-                                                    <th>boton</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        
-                                                        <tr>
-                                                    <th>datos1</th>
-                                                     <th>datos1</th>
-                                                      <th>datos1</th>
-                                                       <th>datos1</th>
-                                                        <th>datos1</th>
-                                                        <th><a href="ServletDashboardAdmin?accion=vercont"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></th>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                     </div>
-                            <div class="panel panel-primary" align="center">
-                                    <div class="panel-heading">SUS ESTUDIANTES</div>
-                                            <div class="panel-body">
-                                                DATOS
-                                            </div> 
-                            </div>      
+                    <div class="panel-group">
+                        <div class="panel panel-primary" align="center">
+                            <div class="panel-heading">Cursos del Docente</div>
+                            <div class="panel-body">
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                            <td>Duración en Días</td>
+                                            <td>Fecha de Inicio</td>
+                                            <td>Ver contenidos</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${cursosDocente}" var="cursoDoce">
+                                            <tr>
+                                                <td>${cursoDoce.nombre}</td>
+                                                <td>${cursoDoce.duracion}</td>
+                                                <td>${cursoDoce.fechaInicio}</td>
+                                                <th><a href="ServletDashboardDoce?idCurso=${cursoDoce.idCurso}&accion=verContenido"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></th>
+                                            </tr>
+                                        </c:forEach>    
+                                    </tbody>
+                                </table>
+                            </div>                                    
+                        </div>
+                    </div>                 
                 </div>
         </div>
         <!-- Latest compiled and minified JavaScript -->
