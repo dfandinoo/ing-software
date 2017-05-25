@@ -52,6 +52,7 @@ public class ServletDashboardEstu extends HttpServlet {
             }else if(accion.equals("editarEstu")){
                 request.getRequestDispatcher("editar_usuario.jsp").forward(request, response);
             }else if(accion.equals("verContenido")){
+                session.setAttribute("pkeyEstudiante", pkeyEstudiante);
                 ContenidoJDBC conteJDBC = new ContenidoJDBC();
                 ArrayList<Contenido> contenidos = (ArrayList<Contenido>) conteJDBC.selectContenidoCurso(Integer.parseInt(pkeyCurso));
                 session.setAttribute("contenidos", contenidos);
