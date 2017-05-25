@@ -8,25 +8,12 @@ package com.controlador;
 import com.BD.ActividadJDBC;
 import com.modelo.Actividad;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.Date;
->>>>>>> origin/master
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-<<<<<<< HEAD
 import javax.servlet.http.HttpSession;
-=======
-import javax.servlet.http.Part;
->>>>>>> origin/master
 
 /**
  *
@@ -45,7 +32,6 @@ public class ServletDesarrollarActividades extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<<<<<<< HEAD
         String pkeyContenido = request.getParameter("idContenido");
         String accion = request.getParameter("accion");
         HttpSession session = request.getSession();
@@ -74,28 +60,6 @@ public class ServletDesarrollarActividades extends HttpServlet {
                 request.getRequestDispatcher("enviar_actividad.jsp").forward(request, response);
             }
         }
-=======
-        Date fecha = new Date();
-        String adjunto = request.getParameter("adjunto");
-        String descripcion = request.getParameter("descripcion");
-        String accion = request.getParameter("accion");
-        if(accion.equals("enviar")){
-            Part filePart = request.getPart("adjunto"); // Obtiene el archivo
-            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-
-            //InputStream fileContent = filePart.getInputStream(); //Lo transforma en InputStream
-
-            String path="/archivos/";
-            File uploads = new File(path); //Carpeta donde se guardan los archivos
-            uploads.mkdirs(); //Crea los directorios necesarios
-            File file = File.createTempFile("cod"+fecha.getTime()+"-", "-"+fileName, uploads); //Evita que hayan dos archivos con el mismo nombre
-
-            try (InputStream input = filePart.getInputStream()){
-                Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            }
-        }
-        
->>>>>>> origin/master
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
