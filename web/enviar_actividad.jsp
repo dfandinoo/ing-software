@@ -11,18 +11,46 @@
     <body style="background-color:#FFF8DC">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12"align="center" style="margin-top: 20px;">
+                <div class="col-md-12"align="" style="margin-top: 20px;">
                     <a href=""><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Volver</button></a>
                 </div>
+                
             </div>
-            <div class="row" style="margin-top: 60px;">
-                <div class="col-md-6" align="center">
+            <div class="row">
+                <div class="col-md-12" align="center">
                     <div>
-                    <img src="img/enviaractividad.png" alt="" width="225" height="225">
-                    <legend style="color: red;">Enviar Acrtividad</legend>
+                    <img src="img/enviaractividad.png" alt="" width="125" height="125">
+                    <legend style="color: red;">Enviar Actividad</legend>
                     </div>
                 </div> 	
-                <div class="col-md-6" align="center">
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-7" align="center">
+                     <div class="panel panel-success" align="center">
+                            <div class="panel-heading">Cursos Creados</div>
+                            <div class="panel-body">
+                                <table value="idCurso" class="table table-striped table-bordered">
+                                    <thead>                                         
+                                        <td>Nombre</td>
+                                        <td>Duracion en Días</td>
+                                        <td>Fecha de Inicio</td>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${cursos}" var="curso">
+                                            <tr>
+                                                <td>${curso.nombre}</td>
+                                                <td>${curso.duracion}</td>
+                                                <td>${curso.fechaInicio}</td>                                             
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>    
+                                </table>
+                            </div>
+                        </div>
+                     
+                        
+                </div> 	
+                <div class="col-md-5" align="center">
                     <form>                      
                                                 
                          <div class="form-group">
