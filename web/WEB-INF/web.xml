@@ -76,6 +76,10 @@
         <servlet-name>ServletCambiarEstado</servlet-name>
         <servlet-class>com.controlador.ServletCambiarEstado</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletCrearPregEvaEst</servlet-name>
+        <servlet-class>com.controlador.ServletCrearPregEvaEst</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginCtrl</servlet-name>
         <url-pattern>/loginCtrl</url-pattern>
@@ -151,6 +155,10 @@
     <servlet-mapping>
         <servlet-name>ServletCambiarEstado</servlet-name>
         <url-pattern>/ServletCambiarEstado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCrearPregEvaEst</servlet-name>
+        <url-pattern>/ServletCrearPregEvaEst</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
