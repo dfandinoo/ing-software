@@ -5,21 +5,18 @@
  */
 package com.controlador;
 
-import com.BD.ActividadJDBC;
-import com.modelo.Actividad;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author damian
  */
-public class ServletCrearActividades extends HttpServlet {
+public class ServletCrearResEvaEst extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,31 +29,19 @@ public class ServletCrearActividades extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombre = request.getParameter("nombActividad");
-//        String tipo = request.getParameter("tipoActividad");
-        String fechaEntrega = request.getParameter("fechaEntrega");
-        String descripcion = request.getParameter("descripcion");
-        String pkeyContenido = request.getParameter("idContenido");
-        String accion = request.getParameter("accion");
-        HttpSession session = request.getSession();
-        String mensaje="";
-        if(accion.equals("crearActividad")){
-            pkeyContenido = (String) session.getAttribute("pkeyContenido");
-            Actividad acti = new Actividad(nombre, descripcion, fechaEntrega);
-            ActividadJDBC actiJDBC = new ActividadJDBC();
-            int rows = actiJDBC.insertContenido(acti, Integer.parseInt(pkeyContenido));
-            if(rows == 1){
-                mensaje="Actividad creada con exito";
-                session.setAttribute("mensaje", mensaje);
-                request.getRequestDispatcher("dashboard_docente.jsp").forward(request, response);
-            }else{
-                mensaje="Error al crear la Actividad";
-                session.setAttribute("mensaje", mensaje);
-                request.getRequestDispatcher("crear_actividad.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            String respuestaA = request.getParameter("respuestaA");
+            String respuestaB = request.getParameter("respuestaB");
+            String respuestaC = request.getParameter("respuestaC");
+            String respuestaD = request.getParameter("respuestaD");
+            String respuestaBuena = request.getParameter("respuestaBuena");
+            String idPregunta = request.getParameter("idPregunta");
+            String accion = request.getParameter("accion");
+            if(accion.equals("enviar")){
+                
             }
-        }else if(accion.equals("verContenido")){
-            session.setAttribute("pkeyContenido", pkeyContenido);
-            request.getRequestDispatcher("crear_actividad.jsp").forward(request, response);
+            
         }
     }
 
