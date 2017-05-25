@@ -16,18 +16,24 @@ public class Actividad {
     private String idActividad;
     private String nombre;
     private String descripcion;
-    private Date fechaEntrega;
+    private String fechaEntrega;
     private ActividadDesarrollada actividadDesa;
 
     public Actividad() {
     }
 
-    public Actividad(String idActividad, String nombre, String descripcion, Date fechaEntrega, ActividadDesarrollada actividadDesa) {
+    public Actividad(String idActividad, String nombre, String descripcion, String fechaEntrega, ActividadDesarrollada actividadDesa) {
         this.idActividad = idActividad;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaEntrega = fechaEntrega;
         this.actividadDesa = actividadDesa;
+    }
+    
+    public Actividad(String nombre, String descripcion, String fechaEntrega) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fechaEntrega = fechaEntrega;
     }
 
     public String getIdActividad() {
@@ -54,11 +60,11 @@ public class Actividad {
         this.descripcion = descripcion;
     }
 
-    public Date getFechaEntrega() {
+    public String getFechaEntrega() {
         return fechaEntrega;
     }
 
-    public void setFechaEntrega(Date fechaEntrega) {
+    public void setFechaEntrega(String fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
 

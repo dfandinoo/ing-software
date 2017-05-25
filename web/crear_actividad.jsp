@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12"align="center" style="margin-top: 20px;">
-                    <a href="dashboard_docente.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Volver</button></a>
+                    <a href="ver_contenido_docente.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Volver</button></a>
                 </div>
             </div>
             <div class="row" style="margin-top: 60px;">
@@ -23,29 +23,27 @@
                     </div>
                 </div> 	
                 <div class="col-md-6" align="center">
-                    <form>
+                    <form name ="crear_actividad" action="ServletCrearActividades">
                         <div class="form-group">
-					        <label>Nombre Actividad:</label>
-						<input type="text" class="form-control" name="nombActividad" placeholder="Ingresa el nombre de la Actividad" required>
-				    </div>
+                            <label>Nombre Actividad:</label>
+                            <input type="text" class="form-control" name="nombActividad" placeholder="Ingresa el nombre de la Actividad" required>
+                        </div>
+<!--                        <div class="form-group">
+                            <label>Tipo Actividad:</label>
+                            <input type="text" class="form-control" name="tipoActividad" placeholder="Ingresa el Tipo de la actividad" required>
+                        </div>-->
                         <div class="form-group">
-					        <label>Tipo Actividad:</label>
-						<input type="text" class="form-control" name="tipoActividad" placeholder="Ingresa el Tipo de la actividad" required>
-				    </div>
+                            <label>Fecha Entrega:</label>
+                            <input type="date" class="form-control" name="fechaEntrega" placeholder="Ingresa la fecha de Entrega" required>
+                        </div>
                         <div class="form-group">
-					        <label>Fecha Entrega:</label>
-						<input type="date" class="form-control" name="fechaEntrega" placeholder="Ingresa la fecha de Entrega" required>
-				    </div>
-                         <div class="form-group">
-					        <label>Descripcion:</label>
-                                                <textarea class="form-control" cols="20" rows="7" name="descripcion" required></textarea>
-                                                
-				    </div>
-                         <div class="form-group" align="center">
-                            <button class="btn btn-success" onclick="" name="" value=""><span class="glyphicon glyphicon-ok"></span> Crear Actividad</button>
+                            <label>Descripcion:</label>
+                            <textarea class="form-control" cols="20" rows="7" name="descripcion" required></textarea>                    
+                        </div>
+                        <div class="form-group" align="center">
+                            <button class="btn btn-success" onclick="" name="accion" value="crearActividad"><span class="glyphicon glyphicon-ok"></span> Crear Actividad</button>
                             <button class="btn btn-danger"  name="" value="" type="reset"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
                         </div>
-                        
                     </form>
                 </div> 	
          
