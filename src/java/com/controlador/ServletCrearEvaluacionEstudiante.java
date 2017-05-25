@@ -6,7 +6,9 @@
 package com.controlador;
 
 import com.BD.EvaluacionEstudianteJDBC;
+import com.BD.PreguntaEstudianteJDBC;
 import com.modelo.EvaluacionEstudiante;
+import com.modelo.PreguntaEstudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -56,7 +58,10 @@ public class ServletCrearEvaluacionEstudiante extends HttpServlet {
                 request.getRequestDispatcher("crear_evaluacion.jsp").forward(request, response);
             }
         }else if(accion.equals("crearPreguntas")){
+            PreguntaEstudianteJDBC pregEstuJDBC = new PreguntaEstudianteJDBC();
             String pkeyEvaluacion = request.getParameter("idEval");
+            ArrayList<PreguntaEstudiante> preguntasEstu = (ArrayList<PreguntaEstudiante>) pregEstuJDBC.selectContenidoCurso(Integer.parseInt(pkeyEvaluacion));
+            session.setAttribute("preguntasEstu", preguntasEstu);
             session.setAttribute("pkeyEvalEstu", pkeyEvaluacion);
             request.getRequestDispatcher("preguntas_evaluacion_estudiante.jsp").forward(request, response);
         }
