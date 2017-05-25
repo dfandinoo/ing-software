@@ -17,7 +17,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12"align="center" style="margin-top: 20px;">
+                    <img src="img/contenidos.png" width=190" height="190">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <div class="panel-group">
                         <div class="panel panel-primary" align="center">
                             <div class="panel-heading">Contenidos del Curso ${cursoIns.nombre}</div>

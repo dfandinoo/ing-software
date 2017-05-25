@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12"align="" style="margin-top: 20px;">
-                    <a href=""><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Volver</button></a>
+                    <a href="ver_contenido_estudiante.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Volver</button></a>
                 </div>
                 
             </div>
