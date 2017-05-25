@@ -29,6 +29,15 @@ public class ServletCrearEvaluacionEstudiante extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String nombreEvaluacion = request.getParameter("nombreEvaluacion");
+        String descripcion = request.getParameter("descripcion");
+        String duracion = request.getParameter("duracion");
+        String cantPreguntas = request.getParameter("cantPreguntas");
+        String accion = request.getParameter("accion");
+        if(accion.equals("enviar")){
+            
+        }
+        
         
     }
 
