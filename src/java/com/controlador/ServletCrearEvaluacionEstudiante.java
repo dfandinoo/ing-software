@@ -56,7 +56,9 @@ public class ServletCrearEvaluacionEstudiante extends HttpServlet {
                 request.getRequestDispatcher("crear_evaluacion.jsp").forward(request, response);
             }
         }else if(accion.equals("crearPreguntas")){
-            
+            String pkeyEvaluacion = request.getParameter("idEval");
+            session.setAttribute("pkeyEvalEstu", pkeyEvaluacion);
+            request.getRequestDispatcher("preguntas_evaluacion_estudiante.jsp").forward(request, response);
         }
         
         

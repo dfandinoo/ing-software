@@ -52,7 +52,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                                                     <td>${evalEstu.nombre}</td>
                                                     <td>${evalEstu.duracion}</td>
                                                     <td>${evalEstu.descripcion}</td>
-                                                    <td><a href="ServletCrearEvaluacionEstudiante?idCurso=${evalEstu.idEvaluacion}&accion=crearPreguntas"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Crear Preguntas</button></a></td>
+                                                    <td><a href="ServletCrearEvaluacionEstudiante?idEval=${evalEstu.idEvaluacion}&accion=crearPreguntas"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Crear Preguntas</button></a></td>
                                                 </tr>
                                             </c:forEach>    
                                         </tbody>

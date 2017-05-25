@@ -5,17 +5,22 @@
  */
 package com.controlador;
 
+import com.BD.PreguntaEstudianteJDBC;
+import com.modelo.PreguntaEstudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author damian
  */
+@WebServlet(name = "ServletCrearPregEvaEst", urlPatterns = {"/ServletCrearPregEvaEst"})
 public class ServletCrearPregEvaEst extends HttpServlet {
 
     /**
@@ -29,14 +34,27 @@ public class ServletCrearPregEvaEst extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-           String pregunta = request.getParameter("pregunta");
-           String accion = request.getParameter("accion");
-           if(accion.equals("enviar")){
-               
-           }
-        }
+        HttpSession session = request.getSession();
+        String pkeyEvalEstu = (String) session.getAttribute("pkeyEvalEstu");
+        String pregunta = request.getParameter("pregunta");
+        String valor = request.getParameter("valor");
+        String accion = request.getParameter("accion");
+        String mensaje="";
+            if(accion.equals("crearPregunta")){
+                PreguntaEstudiante pregEstu = new PreguntaEstudiante(pregunta, Double.parseDouble(valor));
+                PreguntaEstudianteJDBC pregEstuJDBC = new PreguntaEstudianteJDBC();
+                int rows = pregEstuJDBC.insertPregEstu(pregEstu, Integer.parseInt(pkeyEvalEstu));
+                
+                if(rows==1){
+                    mensaje="Pregunta creada Exitosamente";
+                    session.setAttribute("mensaje", mensaje);
+                    request.getRequestDispatcher("preguntas_evaluacion_estudiante.jsp").forward(request, response);
+                }else{
+                    mensaje="Pregunta creada ExitosamenteS";
+                    session.setAttribute("mensaje", mensaje);
+                    request.getRequestDispatcher("preguntas_evaluacion_estudiante.jsp").forward(request, response);
+                }
+            }   
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

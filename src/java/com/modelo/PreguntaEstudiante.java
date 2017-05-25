@@ -26,7 +26,12 @@ public class PreguntaEstudiante {
         this.textoPregunta = textoPregunta;
         this.valorPregunta = valorPregunta;
     }
-
+    
+    public PreguntaEstudiante(String textoPregunta, double valorPregunta) {
+        this.textoPregunta = textoPregunta;
+        this.valorPregunta = valorPregunta;
+    }
+    
     public String getIdPregunta() {
         return idPregunta;
     }
