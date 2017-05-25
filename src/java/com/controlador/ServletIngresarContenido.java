@@ -36,12 +36,6 @@ public class ServletIngresarContenido extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String descripcion = request.getParameter("descripcion");
         String accion = request.getParameter("accion");
-<<<<<<< HEAD
-        if(accion.equals("ingresar")){
-            
-        }
-        
-=======
         HttpSession session = request.getSession();
         String mensaje="";
         if(accion.equals("ingresar")){
@@ -56,7 +50,6 @@ public class ServletIngresarContenido extends HttpServlet {
                 request.getRequestDispatcher("ingresar_contenido_curso.jsp");
             }
         }
->>>>>>> bb0a2465e0bd616a3f8b21f6bfcfa5d3f3e97c15
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
