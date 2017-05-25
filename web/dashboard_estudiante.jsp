@@ -38,6 +38,8 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                                 <td>Nombre</td>
                                                 <td>Duración en Días</td>
                                                 <td>Fecha de Inicio</td>
+                                                <td>Ver contenidos</td>
+                                                <td>Presentar Evaluacion</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -46,8 +48,13 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                                     <td>${cursoIns.nombre}</td>
                                                     <td>${cursoIns.duracion}</td>
                                                     <td>${cursoIns.fechaInicio}</td>
+<<<<<<< HEAD
                                                     <td><a href="ServletDashboardEstu?idcurso={cursoIns.idCurso}&accion=vercontenidosestudiante"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></td>
                                                     <td><a href="ServletDashboardEstu?idcurso=poner_el_id&accion=presentarevaluacion"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Presentar Evaluacion</button></a></td>
+=======
+                                                    <td><a href="ServletDashboardEstu?idcurso=poner_el_id&accion=vercontenidosestudiante"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"> </span> </button></a></td>
+                                                    <td><a href="ServletDashboardEstu?idcurso=poner_el_id&accion=presentarevaluacion"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"> </span> </button></a></td>
+>>>>>>> f150b937caec37408fed1e1764b84f6ab8114e43
                                                 </tr>
                                             </c:forEach>    
                                         </tbody>
