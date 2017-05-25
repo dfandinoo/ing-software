@@ -27,13 +27,13 @@
 		</div>
             <% }else if(sesion.getAttribute("pkeyEstudiante") != null){ %>
                 <div class="row" style="margin-top: 10px;">
-                    <div class="col-md-6 " align="center">
+                    <div class="col-md-12 " align="center">
                         <a href="dashboard_estudiante.jsp"><button class="btn btn-success"><span class=" glyphicon glyphicon-user"></span> Dashboard</button></a>
                     </div>
 		</div>
             <% }else if(sesion.getAttribute("pkeyDocente") != null){ %>
                 <div class="row" style="margin-top: 10px;">
-                    <div class="col-md-6 " align="center">
+                    <div class="col-md-12 " align="center">
                         <a href="dashboard_docente.jsp"><button class="btn btn-success"><span class=" glyphicon glyphicon-user"></span> Dashboard</button></a>
                     </div>
 		</div>
