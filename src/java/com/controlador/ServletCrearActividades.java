@@ -44,7 +44,7 @@ public class ServletCrearActividades extends HttpServlet {
             pkeyContenido = (String) session.getAttribute("pkeyContenido");
             Actividad acti = new Actividad(nombre, descripcion, fechaEntrega);
             ActividadJDBC actiJDBC = new ActividadJDBC();
-            int rows = actiJDBC.insertContenido(acti, Integer.parseInt(pkeyContenido));
+            int rows = actiJDBC.insertActividad(acti, Integer.parseInt(pkeyContenido));
             if(rows == 1){
                 mensaje="Actividad creada con exito";
                 session.setAttribute("mensaje", mensaje);

@@ -5,12 +5,16 @@
  */
 package com.controlador;
 
+import com.BD.ActividadJDBC;
+import com.modelo.Actividad;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,7 +33,34 @@ public class ServletDesarrollarActividades extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        String pkeyContenido = request.getParameter("idContenido");
+        String accion = request.getParameter("accion");
+        HttpSession session = request.getSession();
+        String mensaje="";
+        if(accion.equals("verContenido")){
+            ActividadJDBC actiJDBC = new ActividadJDBC();
+            ArrayList<Actividad> actividades = (ArrayList<Actividad>) actiJDBC.selectActividad(Integer.parseInt(pkeyContenido));
+            Actividad acti = actividades.get(0);
+            session.setAttribute("pkeyActividad", acti.getIdActividad());
+            session.setAttribute("actividades", actividades);
+            session.setAttribute("pkeyContenido", pkeyContenido);
+            request.getRequestDispatcher("enviar_actividad.jsp").forward(request, response);
+        }else if(accion.equals("enviar")){
+            String descripcion = request.getParameter("descripcion");
+            int pkeyEstudiante = (int) session.getAttribute("pkeyEstudiante");
+            int pkeyActividad = (int) session.getAttribute("pkeyActividad");
+            ActividadJDBC actiJDBC = new ActividadJDBC();
+            int rows = actiJDBC.insertActividadDesarrollada(descripcion, pkeyEstudiante, pkeyActividad);
+            if(rows == 1){
+                mensaje="Actividad Desarrollada correctamente";
+                session.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("enviar_actividad.jsp").forward(request, response);
+            }else{
+                mensaje="La actividad no se ha podido desarrollar correctamente";
+                session.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("enviar_actividad.jsp").forward(request, response);
+            }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

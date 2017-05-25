@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class Actividad {
     
-    private String idActividad;
+    private int idActividad;
     private String nombre;
     private String descripcion;
     private String fechaEntrega;
@@ -22,7 +22,7 @@ public class Actividad {
     public Actividad() {
     }
 
-    public Actividad(String idActividad, String nombre, String descripcion, String fechaEntrega, ActividadDesarrollada actividadDesa) {
+    public Actividad(int idActividad, String nombre, String descripcion, String fechaEntrega, ActividadDesarrollada actividadDesa) {
         this.idActividad = idActividad;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -36,11 +36,11 @@ public class Actividad {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public String getIdActividad() {
+    public int getIdActividad() {
         return idActividad;
     }
 
-    public void setIdActividad(String idActividad) {
+    public void setIdActividad(int idActividad) {
         this.idActividad = idActividad;
     }
 
