@@ -18,7 +18,7 @@ if(sesion.getAttribute("administrador") != null){
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
-    <body>
+    <body style="background-color: #FFF8DC;">
         <div class="container-fluid">
             <div class="row" style="padding-top: 5px;">
                 <div class="col-md-6">
@@ -57,7 +57,7 @@ if(sesion.getAttribute("administrador") != null){
                     </div>
                     <div class="col-md-6">
                         <div>
-                            <img src="img/docente1.png" alt="">
+                            <img src="img/docente3.png" alt="">
                         </div>
                         <div>
                             <form action="ServletAsignarDocente">

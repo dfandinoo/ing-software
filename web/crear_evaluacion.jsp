@@ -1,4 +1,5 @@
 <%--
+#B0C4DE;
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("pkeyAdmin") != null){
 --%>
@@ -12,7 +13,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 	           <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
-<body style="background-color: 	#B0C4DE;">
+<body style="background-color: 	#FFF8DC;">
 	<div class="container-fluid">
             <div class="row" style="padding-top: 10px;">
                 <div class="col-md-6">

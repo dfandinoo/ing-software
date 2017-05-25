@@ -12,7 +12,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 	           <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
-<body style="background-color: 	#B0C4DE;">
+<body style="background-color: 	#FFF8DC;">
 	<div class="container-fluid">
             <div class="row" style="padding-top: 10px;">
                 <div class="col-md-6">
@@ -26,9 +26,9 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 				<legend style="font-size: 25px; ">Crear Curso</legend>
                         </div>
 			<div class="col-md-6 col-md-offset-3" align="center">
-                            <div>
-                                <img src="img/cursos.jpg" alt="">
-                            </div>
+					<div>
+                                            <img src="img/crear_curso.png" alt="" width="150" height="150">
+					</div>
 			<div>
                             <form name="CrearCurso" action="ServletCrearCurso">
                                 <div class="form-group">
