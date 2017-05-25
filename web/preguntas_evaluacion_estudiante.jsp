@@ -36,12 +36,12 @@ int cont=Integer.parseInt(cantPreguntas);
                                         
                                         out.write("<div class=\"form-group\">");
                                         out.write("<legend>Ingrese la pregunta numero: "+i+"</legend>");
-                                        out.println("<input type=\"text\" name=\"pregunta\"  class=\"form-control\" placeholder=\"Ingrese la Pregunta\">");
+                                        out.println("<input type=\"text\" name=\"pregunta${i}\"  class=\"form-control\" placeholder=\"Ingrese la Pregunta\">");
                                         out.write("</div>");
                                     }
                                 %>
                                   <div class="form-group" align="center">
-                            <button class="btn btn-success" onclick="submit();" name="" value=""><span class="glyphicon glyphicon-ok"></span> Registrar Preguntas</button>
+                            <button class="btn btn-success" onclick="submit();" name="accion" value="enviar"><span class="glyphicon glyphicon-ok"></span> Registrar Preguntas</button>
                             <button class="btn btn-danger"  name="" value="" type="reset"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
                         </div>
    	   	   	  </form>
