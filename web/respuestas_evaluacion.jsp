@@ -25,19 +25,19 @@
    	   	   <div class="col-md-4" style="margin-top: " align="center">
                         <div class="form-group">
                                 <label>Respuesta A:</label>
-                                 <input type="text" class="form-control" name="RespuestaA" placeholder="Ingresa la respuesta" required>
+                                 <input type="text" class="form-control" name="respuestaA" placeholder="Ingresa la respuesta" required>
                         </div>
    	   	   </div>
    	   	   <div class="col-md-4">
    	   	   	  <div class="form-group" align="center">
                                 <label>Respuesta B:</label>
-                                 <input type="text" class="form-control" name="RespuestaB" placeholder="Ingresa la respuesta" required>
+                                 <input type="text" class="form-control" name="respuestaB" placeholder="Ingresa la respuesta" required>
                         </div>
    	   	   </div>
                     <div class="col-md-4">
    	   	   	  <div class="form-group" align="center">
                                 <label>Respuesta C:</label>
-                                 <input type="text" class="form-control" name="RespuestaC" placeholder="Ingresa la respuesta" required>
+                                 <input type="text" class="form-control" name="respuestaC" placeholder="Ingresa la respuesta" required>
                         </div>
    	   	   </div>
 
@@ -47,7 +47,7 @@
             <div class="col-md-4 col-md-offset-4">
    	   	   	<div class="form-group" align="center">
                                 <label>Respuesta D:</label>
-                                 <input type="text" class="form-control" name="RespuestaD" placeholder="Ingresa la respuesta" required>
+                                 <input type="text" class="form-control" name="respuestaD" placeholder="Ingresa la respuesta" required>
                         </div>  
    	   </div>
        </div>
@@ -55,7 +55,7 @@
             <div class="col-md-6 col-md-offset-3">
    	   	   	<div class="form-group" align="center">
                                 <label>Seleccione la respuesta Correcta:</label>
-                                 <select name="" class="form-control selectpicker" required style="background-color: greenyellow;">
+                                 <select name="respuestaBuena" class="form-control selectpicker" required style="background-color: greenyellow;">
                                                  <option value="">
                                                  Seleccione la Respuesta Correcta
                                                 </option>                                               
@@ -67,7 +67,7 @@
                                 
                         </div>  
                 <div class="form-group" align="center">
-                    <button class="btn btn-success" name="accion" value=""><span class="glyphicon glyphicon-ok"  ></span> Registrar Respuestas</button>
+                    <button class="btn btn-success" name="accion" value="enviar"><span class="glyphicon glyphicon-ok"  ></span> Registrar Respuestas</button>
                     <button class="btn btn-danger" name="accion" value="" type="reset"><span class="glyphicon glyphicon-ok" ></span> Cancelar</button>
 
                 </div>
