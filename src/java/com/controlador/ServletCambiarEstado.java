@@ -6,8 +6,10 @@
 package com.controlador;
 
 import com.BD.EstudianteJDBC;
+import com.modelo.Estudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,10 +47,12 @@ public class ServletCambiarEstado extends HttpServlet {
                 }
                 EstudianteJDBC estuJDBC = new EstudianteJDBC();
                 int rows = estuJDBC.updateEstado(Integer.parseInt(pkeyEstudiante), band);
-                if(rows>0){
+                if(rows>0){                   
+                    ArrayList<Estudiante> estudiantes = (ArrayList<Estudiante>) estuJDBC.selectEstu();
+                    session.setAttribute("estudiantes", estudiantes);
                     mensaje="Cambio de Estado Exitoso";
                     session.setAttribute("mensaje", mensaje);
-                request.getRequestDispatcher("dashboard_admin.jsp").forward(request, response);
+                request.getRequestDispatcher("cambiar_estado.jsp").forward(request, response);
                 }else{
                     mensaje="Cambio de Estado Fallido";
                     session.setAttribute("mensaje", mensaje);

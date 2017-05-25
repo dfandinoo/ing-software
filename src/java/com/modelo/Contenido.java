@@ -11,7 +11,7 @@ package com.modelo;
  */
 public class Contenido {
     
-    private String idContenido;
+    private int idContenido;
     private String nombre;
     private String descripcion;
     private Actividad actividad;
@@ -19,7 +19,7 @@ public class Contenido {
     public Contenido() {
     }
 
-    public Contenido(String idContenido, String nombre, String descripcion, Actividad actividad) {
+    public Contenido(int idContenido, String nombre, String descripcion, Actividad actividad) {
         this.idContenido = idContenido;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -31,11 +31,11 @@ public class Contenido {
         this.descripcion = descripcion;
     }
     
-    public String getIdContenido() {
+    public int getIdContenido() {
         return idContenido;
     }
 
-    public void setIdContenido(String idContenido) {
+    public void setIdContenido(int idContenido) {
         this.idContenido = idContenido;
     }
 

@@ -43,13 +43,13 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${cursosInscri}" var="cursoIns">
+                                            <c:forEach items="${cursosInscritos}" var="cursoIns">
                                                 <tr>
                                                     <td>${cursoIns.nombre}</td>
                                                     <td>${cursoIns.duracion}</td>
                                                     <td>${cursoIns.fechaInicio}</td>
-                                                    <td><a href="ServletDashboardEstu?idcurso={cursoIns.idCurso}&accion=vercontenidosestudiante"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></td>
-                                                    <td><a href="ServletDashboardEstu?idcurso=poner_el_id&accion=presentarevaluacion"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Presentar Evaluacion</button></a></td>
+                                                    <td><a href="ServletDashboardEstu?idCurso=${cursoIns.idCurso}&accion=verContenido"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></td>
+                                                    <td><a href="ServletDashboardEstu?idCurso=${cursoIns.idCurso}&accion=presentarevaluacion"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Presentar Evaluacion</button></a></td>
                                                 </tr>
                                             </c:forEach>    
                                         </tbody>

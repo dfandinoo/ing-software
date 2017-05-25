@@ -41,7 +41,7 @@ int cont=Integer.parseInt(cantPreguntas);
                                     }
                                 %>
                                   <div class="form-group" align="center">
-                            <button class="btn btn-success" onclick="submit();" name="" value=""><span class="glyphicon glyphicon-ok"></span> Registrar Preguntas</button>
+                            <button class="btn btn-success" onclick="submit();" name="accion" value="enviar"><span class="glyphicon glyphicon-ok"></span> Registrar Preguntas</button>
                             <button class="btn btn-danger"  name="" value="" type="reset"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
                         </div>
    	   	   	  </form>

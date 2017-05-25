@@ -1,8 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Contenidos_Estuiante</title>
+        <title>Contenidos Estudiante</title>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
                    <!-- Latest compiled and minified CSS -->
@@ -16,47 +17,33 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12" align="center">
-                    <div>
-                    <img src="img/contenidos.png" alt="" width="225" height="225">
+                <div class="col-md-8">
+                    <div class="panel-group">
+                        <div class="panel panel-primary" align="center">
+                            <div class="panel-heading">Contenidos del Curso ${cursoIns.nombre}</div>
+                            <div class="panel-body">
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                            <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${contenidos}" var="contenido">
+                                            <tr>
+                                                <td>${contenido.nombre}</td>
+                                                <td>${contenido.descripcion}</td>
+                                                <td><a href="ServletDashboardEstu?idCurso=${cursoIns.idCurso}&accion=verContenido"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></td>
+                                                <td><a href="ServletDashboardEstu?idCurso=${cursoIns.idCurso}&accion=presentarevaluacion"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Presentar Evaluacion</button></a></td>
+                                            </tr>
+                                        </c:forEach>    
+                                    </tbody>
+                                </table>
+                            </div>                                    
+                        </div>
                     </div>
-                    <div class="panel panel-primary" align="center">
-                                    <div class="panel-heading">Contenidos del Curso</div>
-                                            <div class="panel-body">
-                                                <table class="table table-striped table-bordered">
-                                                    <thead>
-                                                    <tr>
-                                                    <th>columna1</th>
-                                                    <th>columna2</th>
-                                                    <th>columna3</th>
-                                                    <th>columna4</th>
-                                                    <th>columna5</th>
-                                                    <th>Enviar Actividad</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        
-                                                        <tr>
-                                                    <th>datos1</th>
-                                                     <th>datos1</th>
-                                                      <th>datos1</th>
-                                                       <th>datos1</th>
-                                                        <th>datos1</th>
-                                                        <th><button class="btn btn-success"><span class="glyphicon glyphicon glyphicon-list"></span> Enviar Actividad </button></th>
-                                                        </tr>
-                                                           <tr>
-                                                    <th>datos2</th>
-                                                     <th>datos2</th>
-                                                      <th>datos2</th>
-                                                       <th>datos2</th>
-                                                        <th>datos2</th>
-                                                        <th><button class="btn btn-success"><span class="glyphicon glyphicon glyphicon-list"></span> Enviar Actividad </button></th>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div> 
-                            </div>      
-                </div>	 
+                </div> 
             </div> 		
          
  	</div>

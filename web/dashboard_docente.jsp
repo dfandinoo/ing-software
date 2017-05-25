@@ -25,39 +25,39 @@
             </div>
             <div class="row">
                 <div class="col-md-6"align="center">
-                   <div class="row">
-                            <div class="col-md-12"align="center">
-                                 <div class="thumbnail" align="center" style="background-color: #7FFF00; color: white;">
-                                       <img src="img/evaluacion.png" alt=""  width="150" height="150">
-                                            <div>
-                                                <caption>
-                                                    <button class="btn btn-danger" name="accion" value="">Crear Evaluacion Estudiantes</button></a>
-                                                </caption>
-                                            </div>
-                                 </div>
-                            </div>
-                 </div>
-                       <div class="row">
-                            <div class="col-md-6"align="center">
-                                 <div class="thumbnail" align="center" style="background-color:#7FFF00; color: white;">
-                                       <img src="img/Edit.png" alt=""  width="128" height="128">
-                                            <div>
-                                                <caption>
-                                                    <button class="btn btn-primary" name="accion" value="">Editar Informacion</button></a>
-                                                </caption>
-                                            </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6"align="center">
-                                <div class="thumbnail" align="center" style="background-color: 	#7FFF00; color: white;">
-                                        <img src="img/quejas.png" alt=""  width="150" height="150">
+                    <div class="row">
+                        <div class="col-md-12"align="center">
+                            <div class="thumbnail" align="center" style="background-color: #7FFF00; color: white;">
+                                <img src="img/evaluacion.png" alt=""  width="150" height="150">
                                     <div>
                                         <caption>
-                                            <a href="QuejasyReclamos.jsp"><button class="btn btn-primary" name="accion" value="">Enviar Quejas o Reclamos</button></a>
+                                            <button class="btn btn-danger" name="accion" value="">Crear Evaluacion Estudiantes</button></a>
                                         </caption>
                                     </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6"align="center">
+                            <div class="thumbnail" align="center" style="background-color:#7FFF00; color: white;">
+                                <img src="img/Edit.png" alt=""  width="128" height="128">
+                                <div>
+                                    <caption>
+                                        <button class="btn btn-primary" name="accion" value="">Editar Informacion</button></a>
+                                    </caption>
+                                </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6"align="center">
+                            <div class="thumbnail" align="center" style="background-color: 	#7FFF00; color: white;">
+                                    <img src="img/quejas.png" alt=""  width="150" height="150">
+                                <div>
+                                    <caption>
+                                        <a href="QuejasyReclamos.jsp"><button class="btn btn-primary" name="accion" value="">Enviar Quejas o Reclamos</button></a>
+                                    </caption>
                                 </div>
                             </div>
+                        </div>
                     </div>                 
                 </div>
            
