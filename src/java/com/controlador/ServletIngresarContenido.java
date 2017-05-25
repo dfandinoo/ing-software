@@ -34,6 +34,9 @@ public class ServletIngresarContenido extends HttpServlet {
         String tema = request.getParameter("tema");
         String descripcion = request.getParameter("descripcion");
         String accion = request.getParameter("accion");
+        if(accion.equals("ingresar")){
+            
+        }
         
     }
 
