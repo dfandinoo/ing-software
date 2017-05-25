@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -35,12 +36,18 @@ public class ServletIngresarContenido extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String descripcion = request.getParameter("descripcion");
         String accion = request.getParameter("accion");
+        HttpSession session = request.getSession();
+        String mensaje="";
         if(accion.equals("ingresar")){
             Contenido conten = new Contenido(nombre, descripcion);
             ContenidoJDBC contenJDBC = new ContenidoJDBC();
             int rows = contenJDBC.insertContenido(conten, Integer.parseInt(pkeyCurso));
             if(rows==1){
-                
+                request.getRequestDispatcher("dashboard_admin.jsp").forward(request, response);
+            }else{
+                mensaje="No se ha podido crear en contenido al curso";
+                session.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("ingresar_contenido_curso.jsp");
             }
         }
     }
