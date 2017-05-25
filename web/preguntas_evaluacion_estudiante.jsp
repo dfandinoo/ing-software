@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6" style="margin-top: 10px;" align="left">
-                    <button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Volver</button>
+                    <a href="crear_evaluacion.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Volver</button></a>
                 </div>
             </div>
             <div class="row" style="margin-top: 15px;">

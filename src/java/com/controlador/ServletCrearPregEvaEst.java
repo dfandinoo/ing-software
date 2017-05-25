@@ -6,7 +6,9 @@
 package com.controlador;
 
 import com.BD.PreguntaEstudianteJDBC;
+import com.BD.RespuestaEstudianteJDBC;
 import com.modelo.PreguntaEstudiante;
+import com.modelo.RespuestaEstudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -47,16 +49,23 @@ public class ServletCrearPregEvaEst extends HttpServlet {
                 int rows = pregEstuJDBC.insertPregEstu(pregEstu, Integer.parseInt(pkeyEvalEstu));
                 
                 if(rows==1){
-                    ArrayList<PreguntaEstudiante> preguntasEstu = (ArrayList<PreguntaEstudiante>) pregEstuJDBC.selectContenidoCurso(Integer.parseInt(pkeyEvalEstu));
+                    ArrayList<PreguntaEstudiante> preguntasEstu = (ArrayList<PreguntaEstudiante>) pregEstuJDBC.selectPreguntaEvaluacion(Integer.parseInt(pkeyEvalEstu));
                     mensaje="Pregunta creada Exitosamente";
                     session.setAttribute("preguntasEstu", preguntasEstu);
                     session.setAttribute("mensaje", mensaje);
                     request.getRequestDispatcher("preguntas_evaluacion_estudiante.jsp").forward(request, response);
                 }else{
-                    mensaje="Pregunta creada ExitosamenteS";
+                    mensaje="La pregunta no fue creada correctamente";
                     session.setAttribute("mensaje", mensaje);
                     request.getRequestDispatcher("preguntas_evaluacion_estudiante.jsp").forward(request, response);
                 }
+            }else if(accion.equals("crearRespuestas")){
+                String pkeyPregEstu = request.getParameter("idPregunta");
+                RespuestaEstudianteJDBC respEstuJDBC = new RespuestaEstudianteJDBC();
+                ArrayList<RespuestaEstudiante> respuestasEstu = (ArrayList<RespuestaEstudiante>) respEstuJDBC.selectRespuestasEvaluacion(Integer.parseInt(pkeyPregEstu));
+                session.setAttribute("respuestasEstu", respuestasEstu);
+                session.setAttribute("pkeyPregEstu", pkeyPregEstu);
+                request.getRequestDispatcher("respuestas_evaluacion.jsp").forward(request, response);
             }   
     }
 

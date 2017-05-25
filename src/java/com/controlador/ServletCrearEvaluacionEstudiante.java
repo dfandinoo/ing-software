@@ -60,7 +60,7 @@ public class ServletCrearEvaluacionEstudiante extends HttpServlet {
         }else if(accion.equals("crearPreguntas")){
             PreguntaEstudianteJDBC pregEstuJDBC = new PreguntaEstudianteJDBC();
             String pkeyEvaluacion = request.getParameter("idEval");
-            ArrayList<PreguntaEstudiante> preguntasEstu = (ArrayList<PreguntaEstudiante>) pregEstuJDBC.selectContenidoCurso(Integer.parseInt(pkeyEvaluacion));
+            ArrayList<PreguntaEstudiante> preguntasEstu = (ArrayList<PreguntaEstudiante>) pregEstuJDBC.selectPreguntaEvaluacion(Integer.parseInt(pkeyEvaluacion));
             session.setAttribute("preguntasEstu", preguntasEstu);
             session.setAttribute("pkeyEvalEstu", pkeyEvaluacion);
             request.getRequestDispatcher("preguntas_evaluacion_estudiante.jsp").forward(request, response);

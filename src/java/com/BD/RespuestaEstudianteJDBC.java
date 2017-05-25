@@ -5,7 +5,7 @@
  */
 package com.BD;
 
-import com.modelo.PreguntaEstudiante;
+import com.modelo.RespuestaEstudiante;
 import com.servicio.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,23 +18,23 @@ import java.util.List;
  *
  * @author felipe
  */
-public class PreguntaEstudianteJDBC {
-    private final String SQL_INSERT_PREG_ESTU =
-            "INSERT INTO preguntaestudiante(textoPregunta, valorPregunta, fkeyEvalEstu) VALUES(?, ?, ?)";
+public class RespuestaEstudianteJDBC {
+    private final String SQL_INSERT_RESP_ESTU =
+            "INSERT INTO respuestaestudiante(textoResp, esCorrecta, fkeyPregEstu) VALUES(?, ?, ?)";
     
-    public int insertPregEstu(PreguntaEstudiante pregEstu, int pkeyEvalEstu){
+    public int insertRespuestaEstu(RespuestaEstudiante respEstu, int pkeyPregEstu){
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         int rows = 0;
         try{
             conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_INSERT_PREG_ESTU);
+            stmt = conn.prepareStatement(SQL_INSERT_RESP_ESTU);
             int index = 1;
-            stmt.setString(index++, pregEstu.getTextoPregunta());
-            stmt.setDouble(index++, pregEstu.getValorPregunta());
-            stmt.setInt(index++, pkeyEvalEstu);
-            System.out.println("Ejecutando query "+SQL_INSERT_PREG_ESTU);
+            stmt.setString(index++, respEstu.getTextoRespuesta());
+            stmt.setBoolean(index++, respEstu.isEsCorrecta());
+            stmt.setInt(index++, pkeyPregEstu);
+            System.out.println("Ejecutando query "+SQL_INSERT_RESP_ESTU);
             rows = stmt.executeUpdate();
             System.out.println("Registros Afectados "+rows);
         }catch(SQLException e){
@@ -47,24 +47,24 @@ public class PreguntaEstudianteJDBC {
         return rows;
     }
     
-    public List<PreguntaEstudiante> selectPreguntaEvaluacion(int pkeyEvalEstu){
+    public List<RespuestaEstudiante> selectRespuestasEvaluacion(int pkeyPregEstu){
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         int rows = 0;
-        PreguntaEstudiante pregEstu = null;
-        ArrayList<PreguntaEstudiante> pregunstasEstu = new ArrayList<PreguntaEstudiante>();
+        RespuestaEstudiante respEstu = null;
+        ArrayList<RespuestaEstudiante> respuestasEstu = new ArrayList<RespuestaEstudiante>();
         try{
             conn = Conexion.getConnection();
-            stmt = conn.prepareStatement("SELECT * FROM preguntaestudiante WHERE fkeyEvalEstu = (?)");
-            stmt.setInt(1, pkeyEvalEstu);
+            stmt = conn.prepareStatement("SELECT * FROM respuestaestudiante WHERE fkeyPregEstu = (?)");
+            stmt.setInt(1, pkeyPregEstu);
             rs = stmt.executeQuery();
             while(rs.next()){
-                pregEstu = new PreguntaEstudiante();
-                pregEstu.setIdPregunta(rs.getInt(1));
-                pregEstu.setTextoPregunta(rs.getString(2));
-                pregEstu.setValorPregunta(rs.getDouble(3));
-                pregunstasEstu.add(pregEstu);
+                respEstu = new RespuestaEstudiante();
+                respEstu.setIdRespuesta(rs.getInt(1));
+                respEstu.setTextoRespuesta(rs.getString(2));
+                respEstu.setEsCorrecta(rs.getBoolean(3));
+                respuestasEstu.add(respEstu);
             }
         }catch(SQLException e){
             e.printStackTrace();
@@ -74,6 +74,6 @@ public class PreguntaEstudianteJDBC {
             Conexion.close(stmt);
             Conexion.close(rs);
         }
-        return pregunstasEstu;
+        return respuestasEstu;
     }
 }

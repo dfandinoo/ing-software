@@ -11,24 +11,29 @@ package com.modelo;
  */
 public class RespuestaEstudiante {
     
-    private String idRespuesta;
+    private int idRespuesta;
     private String textoRespuesta;
     private boolean esCorrecta;
 
     public RespuestaEstudiante() {
     }
 
-    public RespuestaEstudiante(String idRespuesta, String textoRespuesta, boolean esCorrecta) {
+    public RespuestaEstudiante(int idRespuesta, String textoRespuesta, boolean esCorrecta) {
         this.idRespuesta = idRespuesta;
         this.textoRespuesta = textoRespuesta;
         this.esCorrecta = esCorrecta;
     }
-
-    public String getIdRespuesta() {
+    
+    public RespuestaEstudiante(String textoRespuesta, boolean esCorrecta) {
+        this.textoRespuesta = textoRespuesta;
+        this.esCorrecta = esCorrecta;
+    }
+    
+    public int getIdRespuesta() {
         return idRespuesta;
     }
 
-    public void setIdRespuesta(String idRespuesta) {
+    public void setIdRespuesta(int idRespuesta) {
         this.idRespuesta = idRespuesta;
     }
 

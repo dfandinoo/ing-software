@@ -33,6 +33,10 @@
         <servlet-class>com.controlador.ServletDashboardEstu</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ServletCrearPregEvaEst</servlet-name>
+        <servlet-class>com.controlador.ServletCrearPregEvaEst</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ServletDashboardAdmin</servlet-name>
         <servlet-class>com.controlador.ServletDashboardAdmin</servlet-class>
     </servlet>

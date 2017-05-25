@@ -5,12 +5,16 @@
  */
 package com.controlador;
 
+import com.BD.RespuestaEstudianteJDBC;
+import com.modelo.RespuestaEstudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,19 +33,33 @@ public class ServletCrearResEvaEst extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String respuestaA = request.getParameter("respuestaA");
-            String respuestaB = request.getParameter("respuestaB");
-            String respuestaC = request.getParameter("respuestaC");
-            String respuestaD = request.getParameter("respuestaD");
-            String respuestaBuena = request.getParameter("respuestaBuena");
-            String idPregunta = request.getParameter("idPregunta");
-            String accion = request.getParameter("accion");
-            if(accion.equals("enviar")){
-                
+        HttpSession session = request.getSession();
+        String respuesta = request.getParameter("respuesta");
+        String esCorrecta = request.getParameter("esCorrecta");
+        String accion = request.getParameter("accion");
+        boolean ban=false;
+        String mensaje="";
+        if(accion.equals("crearPregunta")){
+            String pkeyPregEstu = (String) session.getAttribute("pkeyPregEstu");
+            if(esCorrecta.equals("correcta")){
+                ban=true;
+            }else if(esCorrecta.equals("incorrecta")){
+                ban=false;
             }
-            
+            RespuestaEstudiante respEstu = new RespuestaEstudiante(respuesta, ban);
+            RespuestaEstudianteJDBC respEstuJDBC = new RespuestaEstudianteJDBC();
+            int rows = respEstuJDBC.insertRespuestaEstu(respEstu, Integer.parseInt(pkeyPregEstu));
+            if(rows==1){
+                    ArrayList<RespuestaEstudiante> respuestasEstu = (ArrayList<RespuestaEstudiante>) respEstuJDBC.selectRespuestasEvaluacion(Integer.parseInt(pkeyPregEstu));
+                    mensaje="Respuesta creada Exitosamente";
+                    session.setAttribute("respuestasEstu", respuestasEstu);
+                    session.setAttribute("mensaje", mensaje);
+                    request.getRequestDispatcher("respuestas_evaluacion.jsp").forward(request, response);
+                }else{
+                    mensaje="La respuesta no fue Creada";
+                    session.setAttribute("mensaje", mensaje);
+                    request.getRequestDispatcher("respuestas_evaluacion.jsp").forward(request, response);
+                }
         }
     }
 
