@@ -5,12 +5,15 @@
  */
 package com.controlador;
 
+import com.BD.ActividadJDBC;
+import com.modelo.Actividad;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,7 +32,32 @@ public class ServletCrearActividades extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        String nombre = request.getParameter("nombActividad");
+//        String tipo = request.getParameter("tipoActividad");
+        String fechaEntrega = request.getParameter("fechaEntrega");
+        String descripcion = request.getParameter("descripcion");
+        String pkeyContenido = request.getParameter("idContenido");
+        String accion = request.getParameter("accion");
+        HttpSession session = request.getSession();
+        String mensaje="";
+        if(accion.equals("crearActividad")){
+            pkeyContenido = (String) session.getAttribute("pkeyContenido");
+            Actividad acti = new Actividad(nombre, descripcion, fechaEntrega);
+            ActividadJDBC actiJDBC = new ActividadJDBC();
+            int rows = actiJDBC.insertContenido(acti, Integer.parseInt(pkeyContenido));
+            if(rows == 1){
+                mensaje="Actividad creada con exito";
+                session.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("dashboard_docente.jsp").forward(request, response);
+            }else{
+                mensaje="Error al crear la Actividad";
+                session.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("crear_actividad.jsp").forward(request, response);
+            }
+        }else if(accion.equals("verContenido")){
+            session.setAttribute("pkeyContenido", pkeyContenido);
+            request.getRequestDispatcher("crear_actividad.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
