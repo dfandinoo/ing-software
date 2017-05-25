@@ -24,18 +24,16 @@
                             <div class="panel-body">
                                 <table value="idCurso" class="table table-striped table-bordered">
                                     <thead>                                         
-                                            <td>Nombre</td>
-                                            <td>Duracion en Días</td>
-                                            <td>Fecha de Inicio</td>
-                                        
+                                        <td>Nombre</td>
+                                        <td>Duracion en Días</td>
+                                        <td>Fecha de Inicio</td>
                                     </thead>
                                     <tbody>
                                         <c:forEach items="${cursos}" var="curso">
                                             <tr>
                                                 <td>${curso.nombre}</td>
                                                 <td>${curso.duracion}</td>
-                                                <td>${curso.fechaInicio}</td>
-                                                
+                                                <td>${curso.fechaInicio}</td>                                             
                                             </tr>
                                         </c:forEach>
                                     </tbody>    
@@ -50,6 +48,7 @@
                         <div>
                             <form action="ServletIngresarContenido">    
                                 <div class="form-group">
+                                    <div class="alert alert-danger alert-dismissible" role="alert">${mensaje}</div>
                                     <label>Seleccione el Curso</label>
                                     <select name="idCurso" class="form-control selectpicker" required>
                                         <c:forEach items="${cursos}" var="curso">

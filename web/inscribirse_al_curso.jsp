@@ -19,7 +19,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
             <div class="row" style="padding-top: 5px;">
                 <div class="col-md-6">
                     <div align="left">
-                        <a href="dashboard_estudiante.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</button></a>
+                        <a href="dashboard_estudiante.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Volver</button></a>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,9 @@
  */
 package com.controlador;
 
+import com.BD.ContenidoJDBC;
 import com.BD.CursoJDBC;
+import com.modelo.Contenido;
 import com.modelo.Curso;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,9 +40,9 @@ public class ServletDashboardEstu extends HttpServlet {
             HttpSession session = request.getSession();
             String accion = request.getParameter("accion");
             int pkeyEstudiante = (int) session.getAttribute("pkeyEstudiante");
+            String pkeyCurso = request.getParameter("idCurso");
             int x=0;
-            if(accion.equals("inscribirEstu")){   
-                
+            if(accion.equals("inscribirEstu")){                  
                 CursoJDBC cursoJDBC = new CursoJDBC();
                 ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.select(); 
                 ArrayList<Curso> cursosInscritos =  (ArrayList<Curso>) cursoJDBC.selectIdCurso(pkeyEstudiante);
@@ -49,6 +51,11 @@ public class ServletDashboardEstu extends HttpServlet {
                 request.getRequestDispatcher("inscribirse_al_curso.jsp").forward(request, response); 
             }else if(accion.equals("editarEstu")){
                 request.getRequestDispatcher("editar_usuario.jsp").forward(request, response);
+            }else if(accion.equals("verContenido")){
+                ContenidoJDBC conteJDBC = new ContenidoJDBC();
+                ArrayList<Contenido> contenidos = (ArrayList<Contenido>) conteJDBC.selectContenidoCurso(Integer.parseInt(pkeyCurso));
+                session.setAttribute("contenidos", contenidos);
+                request.getRequestDispatcher("ver_contenido_estudiante.jsp").forward(request, response);
             }
     }
 

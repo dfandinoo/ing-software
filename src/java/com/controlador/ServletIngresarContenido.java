@@ -43,7 +43,9 @@ public class ServletIngresarContenido extends HttpServlet {
             ContenidoJDBC contenJDBC = new ContenidoJDBC();
             int rows = contenJDBC.insertContenido(conten, Integer.parseInt(pkeyCurso));
             if(rows==1){
-                request.getRequestDispatcher("dashboard_admin.jsp").forward(request, response);
+                mensaje = "Contenido creado";
+                session.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("ingresar_contenido_curso.jsp").forward(request, response);
             }else{
                 mensaje="No se ha podido crear en contenido al curso";
                 session.setAttribute("mensaje", mensaje);

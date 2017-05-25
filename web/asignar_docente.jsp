@@ -23,17 +23,36 @@ if(sesion.getAttribute("administrador") != null){
             <div class="row" style="padding-top: 5px;">
                 <div class="col-md-6">
                     <div align="left">
-                        <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</button></a>
+                        <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Volver</button></a>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12" align="center">
                     <legend style="font-size: 25px; ">ASIGNAR DOCENTE AL CURSO</legend>
-                    <div class="col-md-6" style="">
-                        <div class="panel panel-success" align="center">
-                            <div class="panel-heading">DOCENTES DISPONIBLES</div>
-                            <div class="panel-body">Panel Content</div>
+                    <div class="col-md-6">
+                        <div class="panel-group">
+                            <div class="panel panel-info" align="center">
+                                <div class="panel-heading">Docentes</div>
+                                <div class="panel-body">
+                                    <table value="idCurso" class="table table-striped table-bordered">
+                                        <thead>
+                                            <td>Nombre</td>
+                                            <td>Correo</td>
+                                            <td>Especialidad</td>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${docentes}" var="docente">
+                                                <tr>
+                                                    <td>${docente.nombres} ${docente.apellidos}</td>
+                                                    <td>${docente.correo}</td>
+                                                    <td>${docente.especialidad}</td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>                     
                         </div>
                     </div>
                     <div class="col-md-6">

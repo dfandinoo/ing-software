@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -43,5 +45,35 @@ public class ContenidoJDBC {
             Conexion.close(stmt);
         }
         return rows;
+    }
+    
+    public List<Contenido> selectContenidoCurso(int pkeyCurso){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int rows = 0;
+        Contenido conten = null;
+        ArrayList<Contenido> contenidos = new ArrayList<Contenido>();
+        try{
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement("SELECT * FROM contenido WHERE fkeyCurso = (?)");
+            stmt.setInt(1, pkeyCurso);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                conten = new Contenido();
+                conten.setIdContenido(rs.getInt(1));
+                conten.setNombre(rs.getString(2));
+                conten.setDescripcion(rs.getString(3));
+                contenidos.add(conten);
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            Conexion.close(conn);
+            Conexion.close(stmt);
+            Conexion.close(rs);
+        }
+        return contenidos;
     }
 }

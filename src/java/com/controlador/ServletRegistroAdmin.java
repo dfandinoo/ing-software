@@ -13,6 +13,7 @@ import com.modelo.Docente;
 import com.modelo.Estudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -59,6 +60,8 @@ public class ServletRegistroAdmin extends HttpServlet {
                     DocenteJDBC doceJDBC = new DocenteJDBC();
                     int rows = doceJDBC.insertDocente(docente);
                     if(rows==1){
+                        ArrayList<Docente> docentes = (ArrayList<Docente>) doceJDBC.selectDocentes();
+                        sesion.setAttribute("docentes", docentes);
                         mensaje = "Registro de Docente Exitoso";
                     }else{
                         mensaje = "Error, Registro Docente";

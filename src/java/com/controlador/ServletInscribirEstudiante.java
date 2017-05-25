@@ -45,9 +45,11 @@ public class ServletInscribirEstudiante extends HttpServlet {
                 int rows = cursoJDBC.insertInscrip(pkeyEstudiante, idCurso);
 
                 if(rows ==1){
+                    ArrayList<Curso> cursosInscritos =  (ArrayList<Curso>) cursoJDBC.selectIdCurso(pkeyEstudiante);
+                    session.setAttribute("cursosInscritos", cursosInscritos);
                     mensaje="El estudiante se ha inscrito correctamente";
                     session.setAttribute("mensaje", mensaje);
-                    request.getRequestDispatcher("dashboard_estudiante.jsp").forward(request, response);
+                    request.getRequestDispatcher("inscribirse_al_curso.jsp").forward(request, response);
                 }else{
                     mensaje="Hubo error en la inscripción";
                     session.setAttribute("mensaje", mensaje);

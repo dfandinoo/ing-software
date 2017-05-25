@@ -5,9 +5,11 @@
  */
 package com.controlador;
 
+import com.BD.CursoJDBC;
 import com.modelo.Curso;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,18 +42,21 @@ public class ServletCrearCurso extends HttpServlet {
         String fechaInicio = request.getParameter("fechini");
         String accion = request.getParameter("accion");
         boolean estado = true;
-        HttpSession sesion = request.getSession();
+        HttpSession session = request.getSession();
         String mensaje="";
         
         if(accion.equals("crear")){
             Curso curso = new Curso();
             if(curso.insertarCurso(nombre, canEstudiantes, fechaInicio, duracion, estado) == 1){
+                CursoJDBC cursoJDBC = new CursoJDBC();
+                ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.select(); 
+                session.setAttribute("cursos", cursos);
                 mensaje = "Creación del Curso Exitosa";
-                sesion.setAttribute("mensaje", mensaje);
+                session.setAttribute("mensaje", mensaje);
                 request.getRequestDispatcher("crear_cursos.jsp").forward(request, response);  
             }else{
                 mensaje = "Error en Creación del Curso";
-                sesion.setAttribute("mensaje", mensaje);
+                session.setAttribute("mensaje", mensaje);
                 request.getRequestDispatcher("crear_cursos.jsp").forward(request, response);
             }
         }

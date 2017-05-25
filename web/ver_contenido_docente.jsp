@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,45 +13,38 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12"align="center" style="margin-top: 20px;">
-                    <a href="index.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Volver</button></a>
+                    <a href="dashboard_estudiante.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Volver</button></a>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12" align="center">
-                    <div>
-                    <img src="img/contenidos.png" alt="" width="225" height="225">
+                <div class="col-md-8">
+                    <div class="panel-group">
+                        <div class="panel panel-primary" align="center">
+                            <div class="panel-heading">Contenidos del Curso</div>
+                            <div class="panel-body">
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                            <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${contenidos}" var="contenido">
+                                            <tr>
+                                                <td>${contenido.nombre}</td>
+                                                <td>${contenido.descripcion}</td>
+                                                <td><a href="ServletDashboardEstu?idCurso=${cursoIns.idCurso}&accion=verContenido"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></td>
+                                                <td><a href="ServletDashboardEstu?idCurso=${cursoIns.idCurso}&accion=presentarevaluacion"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Presentar Evaluacion</button></a></td>
+                                            </tr>
+                                        </c:forEach>    
+                                    </tbody>
+                                </table>
+                            </div>                                    
+                        </div>
                     </div>
-                    <div class="panel panel-primary" align="center">
-                                    <div class="panel-heading">Contenidos del Curso</div>
-                                            <div class="panel-body">
-                                                <table class="table table-striped table-bordered">
-                                                    <thead>
-                                                    <tr>
-                                                    <th>columna1</th>
-                                                    <th>columna2</th>
-                                                    <th>columna3</th>
-                                                    <th>columna4</th>
-                                                    <th>columna5</th>
-                                                    <th>Crear Actividad</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        
-                                                        <tr>
-                                                    <th>datos1</th>
-                                                     <th>datos1</th>
-                                                      <th>datos1</th>
-                                                       <th>datos1</th>
-                                                        <th>datos1</th>
-                                                        <th><a href="crear_actividad.jsp"><button class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-list"></span> Crear Actividad </button></a></th>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div> 
-                            </div>      
-                </div>	 
-            </div> 		
-         
+                </div>
+            </div> 		        
  	</div>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
