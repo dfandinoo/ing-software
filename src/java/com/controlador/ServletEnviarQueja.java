@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author damian
  */
-public class ServletQuejasYReclamos extends HttpServlet {
+public class ServletEnviarQueja extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
