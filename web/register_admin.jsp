@@ -36,8 +36,20 @@
                             <legend align="center">Formulario De Registro</legend>
                             <span  > <img src="img/registro_logo.png" alt="" width="100" height="100"></span>
                         </div>
-                        <div class="alert alert-danger alert-dismissible" role="alert">${mensaje}</div>
-                        <div class="form-group">
+                        <%
+                         HttpSession sesion = request.getSession();
+                         if( sesion.getAttribute("mensaje") == null ) {                                
+                            }else if(sesion.getAttribute("mensaje")=="Registro de Docente Exitoso")
+                            {
+                               %> <div class="alert alert-success " role="alert">${mensaje}</div><%
+                                    sesion.removeAttribute("mensaje");
+                            }else
+                            {
+                            %><div class="alert alert-danger " role="alert">${mensaje}</div><%
+                                sesion.removeAttribute("mensaje");
+                            }
+                          %>
+                     <div class="form-group">
                             <label>Nombres:</label>	
                             <input type="text" class="form-control" name="nombres" placeholder="Ingrese su nombre " required>
                         </div>

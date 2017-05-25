@@ -51,7 +51,20 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                                        <button class="btn btn-danger" class="glyphicon glyphicon-ok" name="accion" value="cancelar" type="reset"> Cancelar</button>
                                     </div>
                                 </div>
-                                <div class="alert alert-danger alert-dismissible" role="alert">${mensaje}</div>
+                                <%
+                                 HttpSession sesion = request.getSession();
+                         if( sesion.getAttribute("mensaje") == null ) {                                
+                            }else if(sesion.getAttribute("mensaje") =="Creación del Curso Exitosa")
+                            {
+                               %> <div class="alert alert-success " role="alert">${mensaje}</div><%
+                                    sesion.removeAttribute("mensaje");
+                            }else
+                            {
+                            %><div class="alert alert-danger " role="alert">${mensaje}</div><%
+                                sesion.removeAttribute("mensaje");
+                            }
+                          %>
+                               
                             </form>
 			</div>
 		   </div>

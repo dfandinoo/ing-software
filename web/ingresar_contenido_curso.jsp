@@ -48,7 +48,20 @@
                         <div>
                             <form action="ServletIngresarContenido">    
                                 <div class="form-group">
-                                    <div class="alert alert-danger alert-dismissible" role="alert">${mensaje}</div>
+                                                <%
+                                    HttpSession sesion = request.getSession();
+                                    if( sesion.getAttribute("mensaje") == null ) {                                
+                                       }else if(sesion.getAttribute("mensaje")=="Contenido creado")
+                                       {
+                                          %> <div class="alert alert-success " role="alert">${mensaje}</div><%
+                                               sesion.removeAttribute("mensaje");
+                                       }else
+                                       {
+                                       %><div class="alert alert-danger " role="alert">${mensaje}</div><%
+                                           sesion.removeAttribute("mensaje");
+                                       }
+                                     %>
+                                   
                                     <label>Seleccione el Curso</label>
                                     <select name="idCurso" class="form-control selectpicker" required>
                                         <c:forEach items="${cursos}" var="curso">

@@ -5,19 +5,15 @@
  */
 package com.controlador;
 
-import java.io.File;
+import com.BD.ActividadJDBC;
+import com.modelo.Actividad;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.Date;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -36,26 +32,34 @@ public class ServletDesarrollarActividades extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Date fecha = new Date();
-        String adjunto = request.getParameter("adjunto");
-        String descripcion = request.getParameter("descripcion");
+        String pkeyContenido = request.getParameter("idContenido");
         String accion = request.getParameter("accion");
-        if(accion.equals("enviar")){
-            Part filePart = request.getPart("adjunto"); // Obtiene el archivo
-            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-            System.out.println(fileName);
-            //InputStream fileContent = filePart.getInputStream(); //Lo transforma en InputStream
-
-            String path="/adjuntos/";
-            File uploads = new File(path); //Carpeta donde se guardan los archivos
-            uploads.mkdirs(); //Crea los directorios necesarios
-            File file = File.createTempFile("cod"+fecha.getTime()+"-", "-"+fileName, uploads); //Evita que hayan dos archivos con el mismo nombre
-
-            try (InputStream input = filePart.getInputStream()){
-                Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        HttpSession session = request.getSession();
+        String mensaje="";
+        if(accion.equals("verContenido")){
+            ActividadJDBC actiJDBC = new ActividadJDBC();
+            ArrayList<Actividad> actividades = (ArrayList<Actividad>) actiJDBC.selectActividad(Integer.parseInt(pkeyContenido));
+            Actividad acti = actividades.get(0);
+            session.setAttribute("pkeyActividad", acti.getIdActividad());
+            session.setAttribute("actividades", actividades);
+            session.setAttribute("pkeyContenido", pkeyContenido);
+            request.getRequestDispatcher("enviar_actividad.jsp").forward(request, response);
+        }else if(accion.equals("enviar")){
+            String descripcion = request.getParameter("descripcion");
+            int pkeyEstudiante = (int) session.getAttribute("pkeyEstudiante");
+            int pkeyActividad = (int) session.getAttribute("pkeyActividad");
+            ActividadJDBC actiJDBC = new ActividadJDBC();
+            int rows = actiJDBC.insertActividadDesarrollada(descripcion, pkeyEstudiante, pkeyActividad);
+            if(rows == 1){
+                mensaje="Actividad Desarrollada correctamente";
+                session.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("enviar_actividad.jsp").forward(request, response);
+            }else{
+                mensaje="La actividad no se ha podido desarrollar correctamente";
+                session.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("enviar_actividad.jsp").forward(request, response);
             }
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -40,7 +40,7 @@
                                             <tr>
                                                 <td>${contenido.nombre}</td>
                                                 <td>${contenido.descripcion}</td>
-                                                <td><a href="ServletDashboardEstu?idCurso=${cursoIns.idCurso}&accion=verContenido"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Desarrollar Actividad</button></a></td>
+                                                <td><a href="ServletDesarrollarActividades?idContenido=${contenido.idContenido}&accion=verContenido"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Desarrollar Actividad</button></a></td>
                                             </tr>
                                         </c:forEach>    
                                     </tbody>
