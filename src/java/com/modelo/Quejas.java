@@ -13,11 +13,27 @@ public class Quejas {
     
     private String idQueja;
     private String textoQueja;
+    private String asunto;
+    private String correo;
     private Usuario usuario;
 
     public Quejas() {
     }
 
+    public Quejas(String idQueja, String textoQueja, String asunto, String correo, Usuario usuario) {
+        this.idQueja = idQueja;
+        this.textoQueja = textoQueja;
+        this.asunto = asunto;
+        this.correo = correo;
+        this.usuario = usuario;
+    }
+    
+    public Quejas(String textoQueja, String asunto, String correo) {
+        this.textoQueja = textoQueja;
+        this.asunto = asunto;
+        this.correo = correo;
+    }
+    
     public Quejas(String idQueja, String textoQueja, Usuario usuario) {
         this.idQueja = idQueja;
         this.textoQueja = textoQueja;
@@ -46,5 +62,21 @@ public class Quejas {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public String getAsunto() {
+        return asunto;
+    }
+
+    public void setAsunto(String asunto) {
+        this.asunto = asunto;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 }

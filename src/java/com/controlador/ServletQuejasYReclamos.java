@@ -5,12 +5,15 @@
  */
 package com.controlador;
 
+import com.BD.QuejaJDBC;
+import com.modelo.Quejas;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,12 +32,45 @@ public class ServletQuejasYReclamos extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        String tipoUsuario = (String) session.getAttribute("tipoUsuario");
+//        int pkeyEstudiante = (int) session.getAttribute("pkeyEstudiante");
+//        int pkeyDocente = (int) session.getAttribute("pkeyDocente");
         String correo = request.getParameter("correo");
         String asunto = request.getParameter("asunto");
         String descripcion = request.getParameter("descripcion");
         String accion = request.getParameter("accion");
-        if(accion.equals("enviar")){
-            //aqui se ingresa a la BD
+        String mensaje="";
+        if(accion.equals("enviarQueja")){
+            if(tipoUsuario.equalsIgnoreCase("docente")){
+                int pkeyDocente = (int) session.getAttribute("pkeyDocente");
+                Quejas queja = new Quejas(descripcion, asunto, correo);
+                QuejaJDBC quejaJDBC = new QuejaJDBC();
+                int rows = quejaJDBC.insertQuejaDoce(queja, pkeyDocente);
+                if(rows==1){
+                    mensaje="Su queja o reclamo a sido enviado";
+                    session.setAttribute("mensaje", mensaje);
+                    request.getRequestDispatcher("QuejasyReclamos.jsp").forward(request, response);
+                }else{
+                    mensaje="Su queja o reclamo NO se ha enviado";
+                    session.setAttribute("mensaje", mensaje);
+                    request.getRequestDispatcher("QuejasyReclamos.jsp").forward(request, response);
+                }
+            }else if(tipoUsuario.equalsIgnoreCase("estudiante")){
+                int pkeyEstudiante = (int) session.getAttribute("pkeyEstudiante");
+                Quejas queja = new Quejas(descripcion, asunto, correo);
+                QuejaJDBC quejaJDBC = new QuejaJDBC();
+                int rows = quejaJDBC.insertQuejaEstu(queja, pkeyEstudiante);
+                if(rows==1){
+                    mensaje="Su queja o reclamo a sido enviado";
+                    session.setAttribute("mensaje", mensaje);
+                    request.getRequestDispatcher("QuejasyReclamos.jsp").forward(request, response);
+                }else{
+                    mensaje="Su queja o reclamo NO se ha enviado";
+                    session.setAttribute("mensaje", mensaje);
+                    request.getRequestDispatcher("QuejasyReclamos.jsp").forward(request, response);
+                }
+            }
         }
     }
 
