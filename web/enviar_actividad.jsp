@@ -36,7 +36,7 @@
 				    </div>
                         
                          <div class="form-group" align="center">
-                            <button class="btn btn-success" onclick="" name="" value=""><span class="glyphicon glyphicon-ok"></span> Crear Actividad</button>
+                            <button class="btn btn-success" onclick="" name="" value=""><span class="glyphicon glyphicon-ok"></span> Enviar Actividad</button>
                             <button class="btn btn-danger"  name="" value="" type="reset"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
                         </div>
                         
