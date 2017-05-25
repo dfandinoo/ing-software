@@ -60,7 +60,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="thumbnail" align="center" style="background-color: red; color: white;">
+                            <div class="thumbnail" align="center" style="background-color: 	#90EE90; color: white;">
                                 <img src="img/Edit.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
@@ -68,15 +68,15 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                     </caption>
                                 </div>
                             </div>
-                            <div class="thumbnail" align="center" style="background-color: blue; color: white;">
+                            <div class="thumbnail" align="center" style="background-color: 	#90EE90; color: white;">
                                 <img src="img/inscribirse.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <a href="ServletDashboardEstu?accion=inscribirEstu"><button  class="btn btn-success" name="accion" value="inscribirEstu">Inscribirse Curso</button></a>
+                                        <a href="ServletDashboardEstu?accion=inscribirEstu"><button  class="btn btn-primary" name="accion" value="inscribirEstu">Inscribirse Curso</button></a>
                                     </caption>
                                 </div>
                             </div>
-                              <div class="thumbnail" align="center" style="background-color: red; color: white;">
+                              <div class="thumbnail" align="center" style="background-color: 	#90EE90; color: white;">
                                 <img src="img/quejas.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
