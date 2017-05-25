@@ -24,7 +24,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12" align="center">
+                <div class="col-md-6 col-md-offset-3" align="center">
                     <legend style="font-size: 25px; ">Cambiar Estado</legend>
                     <div>
                         <img src="img/docente.jpg" alt="">
