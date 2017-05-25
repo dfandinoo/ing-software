@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-md-6"align="center">
                    <div class="row">
-                            <div class="col-md-6"align="center">
+                            <div class="col-md-12"align="center">
                                  <div class="thumbnail" align="center" style="background-color: #7FFF00; color: white;">
                                        <img src="img/evaluacion.png" alt=""  width="150" height="150">
                                             <div>
@@ -36,17 +36,7 @@
                                             </div>
                                  </div>
                             </div>
-                            <div class="col-md-6"align="center">
-                                  <div class="thumbnail" align="center" style="background-color: #7FFF00; color: white;">
-                                             <img src="img/actividades.png" alt=""  width="185" height="185">
-                                                    <div>
-                                                        <caption>
-                                                            <a href="crear_actividad.jsp"><button class="btn btn-danger" name="accion" value="">Crear Actividades</button></a>
-                                                        </caption>
-                                                    </div>
-                                   </div>
-                            </div>
-                   </div>
+                 </div>
                        <div class="row">
                             <div class="col-md-6"align="center">
                                  <div class="thumbnail" align="center" style="background-color:#7FFF00; color: white;">
