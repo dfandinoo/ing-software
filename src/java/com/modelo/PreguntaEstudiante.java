@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class PreguntaEstudiante {
     
-    private String idPregunta;
+    private int idPregunta;
     private String textoPregunta;
     private double valorPregunta;
     private ArrayList<PreguntaEstudiante> preguntas = new ArrayList<PreguntaEstudiante>();
@@ -21,7 +21,7 @@ public class PreguntaEstudiante {
     public PreguntaEstudiante() {
     }
 
-    public PreguntaEstudiante(String idPregunta, String textoPregunta, double valorPregunta) {
+    public PreguntaEstudiante(int idPregunta, String textoPregunta, double valorPregunta) {
         this.idPregunta = idPregunta;
         this.textoPregunta = textoPregunta;
         this.valorPregunta = valorPregunta;
@@ -32,11 +32,11 @@ public class PreguntaEstudiante {
         this.valorPregunta = valorPregunta;
     }
     
-    public String getIdPregunta() {
+    public int getIdPregunta() {
         return idPregunta;
     }
 
-    public void setIdPregunta(String idPregunta) {
+    public void setIdPregunta(int idPregunta) {
         this.idPregunta = idPregunta;
     }
 

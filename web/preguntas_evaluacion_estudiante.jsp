@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <html lang="en"> 
@@ -35,11 +36,11 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${preguntasEval}" var="pregEval">
+                                            <c:forEach items="${preguntasEstu}" var="pregEval">
                                                 <tr>
                                                     <td>${pregEval.textoPregunta}</td>
                                                     <td>${pregEval.valorPregunta}</td>
-                                                    <td><a href="ServletCrearPregEvaEst?idPregunta=${pregEval.idPregunta}&accion=crearRespuestas"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Crear Respuestas/button></a></td>
+                                                    <td><a href="ServletCrearPregEvaEst?idPregunta=${pregEval.idPregunta}&accion=crearRespuestas"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Crear Respuestas</button></a></td>
                                                 </tr>
                                             </c:forEach>    
                                         </tbody>

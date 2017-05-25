@@ -9,6 +9,7 @@ import com.BD.PreguntaEstudianteJDBC;
 import com.modelo.PreguntaEstudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +47,9 @@ public class ServletCrearPregEvaEst extends HttpServlet {
                 int rows = pregEstuJDBC.insertPregEstu(pregEstu, Integer.parseInt(pkeyEvalEstu));
                 
                 if(rows==1){
+                    ArrayList<PreguntaEstudiante> preguntasEstu = (ArrayList<PreguntaEstudiante>) pregEstuJDBC.selectContenidoCurso(Integer.parseInt(pkeyEvalEstu));
                     mensaje="Pregunta creada Exitosamente";
+                    session.setAttribute("preguntasEstu", preguntasEstu);
                     session.setAttribute("mensaje", mensaje);
                     request.getRequestDispatcher("preguntas_evaluacion_estudiante.jsp").forward(request, response);
                 }else{
