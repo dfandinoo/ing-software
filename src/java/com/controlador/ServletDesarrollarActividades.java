@@ -43,10 +43,10 @@ public class ServletDesarrollarActividades extends HttpServlet {
         if(accion.equals("enviar")){
             Part filePart = request.getPart("adjunto"); // Obtiene el archivo
             String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-
+            System.out.println(fileName);
             //InputStream fileContent = filePart.getInputStream(); //Lo transforma en InputStream
 
-            String path="/archivos/";
+            String path="/adjuntos/";
             File uploads = new File(path); //Carpeta donde se guardan los archivos
             uploads.mkdirs(); //Crea los directorios necesarios
             File file = File.createTempFile("cod"+fecha.getTime()+"-", "-"+fileName, uploads); //Evita que hayan dos archivos con el mismo nombre
