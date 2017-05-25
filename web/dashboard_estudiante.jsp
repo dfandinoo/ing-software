@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%-- 
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("pkeyEstudiante") != null){
@@ -18,7 +19,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
        <%--     <form name ="dashboard_estudiante" action="ServletDashboardEstu"> --%>
                 <div class="row" >
                     <div class="col-md-6">
-                        <h1 style="font-style: verdana; color: green;">BIENVENIDO ESTUDIANTE : </h1>
+                        <h1 style="font-style: verdana; color: green;">Bienvenido: ${nombres} ${apellidos}</h1>
 
                     </div>
                     <div class="col-md-6" align="center" style="margin-top: 20px;">
@@ -29,37 +30,29 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                     <div class="col-md-8">
                         <div class="panel-group">
                             <div class="panel panel-primary" align="center">
-                                <div class="panel-heading">Cursos en los cuales esta inscrito</div>
-                                    <div class="panel-body">
-                                        <table class="table table-striped table-bordered">
-                                                    <thead>
-                                                    <tr>
-                                                    <th>columna1</th>
-                                                    <th>columna2</th>
-                                                    <th>columna3</th>
-                                                    <th>columna4</th>
-                                                    <th>columna5</th>
-                                                    <th>Accion</th>
-                                                    <th>Accion</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        
-                                                        <tr>
-                                                    <th>datos1</th>
-                                                     <th>datos1</th>
-                                                      <th>datos1</th>
-                                                       <th>datos1</th>
-                                                        <th>datos1</th>
-                                                        <th><a href="ServletDashboardEstu?idcurso=poner_el_id&accion=vercontenidosestudiante"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></th>
-                                                        <th><a href="ServletDashboardEstu?idcurso=poner_el_id&accion=presentarevaluacion"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Presentar Evaluacion</button></a></th>
-
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
-                                    </div>
-                                    
+                                <div class="panel-heading">Cursos en los que se encuentra Inscrito</div>
+                                <div class="panel-body">
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <td>Nombre</td>
+                                                <td>Duración en Días</td>
+                                                <td>Fecha de Inicio</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${cursosInscri}" var="cursoIns">
+                                                <tr>
+                                                    <td>${cursoIns.nombre}</td>
+                                                    <td>${cursoIns.duracion}</td>
+                                                    <td>${cursoIns.fechaInicio}</td>
+                                                    <td><a href="ServletDashboardEstu?idcurso=poner_el_id&accion=vercontenidosestudiante"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></td>
+                                                    <td><a href="ServletDashboardEstu?idcurso=poner_el_id&accion=presentarevaluacion"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Presentar Evaluacion</button></a></td>
+                                                </tr>
+                                            </c:forEach>    
+                                        </tbody>
+                                    </table>
+                                </div>                                    
                             </div>
                         </div>
                     </div>
@@ -77,7 +70,7 @@ if(sesion.getAttribute("pkeyEstudiante") != null){
                                 <img src="img/inscribirse.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <a href="ServletDashboardEstu?accion=editarEstu?accion=inscribirEstu"><button  class="btn btn-success" name="accion" value="inscribirEstu">Inscribirse Curso</button></a>
+                                        <a href="ServletDashboardEstu?accion=inscribirEstu"><button  class="btn btn-success" name="accion" value="inscribirEstu">Inscribirse Curso</button></a>
                                     </caption>
                                 </div>
                             </div>

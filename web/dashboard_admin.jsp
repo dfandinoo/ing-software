@@ -3,6 +3,7 @@
     Created on : 26/04/2017, 11:18:04 AM
     Author     : DANNY
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
 HttpSession sesion = request.getSession();
 if(sesion.getAttribute("pkeyAdmin") != null){
@@ -22,7 +23,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
             <form name ="dashboard_admin" action="ServletDashboardAdmin">
                 <div class="row" align="center">
                     <div class="col-md-6">
-                        <h1 style="font-style: verdana; color: green;">BIENVENIDO ADMINISTRADOR : </h1>
+                        <h1 style="font-style: verdana; color: green;">Bienvenido: ${nombres} ${apellidos}</h1>
                     </div>
                     <div class="col-md-6" align="center">
                         <button class="btn btn-danger" name="accion" value="cerrarSesion"><span class="glyphicon glyphicon-off"></span> Cerrar Sesion</button>
@@ -32,9 +33,24 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                     <div class="col-md-6">
                         <div class="panel-group">
                             <div class="panel panel-success" align="center">
-                                <div class="panel-heading">Cursos Disponibles
-                                </div>
-                                <div class="panel-body">Panel Content
+                                <div class="panel-heading">Cursos Disponibles</div>  
+                                <div class="panel-body">
+                                    <table value="idCurso" class="table table-striped table-bordered">
+                                        <thead>
+                                            <td>Nombre</td>
+                                            <td>Duración en Días</td>
+                                            <td>Fecha de Inicio</td>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${cursos}" var="curso">
+                                                <tr>
+                                                    <td>${curso.nombre}</td>
+                                                    <td>${curso.duracion}</td>
+                                                    <td>${curso.fechaInicio}</td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -42,9 +58,24 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                     <div class="col-md-6">
                         <div class="panel-group">
                             <div class="panel panel-info" align="center">
-                                <div class="panel-heading">Docentes
-                                </div>
-                                <div class="panel-body">Panel Content
+                                <div class="panel-heading">Docentes</div>
+                                <div class="panel-body">
+                                    <table value="idCurso" class="table table-striped table-bordered">
+                                        <thead>
+                                            <td>Nombre</td>
+                                            <td>Correo</td>
+                                            <td>Especialidad</td>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${docentes}" var="docente">
+                                                <tr>
+                                                    <td>${docente.nombres} ${docente.apellidos}</td>
+                                                    <td>${docente.correo}</td>
+                                                    <td>${docente.especialidad}</td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>                     
                         </div>
@@ -95,7 +126,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                                 <img src="img/Edit.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <button class="btn btn-success" name="accion" value="">Editar Informacion</button></a>
+                                        <button class="btn btn-success" name="accion" value="editarUsuario">Editar Informacion</button></a>
                                     </caption>
                                 </div>
                             </div>
@@ -115,7 +146,7 @@ if(sesion.getAttribute("pkeyAdmin") != null){
                                 <img src="img/cambiar.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>
-                                        <button class="btn btn-success" name="accion" value="">Cambiar Estado Usuario</button>
+                                        <button class="btn btn-success" name="accion" value="cambiarEstado">Cambiar Estado Usuario</button>
                                     </caption>
                                 </div>
                             </div>  

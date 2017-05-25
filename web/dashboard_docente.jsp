@@ -20,7 +20,7 @@
                     <img src="img/docente.png" width="150" height="150">
                 </div>
                 <div class="col-md-6" align="center">
-                    <button class="btn btn-danger"><span class=" glyphicon glyphicon-off"></span> Cerrar Sesion</button>
+                    <a href="logout.jsp"><button class="btn btn-danger" name="accion" value="cerrarSesion"><span class="glyphicon glyphicon-off"></span> Cerrar Sesion</button></a>
                 </div>
             </div>
             <div class="row">

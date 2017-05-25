@@ -28,6 +28,10 @@ public class Docente extends Usuario {
         this.especialidad = especialidad;
     }
 
+    public Docente(int numIdentifica, String nombres, String apellidos, String username, String password, String correo) {
+        super(numIdentifica, nombres, apellidos, username, password, correo);
+    }
+
     public Docente(String username, String password) {
         super(username, password);
     }
@@ -44,12 +48,6 @@ public class Docente extends Usuario {
     public int registrarUsuario(){
         
         return 0;
-    }
-    
-    public int editarUsuario(int pkeyDocente, String nombres, String apellidos, String username, String password, String correo){
-        
-        DocenteJDBC doceJDBC = new DocenteJDBC();
-        return doceJDBC.update(pkeyDocente, nombres, apellidos, username, password, correo);
     }
     
     @Override

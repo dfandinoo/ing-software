@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -15,12 +16,31 @@
                 <div class="col-md-12" align="center">                                 
                     <legend style="font-size: 25px; ">INGRESAR CONTENIDO AL CURSO</legend>
                     <div align="left">
-                        <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</button></a>
+                        <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Volver</button></a>
                     </div>
                     <div class="col-md-6" style="margin-top: 10px;">
                         <div class="panel panel-success" align="center">
                             <div class="panel-heading">Cursos Creados</div>
-                            <div class="panel-body">Panel Content</div>
+                            <div class="panel-body">
+                                <table value="idCurso" class="table table-striped table-bordered">
+                                    <thead>                                         
+                                            <td>Nombre</td>
+                                            <td>Duracion en Días</td>
+                                            <td>Fecha de Inicio</td>
+                                        
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${cursos}" var="curso">
+                                            <tr>
+                                                <td>${curso.nombre}</td>
+                                                <td>${curso.duracion}</td>
+                                                <td>${curso.fechaInicio}</td>
+                                                
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>    
+                                </table>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -28,30 +48,27 @@
                             <img src="img/ingresar.jpg" alt="">
                         </div>
                         <div>
-                            <form action="ServletIngresarContenido">     
+                            <form action="ServletIngresarContenido">    
                                 <div class="form-group">
-                                    <label>Selecciona el curso</label>
+                                    <label>Seleccione el Curso</label>
                                     <select name="idCurso" class="form-control selectpicker" required>
-                                        <option value="">.</option>
-                                        <option value="">...</option>
-                                        <option value="">..</option>
-                                        <option value="">....</option>
+                                        <c:forEach items="${cursos}" var="curso">
+                                            <option value="${curso.idCurso}">
+                                                ${curso}
+                                            </option>
+                                        </c:forEach>
                                     </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Nombre de la Unidad:</label>
-                                    <input type="text" class="form-control" name="nombre" placeholder="Ingresa el nombre de la unidad" required>
-                                </div>
+                                </div>    
                                 <div class="form-group">
                                     <label>Nombre del Tema:</label>
-                                    <input type="text" class="form-control" name="tema" placeholder="Ingresa el nombre del tema" required>
+                                    <input type="text" class="form-control" name="nombre" placeholder="Ingresa el nombre del tema" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Descripcion:</label>
                                     <textarea name="descripcion" id="" class="form-control" cols="30" rows="10" required></textarea>
                                 </div>
                                 <div style="margin-top: 20px;">
-                                    <button class="btn btn-info"><span class="glyphicon glyphicon-ok" name="accion" value="ingresar"></span> Ingresar Contenido</button>
+                                    <button class="btn btn-info" name="accion" value="ingresar"><span class="glyphicon glyphicon-ok"></span> Ingresar Contenido</button>
                                     <a href="ingresar_contenido_curso.jsp"><button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove"></span>Cancelar</button></a>
                                 </div>
                             </form>

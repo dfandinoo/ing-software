@@ -5,12 +5,15 @@
  */
 package com.controlador;
 
+import com.BD.ContenidoJDBC;
+import com.modelo.Contenido;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,15 +32,31 @@ public class ServletIngresarContenido extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idCurso = request.getParameter("idCurso");
+        String pkeyCurso = request.getParameter("idCurso");
         String nombre = request.getParameter("nombre");
-        String tema = request.getParameter("tema");
         String descripcion = request.getParameter("descripcion");
         String accion = request.getParameter("accion");
+<<<<<<< HEAD
         if(accion.equals("ingresar")){
             
         }
         
+=======
+        HttpSession session = request.getSession();
+        String mensaje="";
+        if(accion.equals("ingresar")){
+            Contenido conten = new Contenido(nombre, descripcion);
+            ContenidoJDBC contenJDBC = new ContenidoJDBC();
+            int rows = contenJDBC.insertContenido(conten, Integer.parseInt(pkeyCurso));
+            if(rows==1){
+                request.getRequestDispatcher("dashboard_admin.jsp").forward(request, response);
+            }else{
+                mensaje="No se ha podido crear en contenido al curso";
+                session.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("ingresar_contenido_curso.jsp");
+            }
+        }
+>>>>>>> bb0a2465e0bd616a3f8b21f6bfcfa5d3f3e97c15
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -6,14 +6,17 @@
 package com.controlador;
 
 import com.BD.AdministradorJDBC;
+import com.BD.CursoJDBC;
 import com.BD.DocenteJDBC;
 import com.BD.EstudianteJDBC;
 import com.BD.UsuarioJDBC;
 import com.modelo.Administrador;
+import com.modelo.Curso;
 import com.modelo.Docente;
 import com.modelo.Estudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,12 +56,15 @@ public class ServletLogin extends HttpServlet {
             UsuarioJDBC usuaJDBC = new UsuarioJDBC();
             usuario = usuaJDBC.select(username, password);
             
-            if(usuario.equals("Estudiante")){
+            if(usuario.equalsIgnoreCase("Estudiante")){
                 Estudiante estu = new Estudiante(username, password);
                 EstudianteJDBC estuJDBC = new EstudianteJDBC();
                 estu = estuJDBC.select(estu);
                 if(estu!=null){
                     mensaje="Login Correcto";
+                    CursoJDBC cursoJDBC = new CursoJDBC();
+                    ArrayList<Curso> cursosInscri =  (ArrayList<Curso>) cursoJDBC.selectIdCurso(estu.getNumIdentifica());
+                    sesion.setAttribute("cursosInscri", cursosInscri);
                     sesion.setAttribute("mensaje", mensaje);
                     sesion.setAttribute("pkeyEstudiante", estu.getNumIdentifica());
                     sesion.setAttribute("nombres", estu.getNombres());
@@ -70,12 +76,11 @@ public class ServletLogin extends HttpServlet {
                     request.getRequestDispatcher("dashboard_estudiante.jsp").forward(request, response);                    
                 }else{
                     mensaje="Login Incorrecto";
-                    sesion.setAttribute("pkeyEstudiante", "");
                     sesion.setAttribute("mensaje", mensaje);
                     request.getRequestDispatcher("login.jsp").forward(request, response);                  
                 }
             }else{
-                if(usuario.equals("Docente")){
+                if(usuario.equalsIgnoreCase("Docente")){
                     Docente doce = new Docente(username, password);
                     DocenteJDBC doceJDBC = new DocenteJDBC();
                     doce=doceJDBC.select(doce);
@@ -89,20 +94,25 @@ public class ServletLogin extends HttpServlet {
                         sesion.setAttribute("password", doce.getPassword());
                         sesion.setAttribute("correo", doce.getCorreo());
                         sesion.setAttribute("tipoUsuario", doce.getTipoUsuario());
-                        request.getRequestDispatcher("editar_usuario.jsp").forward(request, response); 
+                        request.getRequestDispatcher("dashboard_docente.jsp").forward(request, response); 
                     }else{
                         mensaje="Login Incorrecto";
-                        sesion.setAttribute("pkeyDocente", "");
                         sesion.setAttribute("mensaje", mensaje);
                         request.getRequestDispatcher("login.jsp").forward(request, response); 
                     }
                 }else{
-                    if(usuario.equals("Administrador")){
+                    if(usuario.equalsIgnoreCase("Administrador")){
                         Administrador admin = new Administrador(username, password);
                         AdministradorJDBC adminJDBC = new AdministradorJDBC();
                         admin=adminJDBC.select(admin);
                         if(admin != null){
                             mensaje="Login Correcto";
+                            CursoJDBC cursoJDBC = new CursoJDBC();
+                            ArrayList<Curso> cursos = (ArrayList<Curso>) cursoJDBC.select(); 
+                            DocenteJDBC doceJDBC = new DocenteJDBC();
+                            ArrayList<Docente> docentes = (ArrayList<Docente>) doceJDBC.selectDocentes();
+                            sesion.setAttribute("docentes", docentes);
+                            sesion.setAttribute("cursos", cursos);
                             sesion.setAttribute("mensaje", mensaje);
                             sesion.setAttribute("pkeyAdmin", admin.getNumIdentifica());
                             sesion.setAttribute("nombres", admin.getNombres());
@@ -114,7 +124,6 @@ public class ServletLogin extends HttpServlet {
                             request.getRequestDispatcher("dashboard_admin.jsp").forward(request, response); 
                         }else{
                             mensaje="Login Incorrecto";
-                            sesion.setAttribute("administrador", "");
                             sesion.setAttribute("mensaje", mensaje);
                             request.getRequestDispatcher("login.jsp").forward(request, response);
                         }

@@ -24,18 +24,19 @@
         <div class="container-fluid"> 
             <div class="row">
                 <div class="col-md-4"align="center" style="margin-top: 10px;">
-                    <a href="index.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> volver</button></a>
+                    <a href="dashboard_admin.jsp"><button class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Volver</button></a>
                 </div>
             </div>            
             <div class="row">
  		<div class="col-md-3">  			
  		</div>
                 <div class="col-md-6 " style="margin-top: 20px; background-color: #DEB887 ;">
-                    <form name ="registro" action="ServletRegistroAdmin">
+                    <form action="ServletRegistroAdmin">
                         <div align="center">
                             <legend align="center">Formulario De Registro</legend>
                             <span  > <img src="img/registro_logo.png" alt="" width="100" height="100"></span>
                         </div>
+                        <div class="alert alert-danger alert-dismissible" role="alert">${mensaje}</div>
                         <div class="form-group">
                             <label>Nombres:</label>	
                             <input type="text" class="form-control" name="nombres" placeholder="Ingrese su nombre " required>
@@ -83,10 +84,10 @@
                         </div>
                         <div class="form-group" id="especialidaddocente">
                             <label>Especialidad Docente:</label>
-                            <input type="text" class="form-control" name="especialidaddocente" placeholder="Digite su especialidad o area de conocimiento" required>
+                            <input type="text" class="form-control" name="especialidaddocente" placeholder="Digite su especialidad o area de conocimiento">
                         </div>
                         <div class="form-group" align="center">
-                            <button class="btn btn-success" onclick="submit();" name="accion" value="crear">Registrar</button>
+                            <button class="btn btn-success"  name="accion" value="crear">Registrar</button>
                             <button class="btn btn-danger"  name="accion" value="cancelar" type="reset">Cancelar</button>
 
                         </div>

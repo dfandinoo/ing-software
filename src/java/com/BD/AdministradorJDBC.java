@@ -28,8 +28,12 @@ public class AdministradorJDBC {
             "INSERT INTO usuario(username, password, fkeyAdmin)"
             + "VALUES (?, ?, ?)";
     
+    private final String SQL_UPDATE_ADMIN =
+            "UPDATE administrador SET nombres = (?), apellidos = (?), username = (?), "
+            + "password = (?), correo = (?) WHERE pkeyAdmin = (?)";
+    
     private final String SQL_UPDATE_USUARIO =
-            "UPDATE usuario SET username = (?), password = (?) WHERE fkeydocente = (?)";
+            "UPDATE usuario SET username = (?), password = (?) WHERE fkeyadmin = (?)";
     
     public int verificarUsuario(Administrador admin){
         
@@ -146,5 +150,59 @@ public class AdministradorJDBC {
             Conexion.close(rs);
         }
         return admin;
+    }
+    
+    public int update(Administrador admin){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int rows = 0;
+        
+        try{
+            conn = Conexion.getConnection();
+            System.out.println("Ejecutando query: "+SQL_UPDATE_ADMIN);
+            stmt = conn.prepareStatement(SQL_UPDATE_ADMIN);
+            int index =1;
+            stmt.setString(index++, admin.getNombres());
+            stmt.setString(index++, admin.getApellidos());
+            stmt.setString(index++, admin.getUsername());
+            stmt.setString(index++, admin.getPassword());
+            stmt.setString(index++, admin.getCorreo());
+            stmt.setInt(index++, admin.getNumIdentifica());
+            rows = stmt.executeUpdate();
+            updateUsuario(admin.getUsername(), admin.getPassword(), admin.getNumIdentifica());         
+            System.out.println("Registros actualizados "+rows);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            Conexion.close(conn);
+            Conexion.close(stmt);
+        }
+        return rows;
+    }
+    
+    public void updateUsuario(String username, String password, int pkeyEstudiante){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int rows = 0;
+        
+        try{
+            conn = Conexion.getConnection();
+            System.out.println("Ejecutando query: "+SQL_UPDATE_USUARIO);
+            stmt = conn.prepareStatement(SQL_UPDATE_USUARIO);
+            int index =1;
+
+            stmt.setString(index++, username);
+            stmt.setString(index++, password);
+            stmt.setInt(index++, pkeyEstudiante);
+            rows = stmt.executeUpdate();
+            System.out.println("Registros actualizados "+rows);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            Conexion.close(conn);
+            Conexion.close(stmt);
+        }
     }
 }

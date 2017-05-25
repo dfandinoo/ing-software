@@ -58,7 +58,7 @@ if(sesion.getAttribute("administrador") != null){
                                     <select name="idDocente" class="form-control selectpicker" required>
                                         <c:forEach items="${docentes}" var="docente">
                                             <option value="${docente.numIdentifica}">
-                                                ${docente}
+                                                ${docente} (${docente.especialidad})
                                             </option>
                                         </c:forEach>
                                     </select>

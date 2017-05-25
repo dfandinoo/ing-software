@@ -25,7 +25,12 @@ public class Contenido {
         this.descripcion = descripcion;
         this.actividad = actividad;
     }
-
+    
+    public Contenido(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+    
     public String getIdContenido() {
         return idContenido;
     }
