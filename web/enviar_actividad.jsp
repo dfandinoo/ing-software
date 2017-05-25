@@ -60,11 +60,11 @@
 				    </div>
                           <div class="form-group">
 					        <label>Adjunto:</label>
-                                                <input type="file" class="form-control" placeholder="subir aqui su archivo con la solucion a la actividad" name="Adjunto">                                                
+                                                <input type="file" class="form-control" placeholder="subir aqui su archivo con la solucion a la actividad" name="adjunto">                                                
 				    </div>
                         
                          <div class="form-group" align="center">
-                            <button class="btn btn-success" onclick="" name="" value=""><span class="glyphicon glyphicon-ok"></span> Enviar Actividad</button>
+                            <button class="btn btn-success" onclick="" name="accion" value="enviar"><span class="glyphicon glyphicon-ok"></span> Enviar Actividad</button>
                             <button class="btn btn-danger"  name="" value="" type="reset"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
                         </div>
                         
