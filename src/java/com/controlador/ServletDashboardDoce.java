@@ -6,7 +6,9 @@
 package com.controlador;
 
 import com.BD.ContenidoJDBC;
+import com.BD.EvaluacionEstudianteJDBC;
 import com.modelo.Contenido;
+import com.modelo.EvaluacionEstudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -41,6 +43,12 @@ public class ServletDashboardDoce extends HttpServlet {
             ArrayList<Contenido> contenidos = (ArrayList<Contenido>) conteJDBC.selectContenidoCurso(Integer.parseInt(pkeyCurso));
             session.setAttribute("contenidos", contenidos);
             request.getRequestDispatcher("ver_contenido_docente.jsp").forward(request, response);
+        }else if(accion.equals("crearEval")){
+            EvaluacionEstudianteJDBC evalEstuJDBC = new EvaluacionEstudianteJDBC();
+            ArrayList<EvaluacionEstudiante> evaluacionEstu = (ArrayList<EvaluacionEstudiante>) evalEstuJDBC.selectEvalEstu(Integer.parseInt(pkeyCurso));
+            session.setAttribute("evaluacionEstu", evaluacionEstu);
+            session.setAttribute("pkeyCurso", pkeyCurso);
+            request.getRequestDispatcher("crear_evaluacion.jsp").forward(request, response);
         }
     }
 

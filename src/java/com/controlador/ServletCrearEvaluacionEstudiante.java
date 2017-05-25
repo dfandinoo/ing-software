@@ -5,12 +5,16 @@
  */
 package com.controlador;
 
+import com.BD.EvaluacionEstudianteJDBC;
+import com.modelo.EvaluacionEstudiante;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,12 +33,29 @@ public class ServletCrearEvaluacionEstudiante extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
         String nombreEvaluacion = request.getParameter("nombreEvaluacion");
         String descripcion = request.getParameter("descripcion");
         String duracion = request.getParameter("duracion");
-        String cantPreguntas = request.getParameter("cantPreguntas");
         String accion = request.getParameter("accion");
-        if(accion.equals("enviar")){
+        String pkeyCurso =  (String) session.getAttribute("pkeyCurso");
+        String mensaje ="";
+        if(accion.equals("crearEvaluacion")){
+            EvaluacionEstudiante evalEstu = new EvaluacionEstudiante(Integer.parseInt(duracion), nombreEvaluacion, descripcion);
+            EvaluacionEstudianteJDBC evalEstuJDBC = new EvaluacionEstudianteJDBC();
+            int rows = evalEstuJDBC.insertEvalEstu(evalEstu, Integer.parseInt(pkeyCurso));
+            if(rows ==1){
+                ArrayList<EvaluacionEstudiante> evaluacionEstu = (ArrayList<EvaluacionEstudiante>) evalEstuJDBC.selectEvalEstu(Integer.parseInt(pkeyCurso));
+                mensaje = "Evaluación creada con exito";
+                session.setAttribute("evaluacionEstu", evaluacionEstu);
+                session.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("crear_evaluacion.jsp").forward(request, response);
+            }else{
+                mensaje = "La evaluación no ha sido creada";
+                session.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("crear_evaluacion.jsp").forward(request, response);
+            }
+        }else if(accion.equals("crearPreguntas")){
             
         }
         

@@ -26,25 +26,25 @@
             </div>
             <div class="row">
                 <div class="col-md-6"align="center">
-                    <div class="row">
+<!--                    <div class="row">
                         <div class="col-md-12"align="center">
                             <div class="thumbnail" align="center" style="background-color: #3CB371; color: white;">
                                 <img src="img/evaluacion.png" alt=""  width="150" height="150">
                                     <div>
                                         <caption>
-                                            <button class="btn btn-danger" name="accion" value="">Crear Evaluacion Estudiantes</button></a>
+                                            <a href="ServletDashboardDoce?accion=crearEval"><button class="btn btn-danger" name="accion" value="">Crear Evaluacion Estudiantes</button></a>
                                         </caption>
                                     </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="row">
                         <div class="col-md-6"align="center">
                             <div class="thumbnail" align="center" style="background-color:#3CB371; color: white;">
                                 <img src="img/Edit.png" alt=""  width="128" height="128">
                                 <div>
                                     <caption>
-                                        <button class="btn btn-primary" name="accion" value="">Editar Informacion</button></a>
+                                        <a href="editar_usuario.jsp?accion=editarEstu"><button class="btn btn-primary" name="accion" value="">Editar Informacion</button></a>
                                     </caption>
                                 </div>
                            </div>
@@ -74,6 +74,7 @@
                                             <td>Duración en Días</td>
                                             <td>Fecha de Inicio</td>
                                             <td>Ver contenidos</td>
+                                            <td>Crear Evaluación</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -83,6 +84,7 @@
                                                 <td>${cursoDoce.duracion}</td>
                                                 <td>${cursoDoce.fechaInicio}</td>
                                                 <th><a href="ServletDashboardDoce?idCurso=${cursoDoce.idCurso}&accion=verContenido"><button class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> Ver Contenidos</button></a></th>
+                                                <td><a href="ServletDashboardDoce?idCurso=${cursoDoce.idCurso}&accion=crearEval"><button  class="btn btn-danger" name="accion" value="1"><span class="glyphicon glyphicon-pencil"></span> Crear Evaluación</button></a></td>
                                             </tr>
                                         </c:forEach>    
                                     </tbody>

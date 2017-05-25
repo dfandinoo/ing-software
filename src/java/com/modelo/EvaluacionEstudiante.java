@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class EvaluacionEstudiante implements Evaluacion{
     
-    private String idEvaluacion;
+    private int idEvaluacion;
     private String nombre;
     private String descripcion;
     private int duracion;
@@ -22,18 +22,24 @@ public class EvaluacionEstudiante implements Evaluacion{
     public EvaluacionEstudiante() {
     }
 
-    public EvaluacionEstudiante(String idEvaluacion, String nombre, String descripcion, int duracion) {
+    public EvaluacionEstudiante(int idEvaluacion, String nombre, String descripcion, int duracion) {
         this.idEvaluacion = idEvaluacion;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.duracion = duracion;
     }
+    
+    public EvaluacionEstudiante(int duracion, String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.duracion = duracion;
+    }
 
-    public String getIdEvaluacion() {
+    public int getIdEvaluacion() {
         return idEvaluacion;
     }
 
-    public void setIdEvaluacion(String idEvaluacion) {
+    public void setIdEvaluacion(int idEvaluacion) {
         this.idEvaluacion = idEvaluacion;
     }
 

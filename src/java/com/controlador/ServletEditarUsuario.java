@@ -71,7 +71,7 @@ public class ServletEditarUsuario extends HttpServlet {
                         session.setAttribute("correo", doce.getCorreo());
                         session.setAttribute("tipoUsuario", doce.getTipoUsuario());
                     }
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                    request.getRequestDispatcher("dashboard_docente.jsp").forward(request, response);
                 }else if(tipoUsuario.equalsIgnoreCase("administrador")){
                     
                     int pkeyAdmin = (int) request.getSession().getAttribute("pkeyAdmin");
