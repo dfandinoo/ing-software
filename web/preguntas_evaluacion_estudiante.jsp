@@ -21,33 +21,30 @@ int cont=Integer.parseInt(cantPreguntas);
     	  </div>
     </div>
        <div class="row" style="margin-top: 15px;">
-   	   	   <div class="col-md-6" style="margin-top: 130px;" align="center">
+   	   	   <div class="col-md-8 col-md-offset-2" style="margin-top: 130px;" align="center">
    	   	   	  <legend> Registrar Preguntas</legend>
                           <img src="img/quejas.png" alt="" width="150" height="150">
-   	   	   </div>
-   	   	   <div class="col-md-6">
+   	   	   
+   	   	   <div>
    	   	   	  <form action="listado_preguntas.jsp">
    	   	   	  	<div class="form-group">
    	   	   	  		
    	   	   	  	</div>
-                                <%
-                                    for(int i=1;i<=cont;i++)
-                                    {
+                              
                                         
-                                        out.write("<div class=\"form-group\">");
-                                        out.write("<legend>Ingrese la pregunta numero: "+i+"</legend>");
-                                        out.println("<input type=\"text\" name=\"pregunta${i}\"  class=\"form-control\" placeholder=\"Ingrese la Pregunta\">");
-                                        out.write("</div>");
-                                    }
-                                %>
+                                        <div class="form-group">
+                                       <legend align="center">Ingrese la Pregunta:</legend>
+                                        <input type="text" name="pregunta"  class="form-control" placeholder="Ingrese la Pregunta">
+                                        </div>
+                                
                                   <div class="form-group" align="center">
-                            <button class="btn btn-success" onclick="submit();" name="accion" value="enviar"><span class="glyphicon glyphicon-ok"></span> Registrar Preguntas</button>
+                            <button class="btn btn-success" onclick="submit();" name="accion" value="enviar"><span class="glyphicon glyphicon-ok"></span> Registrar Pregunta</button>
                             <button class="btn btn-danger"  name="" value="" type="reset"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
                         </div>
    	   	   	  </form>
    	   	   </div>
 
-
+                   </div>
    	   </div>
    </div>
 

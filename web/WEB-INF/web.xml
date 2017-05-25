@@ -80,6 +80,10 @@
         <servlet-name>ServletDashboardDoce</servlet-name>
         <servlet-class>com.controlador.ServletDashboardDoce</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletCrearResEvaEst</servlet-name>
+        <servlet-class>com.controlador.ServletCrearResEvaEst</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginCtrl</servlet-name>
         <url-pattern>/loginCtrl</url-pattern>
@@ -159,6 +163,10 @@
     <servlet-mapping>
         <servlet-name>ServletDashboardDoce</servlet-name>
         <url-pattern>/ServletDashboardDoce</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCrearResEvaEst</servlet-name>
+        <url-pattern>/ServletCrearResEvaEst</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

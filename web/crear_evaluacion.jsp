@@ -38,18 +38,18 @@ if(sesion.getAttribute("pkeyAdmin") != null){
 				    </div>
 				    <div class="form-group">
 						<label>Descripcion:</label>
-                                    <textarea class="form-control" cols="20" rows="7" name="Descripcion" required></textarea>
+                                    <textarea class="form-control" cols="20" rows="7" name="descripcion" required></textarea>
 
 				    </div>
 				    <div class="form-group">
 						<label>Duracion:</label>
-						<input type="number" class="form-control" name="Duracion" placeholder="Ingresa la Duracion De la evalucion" required>
+						<input type="number" class="form-control" name="duracion" placeholder="Ingresa la Duracion De la evalucion" required>
 				    </div>
 				    <div class="form-group">
 					        <label>Cantidad de Preguntas:</label>
 						<input type="number" class="form-control" name="cantPreguntas" placeholder="Ingresa la cantidd de Preguntas" required>
 						<div style="margin-top: 20px;">
-                                                    <button class="btn btn-success" class="glyphicon glyphicon-ok" name="accion" onclick="submit();" > Crear Evaluacion</button>
+                                                    <button class="btn btn-success" class="glyphicon glyphicon-ok" name="accion" value="enviar" onclick="submit();" > Crear Evaluacion</button>
                                                    <button class="btn btn-danger" class="glyphicon glyphicon-ok" name="accion" value="cancelar" type="reset"> Cancelar</button>
 
 						</div>

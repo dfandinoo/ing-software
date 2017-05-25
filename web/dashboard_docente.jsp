@@ -28,7 +28,7 @@
                 <div class="col-md-6"align="center">
                     <div class="row">
                         <div class="col-md-12"align="center">
-                            <div class="thumbnail" align="center" style="background-color: #7FFF00; color: white;">
+                            <div class="thumbnail" align="center" style="background-color: #3CB371; color: white;">
                                 <img src="img/evaluacion.png" alt=""  width="150" height="150">
                                     <div>
                                         <caption>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6"align="center">
-                            <div class="thumbnail" align="center" style="background-color:#7FFF00; color: white;">
+                            <div class="thumbnail" align="center" style="background-color:#3CB371; color: white;">
                                 <img src="img/Edit.png" alt=""  width="128" height="128">
                                 <div>
                                     <caption>
@@ -50,7 +50,7 @@
                            </div>
                         </div>
                         <div class="col-md-6"align="center">
-                            <div class="thumbnail" align="center" style="background-color: 	#7FFF00; color: white;">
+                            <div class="thumbnail" align="center" style="background-color: 	#3CB371; color: white;">
                                     <img src="img/quejas.png" alt=""  width="150" height="150">
                                 <div>
                                     <caption>

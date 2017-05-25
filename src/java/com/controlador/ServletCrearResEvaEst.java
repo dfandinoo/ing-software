@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author damian
  */
-public class ServletCrearEvaluacionEstudiante extends HttpServlet {
+public class ServletCrearResEvaEst extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,16 +29,20 @@ public class ServletCrearEvaluacionEstudiante extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombreEvaluacion = request.getParameter("nombreEvaluacion");
-        String descripcion = request.getParameter("descripcion");
-        String duracion = request.getParameter("duracion");
-        String cantPreguntas = request.getParameter("cantPreguntas");
-        String accion = request.getParameter("accion");
-        if(accion.equals("enviar")){
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            String respuestaA = request.getParameter("respuestaA");
+            String respuestaB = request.getParameter("respuestaB");
+            String respuestaC = request.getParameter("respuestaC");
+            String respuestaD = request.getParameter("respuestaD");
+            String respuestaBuena = request.getParameter("respuestaBuena");
+            String idPregunta = request.getParameter("idPregunta");
+            String accion = request.getParameter("accion");
+            if(accion.equals("enviar")){
+                
+            }
             
         }
-        
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
